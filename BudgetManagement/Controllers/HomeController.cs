@@ -26,5 +26,11 @@ namespace BudgetManagement.Controllers
 
             return View();
         }
+        public ActionResult Registration()
+        {
+            ViewBag.Message = "Welcome to our web site";
+
+            return View();
+        }
     }
 }

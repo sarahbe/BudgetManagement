@@ -161,12 +161,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Right.cs" />
-    <Compile Include="Models\Transaction.cs" />
-    <Compile Include="Models\TransactionType.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Domain\Account.cs" />
+    <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\Right.cs" />
+    <Compile Include="Domain\Transaction.cs" />
+    <Compile Include="Domain\TransactionType.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Model\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +211,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
