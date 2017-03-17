@@ -61,9 +61,9 @@ namespace BudgetManagement.Controllers
                 UserName = createUserModel.Username,
                 Email = createUserModel.Email,
                 FullName = createUserModel.Fullname,
-                Birthdate = new DateTime(1990,01,01),
-              //  MaritalStatus = "single",
-               // Job = "Engineer"
+                Birthdate = createUserModel.Birthdate,
+                MaritalStatus = createUserModel.MaritalStatus,
+                Job = createUserModel.Job
             };
 
             IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);

@@ -31,5 +31,12 @@ namespace BudgetManagement.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        public string Job { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime Birthdate { get; set; }
+
+        public string MaritalStatus { get; set; }
+
     }
 }
