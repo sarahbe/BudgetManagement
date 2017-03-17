@@ -1,13 +1,13 @@
-﻿using System;
+﻿using BudgetManagement.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BudgetManagement.Models
+namespace BudgetManagement.Domain
 {
-    public class Category
+    public class Category: BaseEntity
     {
-        public int ID { get; set; }
         public string Description { get; set; }
     }
 }

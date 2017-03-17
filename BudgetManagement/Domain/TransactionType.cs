@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BudgetManagement.Models
+namespace BudgetManagement.Domain
 {
-    public class TransactionType
+    public class TransactionType: BaseEntity
     {
-        public int ID { get; set; }
         public string Desctiption { get; set; }
     }
 }

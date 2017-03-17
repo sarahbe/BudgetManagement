@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BudgetManagement.Models
+namespace BudgetManagement.Domain
 {
-    public class Account
+    public class Account: BaseEntity
     {
-        public int ID { get; set; }
         public int UserID { get; set; }
-        //Virtaul Properties    
+
+
         public virtual User User { get; set; }
     }
 }

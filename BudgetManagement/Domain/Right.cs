@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BudgetManagement.Models
+namespace BudgetManagement.Domain
 {
-    public class Right
+    public class Right: BaseEntity
     {
     }
 }
