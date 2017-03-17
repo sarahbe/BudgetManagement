@@ -8,6 +8,9 @@ using System.Web.Http.Routing;
 
 namespace BudgetManagement.Models
 {
+    /// <summary>
+    /// Contain all the functions needed to shape the response object and control the object graph returned to the client.
+    /// </summary>
     public class ModelFactory
     {
         private UrlHelper _UrlHelper;
