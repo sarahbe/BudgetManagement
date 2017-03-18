@@ -32,6 +32,9 @@ namespace BudgetManagement.Models
                 FullName = appUser.FullName,
                 Email = appUser.Email,
                 EmailConfirmed = appUser.EmailConfirmed,
+                Job = appUser.Job,
+                MaritalStatus= appUser.MaritalStatus,
+                Birthdate = appUser.Birthdate,
                 Roles = _AppUserManager.GetRolesAsync(appUser.Id).Result,
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
@@ -48,6 +51,9 @@ namespace BudgetManagement.Models
         public bool EmailConfirmed { get; set; }
         public int Level { get; set; }
         public DateTime JoinDate { get; set; }
+        public DateTime Birthdate { get; set; }
+        public string MaritalStatus { get; set; }
+        public string Job { get; set; }
         public IList<string> Roles { get; set; }
         public IList<System.Security.Claims.Claim> Claims { get; set; }
     }
