@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace BudgetManagement.Controllers
 {
+
     [RoutePrefix("api/accounts")]
     public class AccountsController : BaseApiController
     {
@@ -18,6 +19,7 @@ namespace BudgetManagement.Controllers
         ///  Responsible to return all the registered users in our system
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [Route("users")]
         public IHttpActionResult GetUsers()
         {
@@ -29,6 +31,7 @@ namespace BudgetManagement.Controllers
         /// </summary>
         /// <param name="Id">Id"User Id</param>
         /// <returns></returns>
+        [Authorize]
         [Route("user/{id:guid}", Name = "GetUserById")]
         public async Task<IHttpActionResult> GetUser(string Id)
         {
@@ -46,6 +49,7 @@ namespace BudgetManagement.Controllers
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
+        [Authorize]
         [Route("user/{username}")]
         public async Task<IHttpActionResult> GetUserByName(string username)
         {
@@ -63,6 +67,7 @@ namespace BudgetManagement.Controllers
         /// </summary>
         /// <param name="createUserModel"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [Route("create")]
         public async Task<IHttpActionResult> CreateUser(UserRegistration createUserModel)
         {
@@ -105,6 +110,7 @@ namespace BudgetManagement.Controllers
             //From this result we  return the resource created in the location header and return 201 created status.
             return Created(locationHeader, TheModelFactory.Create(user));
         }
+        [Authorize]
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
@@ -129,6 +135,7 @@ namespace BudgetManagement.Controllers
         /// <param name="userId"></param>
         /// <param name="code"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [HttpGet]
         [Route("ConfirmEmail", Name = "ConfirmEmailRoute")]
         public async Task<IHttpActionResult> ConfirmEmail(string userId = "", string code = "")

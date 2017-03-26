@@ -312,3 +312,11 @@ C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetMa
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.csproj.GenerateResource.Cache
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.dll
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.pdb
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.Core.dll
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.Core.pdb
