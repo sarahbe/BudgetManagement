@@ -10,11 +10,11 @@ namespace BudgetManagement.Controllers
     public class TransactionController:ApiController
     {
         [Authorize]
-        [Route("transactions")]
+        [Route("Add")]
         public IHttpActionResult GetTransactionsByUserId(string UserId)
         {
     
-            return Ok(this.AppUserManager.Users.ToList().Select(u => this.TheModelFactory.Create(u)));
+            return Ok();
         }
     }
 }
