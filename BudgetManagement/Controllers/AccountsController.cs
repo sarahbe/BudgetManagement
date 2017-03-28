@@ -110,6 +110,12 @@ namespace BudgetManagement.Controllers
             //From this result we  return the resource created in the location header and return 201 created status.
             return Created(locationHeader, TheModelFactory.Create(user));
         }
+
+        /// <summary>
+        /// Change old password
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Authorize]
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)

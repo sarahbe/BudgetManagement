@@ -23,7 +23,13 @@ namespace BudgetManagement.Domain
             var appDbContext = context.Get<BudgetContext>();
             var appUserManager = new ApplicationUserManager(new UserStore<User>(appDbContext));
 
+            appUserManager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6      
+            };
+
             appUserManager.EmailService = new EmailService(); //spNet.Identity.WebApi.Services.EmailService();
+         
 
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
