@@ -24,14 +24,13 @@ namespace BudgetManagement.DAL
             return new BudgetContext();
         }
 
-     //   public DbSet<User> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
         //public DbSet<Right> Rights { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
 
-        //preventint table names from bein pluralized
+        //preventint table names from being pluralized
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

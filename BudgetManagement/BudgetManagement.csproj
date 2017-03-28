@@ -274,13 +274,13 @@
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Domain\AccountType.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\ApplicationUserManager.cs" />
     <Compile Include="Domain\Currency.cs" />
     <Compile Include="Domain\Job.cs" />
     <Compile Include="Domain\MaritalStatus.cs" />
-    <Compile Include="fonts\TransactionController.cs" />
     <Compile Include="DAL\BudgetContext.cs" />
     <Compile Include="Domain\Account.cs" />
     <Compile Include="Domain\Category.cs" />
@@ -298,6 +298,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChangePassword.cs" />
+    <Compile Include="Models\EntringTransaction.cs" />
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\UserRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
