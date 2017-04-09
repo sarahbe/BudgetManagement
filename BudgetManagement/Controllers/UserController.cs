@@ -12,8 +12,8 @@ using System.Web.Http;
 namespace BudgetManagement.Controllers
 {
 
-    [RoutePrefix("api/accounts")]
-    public class AccountsController : BaseApiController
+    [RoutePrefix("api/users")]
+    public class UserController : BaseApiController
     {
         /// <summary>
         ///  Responsible to return all the registered users in our system

@@ -20,7 +20,10 @@ namespace BudgetManagement.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Date")]
-        public string TransactionDate { get; set; }
+        public DateTime TransactionDate { get; set; }
 
+        [Required]
+        [Display(Name = "TransactionTypeID")]
+        public int TransactionTypeID { get; set; }
     }
 }

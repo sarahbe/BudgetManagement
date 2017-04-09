@@ -1,4 +1,5 @@
-﻿using BudgetManagement.Domain;
+﻿using BudgetManagement.DAL;
+using BudgetManagement.Domain;
 using BudgetManagement.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -16,6 +17,8 @@ namespace BudgetManagement.Controllers
 
         private ModelFactory _modelFactory;
         private ApplicationUserManager _AppUserManager = null;
+        private BudgetContext bctx = null;
+
 
         /// <summary>
         /// Read-only property
@@ -26,6 +29,18 @@ namespace BudgetManagement.Controllers
             get
             {
                 return _AppUserManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+        }
+
+        /// <summary>
+        /// Read-only property
+        /// Gets the instance of the “ApplicationUserManager” we already set in the “Startup” class, this instance will be initialized and ready to invoke.
+        /// </summary>
+        protected BudgetContext BudgetContext
+        {
+            get
+            {
+                return bctx ?? new BudgetContext();
             }
         }
 

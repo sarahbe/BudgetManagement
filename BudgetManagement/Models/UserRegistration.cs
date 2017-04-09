@@ -33,7 +33,7 @@ namespace BudgetManagement.Models
         public string ConfirmPassword { get; set; }
         public string Job { get; set; }
 
-        [DataType(DataType.Date)]
+   
         public DateTime Birthdate { get; set; }
 
         public string MaritalStatus { get; set; }
