@@ -7,7 +7,7 @@ namespace BudgetManagement.Domain
 {
     public class Transaction: BaseEntity
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         public int AccountID { get; set; }
         public int TransactionTypeID { get; set; }
         public int CategoryID { get; set; }

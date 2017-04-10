@@ -14,5 +14,12 @@ namespace BudgetManagement.Models
         [Display(Name = "Account Type ID")]
         public int AccountTypeID { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
+        public string UserId { get; set; }
+
+        public int CurrencyId { get; set; }
+
+
     }
 }

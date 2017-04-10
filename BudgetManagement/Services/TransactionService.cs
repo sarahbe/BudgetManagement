@@ -18,8 +18,9 @@ namespace BudgetManagement.Services
                 TransactionDate = model.TransactionDate,
                 Amount = model.Amount,
                 Name = model.TransactionName,
-                AccountID = 1 ,
-                UserID =1 
+                AccountID = model.AccountId ,
+                UserID =model.UserId,
+                CategoryID =model.CategoryId
             };
             bctx.Transactions.Add(transaction);
             bctx.SaveChanges();

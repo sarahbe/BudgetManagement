@@ -7,7 +7,7 @@ namespace BudgetManagement.Domain
 {
     public class Account: BaseEntity
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         public int AccountTypeID { get; set; }
         public DateTime? DueDate { get; set; }
         public decimal? Limit { get; set; }

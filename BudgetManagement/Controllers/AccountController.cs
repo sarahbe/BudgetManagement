@@ -18,12 +18,13 @@ namespace BudgetManagement.Controllers
         {
             Account account = new Account();
             account.AccountTypeID = model.AccountTypeID;
+            account.CurrencyId = model.CurrencyId;
 
             BudgetContext.Accounts.Add(account);
-            BudgetContext.SaveChanges();
+            var zz = BudgetContext.SaveChanges();
            
 
-            return Ok();
+            return Ok(zz);
         }
 
     }

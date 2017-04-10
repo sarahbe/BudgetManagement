@@ -40,7 +40,9 @@ namespace BudgetManagement.Controllers
         {
             get
             {
-                return bctx ?? new BudgetContext();
+                if (bctx == null)
+                    bctx = new BudgetContext();
+                return bctx;
             }
         }
 

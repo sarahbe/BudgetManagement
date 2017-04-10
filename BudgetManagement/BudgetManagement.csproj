@@ -301,6 +301,14 @@
     <Compile Include="Migrations\201704091338250_InitialCreate2.Designer.cs">
       <DependentUpon>201704091338250_InitialCreate2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704101759462_InitialCreate3.cs" />
+    <Compile Include="Migrations\201704101759462_InitialCreate3.Designer.cs">
+      <DependentUpon>201704101759462_InitialCreate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704101802147_useridToString.cs" />
+    <Compile Include="Migrations\201704101802147_useridToString.Designer.cs">
+      <DependentUpon>201704101802147_useridToString.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\ChangePassword.cs" />
@@ -379,6 +387,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704091338250_InitialCreate2.resx">
       <DependentUpon>201704091338250_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704101759462_InitialCreate3.resx">
+      <DependentUpon>201704101759462_InitialCreate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704101802147_useridToString.resx">
+      <DependentUpon>201704101802147_useridToString.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
