@@ -323,3 +323,4 @@ C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.I
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.InitialCreate2.resources
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.InitialCreate3.resources
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.useridToString.resources
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.InitialCreate4.resources

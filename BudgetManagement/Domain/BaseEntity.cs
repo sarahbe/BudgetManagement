@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -9,5 +10,6 @@ namespace BudgetManagement.Domain
     {
         public int ID { get; set; }
 
+        public DateTime Timestamp { get; set; } = DateTime.Now;
     }
 }

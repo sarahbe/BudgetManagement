@@ -2,10 +2,7 @@
 using BudgetManagement.Domain;
 using BudgetManagement.Models;
 using BudgetManagement.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace BudgetManagement.Controllers
@@ -18,7 +15,7 @@ namespace BudgetManagement.Controllers
 
 
         [Authorize]
-        [Route("Add")]
+        [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetTransactionsByUserId(string UserId)
         {
