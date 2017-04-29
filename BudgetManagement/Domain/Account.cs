@@ -9,6 +9,8 @@ namespace BudgetManagement.Domain
         public DateTime? DueDate { get; set; }
         public decimal? Limit { get; set; }
         public int CurrencyId { get; set; }
+        public string Description { get; set; }
+        public decimal Balance { get; set; }
 
         public virtual User User { get; set; }
         public virtual AccountType AccountType { get; set; }

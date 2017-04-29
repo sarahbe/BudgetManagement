@@ -325,3 +325,4 @@ C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetMa
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.useridToString.resources
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.InitialCreate4.resources
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.DropMaritalAndTransactionTypeTables.resources
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.accountChanges.resources

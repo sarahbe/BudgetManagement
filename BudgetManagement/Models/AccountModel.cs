@@ -20,6 +20,9 @@ namespace BudgetManagement.Models
 
         public int CurrencyId { get; set; }
 
-
+        public string Description { get; set; }
+        public decimal? Limit { get; set; }
+        public DateTime DueDate { get; set; }
+        public decimal Balance { get; set; }
     }
 }

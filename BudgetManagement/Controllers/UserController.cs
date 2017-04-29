@@ -1,5 +1,6 @@
 ﻿using BudgetManagement.Domain;
 using BudgetManagement.Models;
+using BudgetManagement.Services;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Linq;
@@ -95,7 +96,10 @@ namespace BudgetManagement.Controllers
                 return GetErrorResult(addUserResult);
             }
 
-
+            //create default cash account on new user
+            AccountService tsrc = new AccountService();
+            tsrc.CreateDefaultAccount(user.Id);
+            
             string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
             var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
