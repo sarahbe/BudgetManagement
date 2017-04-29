@@ -314,6 +314,10 @@
     <Compile Include="Migrations\201704231512111_InitialCreate4.Designer.cs">
       <DependentUpon>201704231512111_InitialCreate4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704291128185_DropMaritalAndTransactionTypeTables.cs" />
+    <Compile Include="Migrations\201704291128185_DropMaritalAndTransactionTypeTables.Designer.cs">
+      <DependentUpon>201704291128185_DropMaritalAndTransactionTypeTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\ChangePassword.cs" />
@@ -325,6 +329,7 @@
     <Compile Include="Providers\CustomOAuthProvider.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\TransactionService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -401,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704231512111_InitialCreate4.resx">
       <DependentUpon>201704231512111_InitialCreate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704291128185_DropMaritalAndTransactionTypeTables.resx">
+      <DependentUpon>201704291128185_DropMaritalAndTransactionTypeTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

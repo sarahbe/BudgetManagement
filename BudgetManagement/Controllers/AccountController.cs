@@ -1,5 +1,6 @@
 ﻿using BudgetManagement.Domain;
 using BudgetManagement.Models;
+using BudgetManagement.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +15,12 @@ namespace BudgetManagement.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public IHttpActionResult CreateTransaction(AccountModel model)
+        public IHttpActionResult CreateAccount(AccountModel model)
         {
-            Account account = new Account();
-            account.AccountTypeID = model.AccountTypeID;
-            account.CurrencyId = model.CurrencyId;
+            AccountService tsrc = new AccountService();
+            tsrc.CreateAccount(model);
 
-            BudgetContext.Accounts.Add(account);
-            var zz = BudgetContext.SaveChanges();
-           
-
-            return Ok(zz);
+            return Ok();
         }
 
     }
