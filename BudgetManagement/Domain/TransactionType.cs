@@ -5,8 +5,9 @@ using System.Web;
 
 namespace BudgetManagement.Domain
 {
-    public class TransactionType: BaseEntity
+    public enum TransactionType
     {
-        public string Desctiption { get; set; }
-    }
+        Expense = 1,
+        Income
+    } 
 }

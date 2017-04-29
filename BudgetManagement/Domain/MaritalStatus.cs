@@ -5,8 +5,12 @@ using System.Web;
 
 namespace BudgetManagement.Domain
 {
-    public class MaritalStatus :BaseEntity
+    public enum MaritalStatus
     {
-        public string Name { get; set; }
+        Single = 1,
+        Married ,
+        Widowed,
+        Other
     }
+        
 }
