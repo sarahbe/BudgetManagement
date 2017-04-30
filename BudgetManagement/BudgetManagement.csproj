@@ -281,6 +281,8 @@
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\ApplicationUserManager.cs" />
     <Compile Include="Domain\Currency.cs" />
+    <Compile Include="Domain\Group.cs" />
+    <Compile Include="Domain\GroupUser.cs" />
     <Compile Include="Domain\Job.cs" />
     <Compile Include="Domain\MaritalStatus.cs" />
     <Compile Include="DAL\BudgetContext.cs" />
@@ -321,6 +323,22 @@
     <Compile Include="Migrations\201704291244363_accountChanges.cs" />
     <Compile Include="Migrations\201704291244363_accountChanges.Designer.cs">
       <DependentUpon>201704291244363_accountChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704291315049_timestampToUserTable.cs" />
+    <Compile Include="Migrations\201704291315049_timestampToUserTable.Designer.cs">
+      <DependentUpon>201704291315049_timestampToUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704301443077_GroupTables.cs" />
+    <Compile Include="Migrations\201704301443077_GroupTables.Designer.cs">
+      <DependentUpon>201704301443077_GroupTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704301447193_ValidColumn.cs" />
+    <Compile Include="Migrations\201704301447193_ValidColumn.Designer.cs">
+      <DependentUpon>201704301447193_ValidColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704301453148_groupUserTable.cs" />
+    <Compile Include="Migrations\201704301453148_groupUserTable.Designer.cs">
+      <DependentUpon>201704301453148_groupUserTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
@@ -416,6 +434,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704291244363_accountChanges.resx">
       <DependentUpon>201704291244363_accountChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704291315049_timestampToUserTable.resx">
+      <DependentUpon>201704291315049_timestampToUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704301443077_GroupTables.resx">
+      <DependentUpon>201704301443077_GroupTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704301447193_ValidColumn.resx">
+      <DependentUpon>201704301447193_ValidColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704301453148_groupUserTable.resx">
+      <DependentUpon>201704301453148_groupUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

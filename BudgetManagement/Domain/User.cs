@@ -18,6 +18,7 @@ namespace BudgetManagement.Domain
         //TODO: For the future job can be done as a seperate table. MArital STatus also.
         public string Job { get; set; }
         public string MaritalStatus { get; set; }
+        public DateTime? Timestamp { get; set; }
         /// <summary>
         /// Responsible to fetch the authenticated user identity from the database
         /// </summary>

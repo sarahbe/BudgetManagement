@@ -28,7 +28,8 @@ namespace BudgetManagement.DAL
         //public DbSet<Right> Rights { get; set; }
         public DbSet<Category> Categories { get; set; }  
         public DbSet<Transaction> Transactions { get; set; }
-
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<GroupUser> GroupUsers { get; set; }
         //preventint table names from being pluralized
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
