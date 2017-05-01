@@ -277,6 +277,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
+    <Compile Include="Domain\AccountRight.cs" />
     <Compile Include="Domain\AccountType.cs" />
     <Compile Include="Domain\BaseEntity.cs" />
     <Compile Include="Domain\ApplicationUserManager.cs" />
