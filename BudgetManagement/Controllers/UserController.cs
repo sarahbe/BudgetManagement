@@ -17,7 +17,7 @@ namespace BudgetManagement.Controllers
         ///  Responsible to return all the registered users in our system
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "User")]
+        [Authorize]
         [Route("users")]
         public IHttpActionResult GetUsers()
         {

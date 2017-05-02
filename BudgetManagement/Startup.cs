@@ -3,11 +3,15 @@ using BudgetManagement.DAL;
 using BudgetManagement.Domain;
 using BudgetManagement.Providers;
 using Microsoft.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataHandler.Encoder;
 using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin.Security.Jwt;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web;
@@ -22,6 +26,7 @@ namespace BudgetManagement.API
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
             ConfigureOAuthTokenGeneration(app);
+            ConfigureOAuthTokenConsumption(app);
 
             ConfigureWebApi(httpConfig);
 
@@ -59,7 +64,28 @@ namespace BudgetManagement.API
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
 
+        private void ConfigureOAuthTokenConsumption(IAppBuilder app)
+        {
 
+            var issuer = "http://localhost:14562";
+            string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
+            string symmetricKeyAsBase64 = ConfigurationManager.AppSettings["as:AudienceSecret"];
+
+            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+          //  byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+
+            // Api controllers with an [Authorize] attribute will be validated with JWT
+            app.UseJwtBearerAuthentication(
+                new JwtBearerAuthenticationOptions
+                {
+                    AuthenticationMode = AuthenticationMode.Active,
+                    AllowedAudiences = new[] { audienceId },
+                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                    {
+                        new SymmetricKeyIssuerSecurityTokenProvider(issuer, keyByteArray)
+                    }
+                });
+        }
 
 
     }

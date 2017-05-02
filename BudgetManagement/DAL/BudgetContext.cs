@@ -30,6 +30,7 @@ namespace BudgetManagement.DAL
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<GroupUser> GroupUsers { get; set; }
+        public DbSet<AccountRight> AccountRights { get; set; }
         //preventint table names from being pluralized
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
