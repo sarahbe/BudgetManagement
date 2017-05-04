@@ -44,20 +44,22 @@ namespace BudgetManagement.Services
         }
         public void UpdateAccount(AccountModel model)
         {
-            var account = new Account();
-            account = bctx.Accounts.First(a => a.ID.Equals(model.ID));
+            if (model.ID.HasValue)
+            {
+                var account = new Account();
+                account = bctx.Accounts.First(a => a.ID.Equals(model.ID));
 
-            account.AccountTypeID = model.AccountTypeID;
-            account.CurrencyId = model.CurrencyId;
-            account.Description = model.Description;
-            account.Limit = model.Limit;
-            account.DueDate = model.DueDate;
-            account.UserID = model.UserId;
-            account.Balance = model.Balance;
-            account.Valid = model.Valid;
+                account.AccountTypeID = model.AccountTypeID;
+                account.CurrencyId = model.CurrencyId;
+                account.Description = model.Description;
+                account.Limit = model.Limit;
+                account.DueDate = model.DueDate;
+                account.UserID = model.UserId;
+                account.Balance = model.Balance;
+                account.Valid = model.Valid;
 
-            bctx.SaveChanges();
-
+                bctx.SaveChanges();
+            }
         }
 
     }

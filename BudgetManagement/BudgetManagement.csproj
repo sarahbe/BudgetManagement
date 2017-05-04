@@ -350,6 +350,10 @@
     <Compile Include="Migrations\201705011856385_AccountRight.Designer.cs">
       <DependentUpon>201705011856385_AccountRight.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705041751547_someChanges.cs" />
+    <Compile Include="Migrations\201705041751547_someChanges.Designer.cs">
+      <DependentUpon>201705041751547_someChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AccountRightModel.cs" />
@@ -463,6 +467,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705011856385_AccountRight.resx">
       <DependentUpon>201705011856385_AccountRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041751547_someChanges.resx">
+      <DependentUpon>201705041751547_someChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

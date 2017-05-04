@@ -335,3 +335,4 @@ C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\System.Identit
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.dll
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.pdb
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.xml
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.someChanges.resources
