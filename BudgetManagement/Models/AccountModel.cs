@@ -8,6 +8,7 @@ namespace BudgetManagement.Models
 {
     public class AccountModel
     {
+        public int ID { get; set; }
 
         [Required]
         [DataType(DataType.Text)]
@@ -24,5 +25,6 @@ namespace BudgetManagement.Models
         public decimal? Limit { get; set; }
         public DateTime DueDate { get; set; }
         public decimal Balance { get; set; }
+        public bool Valid { get; set; }
     }
 }

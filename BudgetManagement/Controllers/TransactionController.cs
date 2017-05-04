@@ -15,7 +15,6 @@ namespace BudgetManagement.Controllers
 
 
         //[Authorize]
-        //[Route("transaction/{id:guid}", Name = "GetAll")]
         [HttpGet]
         [Route("GetAll")]
         public IHttpActionResult GetTransactionsByUserId(string UserId)

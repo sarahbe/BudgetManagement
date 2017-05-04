@@ -23,5 +23,26 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
+        [Route("Update")]
+        [HttpPost]
+        public IHttpActionResult UpdateAccount(AccountModel model)
+        {
+            AccountService tsrc = new AccountService();
+            tsrc.UpdateAccount(model);
+
+            return Ok();
+        }
+
+
+        [Route("Delete")]
+        [HttpPost]
+        public IHttpActionResult DeleteAccount(AccountModel model)
+        {
+            AccountService tsrc = new AccountService();
+            model.Valid = false;
+            tsrc.UpdateAccount(model);
+
+            return Ok();
+        }
     }
 }
