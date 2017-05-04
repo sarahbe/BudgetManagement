@@ -1,5 +1,7 @@
-﻿using BudgetManagement.Models;
+﻿using BudgetManagement.DAL;
+using BudgetManagement.Models;
 using BudgetManagement.Services;
+using System.Linq;
 using System.Web.Http;
 
 namespace BudgetManagement.Controllers
@@ -7,7 +9,8 @@ namespace BudgetManagement.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountController:BaseApiController
     {
-       
+        private BudgetContext bctx = new BudgetContext();
+
         [Route("Create")]
         [HttpPost]
         public IHttpActionResult CreateAccount(AccountModel model)
@@ -19,7 +22,7 @@ namespace BudgetManagement.Controllers
         }
 
         [Route("Update")]
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult UpdateAccount(AccountModel model)
         {
             AccountService tsrc = new AccountService();
@@ -30,7 +33,7 @@ namespace BudgetManagement.Controllers
 
 
         [Route("Delete")]
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult DeleteAccount(AccountModel model)
         {
             AccountService tsrc = new AccountService();
@@ -38,6 +41,14 @@ namespace BudgetManagement.Controllers
             tsrc.UpdateAccount(model);
 
             return Ok();
+        }
+
+        [Route("GetAll")]
+        [HttpGet]
+        public IHttpActionResult GetAccountByUserId(string userId)
+        {
+
+            return Ok(bctx.Accounts.Where(o => o.UserID.Equals(userId)));
         }
     }
 }
