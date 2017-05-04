@@ -9,6 +9,8 @@ namespace BudgetManagement.Models
 {
     public class EntringTransaction
     {
+        public int? ID { get; set; }
+
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Name")]
@@ -35,5 +37,6 @@ namespace BudgetManagement.Models
         [Display(Name = "UserId")]
         public string UserId { get; set; }
         public int CategoryId { get;  set; }
+        public bool Valid { get; set; }
     }
 }

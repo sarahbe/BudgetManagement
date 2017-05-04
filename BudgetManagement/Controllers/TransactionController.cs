@@ -14,9 +14,10 @@ namespace BudgetManagement.Controllers
         private BudgetContext bctx = new BudgetContext();
 
 
-        [Authorize]
-        [Route("GetAll")]
+        //[Authorize]
+        //[Route("transaction/{id:guid}", Name = "GetAll")]
         [HttpGet]
+        [Route("GetAll")]
         public IHttpActionResult GetTransactionsByUserId(string UserId)
         {
             return Ok(bctx.Transactions.Where(o => o.UserID.Equals(UserId)));
@@ -34,5 +35,25 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
+        // [Authorize]
+        [Route("Update")]
+        [HttpPut]
+        public IHttpActionResult Update(EntringTransaction model)
+        {
+            TransactionService tsrc = new TransactionService();   
+            tsrc.UpdateTransaction(model);
+            return Ok();
+        }
+
+        // [Authorize]
+        [Route("Delete")]
+        [HttpPut]
+        public IHttpActionResult Delete(EntringTransaction model)
+        {
+            TransactionService tsrc = new TransactionService();
+            model.Valid = false;
+            tsrc.UpdateTransaction(model);
+            return Ok();
+        }
     }
 }

@@ -10,6 +10,6 @@ namespace BudgetManagement.Domain
     {
         public int ID { get; set; }
         public DateTime Timestamp { get; set; } = DateTime.Now;
-        public bool Valid { get; set; }
+        public bool Valid { get; set; } = true;
     }
 }
