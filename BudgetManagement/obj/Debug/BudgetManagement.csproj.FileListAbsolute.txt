@@ -336,3 +336,4 @@ C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.I
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.pdb
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\bin\Thinktecture.IdentityModel.xml
 C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.someChanges.resources
+C:\Users\Sarah\Source\Repos\BudgetManagement\BudgetManagement\obj\Debug\BudgetManagement.Migrations.accountRightAccountId.resources

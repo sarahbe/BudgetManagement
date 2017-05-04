@@ -12,5 +12,6 @@ namespace BudgetManagement.Models
         public bool FlWrite { get; set; }
         public bool Valid { get; set; }
         public bool FlAdmin { get; set; }
+        public int AccountId { get; set; }
     }
 }

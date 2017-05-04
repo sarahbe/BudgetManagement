@@ -354,6 +354,10 @@
     <Compile Include="Migrations\201705041751547_someChanges.Designer.cs">
       <DependentUpon>201705041751547_someChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705041835506_accountRightAccountId.cs" />
+    <Compile Include="Migrations\201705041835506_accountRightAccountId.Designer.cs">
+      <DependentUpon>201705041835506_accountRightAccountId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AccountRightModel.cs" />
@@ -470,6 +474,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705041751547_someChanges.resx">
       <DependentUpon>201705041751547_someChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041835506_accountRightAccountId.resx">
+      <DependentUpon>201705041835506_accountRightAccountId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

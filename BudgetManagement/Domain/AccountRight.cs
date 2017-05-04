@@ -10,7 +10,9 @@ namespace BudgetManagement.Domain
         public string UserID { get; set; }
         public bool FlWrite { get; set; }
         public bool FlAdmin { get; set; }
+        public int AccountId { get; set; }
         //Virtual property 
         public User User { get; set; }
+        public Account Account { get; set; }
     }
 }
