@@ -1,5 +1,19 @@
-﻿<div layout="column">
+﻿<div layout="column" class="margin-10">
     <div layout-margin>
+        
+        <div layout="row" layout-align="center center">
+            <span>Income</span>
+            <div class="card">
+                <label for="switch1">
+                        <input type="checkbox" ng-model="vm.isIncome" id="switch1"/>
+                        <span class="switch"></span>
+                        <span class="toggle"></span>
+                    </label>
+            </div>            
+            <span>Expense</span>            
+        </div>
+  
+
         <md-card>
             <md-card-content>
                 <md-input-container md-no-float class="md-block">
@@ -20,19 +34,20 @@
                 </md-input-container>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-money-box"></md-icon>
-                    <input type="number" ng-model="transaction.amount" placeholder="Amount">
+                    <input type="number" ng-model="vm.transaction.amount" placeholder="Amount">
                 </md-input-container>
                 <md-input-container style="margin-left:-16px;" md-no-float class="md-block">
-                    
-                    <md-datepicker  ng-model="transaction.transactionDate" md-placeholder="Enter date"></md-datepicker>
+
+                    <md-datepicker ng-model="vm.transaction.transactionDate" md-placeholder="Enter date"></md-datepicker>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <md-checkbox class="md-primary" ng-model="checkboxes.primary" aria-label="Primary Checkbox">
+                    <md-checkbox class="md-primary" ng-model="vm.transaction.periodic" aria-label="Primary Checkbox">
                         Periodic
                     </md-checkbox>
                 </md-input-container>
                 <div layout="column" layout-align="center center" flex>
-                    <md-button class="md-raised md-accent" aria-label="flat button">Add</md-button>
+                    <md-button ng-click="vm.saveTransaction()" class="md-raised md-accent" aria-label="flat button">Add</md-button>
+                </div>
             </md-card-content>
 
         </md-card>

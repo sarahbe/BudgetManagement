@@ -27,7 +27,7 @@
         ])
         // set a constant for the API we are connecting to
         .constant('API_CONFIG', {
-            baseApiAdress :  'http://bounbudget.azurewebsites.net/'
+            baseApiAdress :  'http://bounbudget.azurewebsites.net'
         }); 
 
 

@@ -1,0 +1,78 @@
+﻿// One variable to rule them all :)
+
+// All dimentions are based on this one variable; Change it's value and see everythinmg else change accordingly.
+
+$width: 100px; // Change Me
+$height: $width / 2.5;
+
+input[type='checkbox'] {
+  display: none;
+  
+  &:checked ~ .toggle {
+    background: #009688;
+    left: ($width - ($height * 1.4 - $height) / 2) - $height;
+    transition: .5s;
+  }
+  
+  &:checked ~ .switch {
+    background: #6DBEB7;  
+    transition: .5s;
+  }
+}
+
+.switch {
+  display: block;
+  width: $width;
+  height: $height;
+  background: #939393;
+  border-radius: $height / 2;
+  position: absolute;
+  top: 0;
+  transition: .5s;
+}
+
+.toggle {
+  height: $height * 1.4;
+  width: $height * 1.4;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: ($height * 1.4 - $height) / -2;
+  left: ($height * 1.4 - $height) / -2;
+  box-shadow: 0 $width / 50 $width / 25 rgba(black, .4);
+  transition: .5s;
+}
+
+.card {
+  display: inline-block;
+  margin: (($height * 1.4 - $height) / 2) + 5px;
+    margin: (($height * 1.5 - $height) / 2);
+  width: $width;
+  height: $height;
+  text-align: center;
+  position: relative;
+}
+
+// Second switch coloration
+
+#switch2 {
+  &:checked ~ .toggle {
+    background: #3F51B5;
+  } 
+  &:checked ~ .switch {
+    background: #9CA5D7;  
+  }
+}
+
+// Unnecessary styling
+
+body {background: #EEE;}
+h1 {
+  font: 300 45px Roboto;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: calc(50% - #{$height * 1.5});
+  left: calc(50% - #{$width / 2 + $height * .25});  
+}

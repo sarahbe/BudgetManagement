@@ -128,13 +128,8 @@
 
             //TODO: Belki apisettings provider'a taşınabilir
             var server = '';
-            if (url.indexOf('http') < 0) {
-
-                var port = "";
-                if (apiSettings.config.Servers[0].Port != 0) {
-                    port = ':' + apiSettings.config.Servers[0].Port;
-                }
-                server = apiSettings.config.Servers[0].Address + port + '/';
+            if (url.indexOf('http') < 0) {                
+                server = API_CONFIG.baseApiAdress + '/';
             }
             triLoaderService.setLoaderActive(true);
 
@@ -172,12 +167,8 @@
 
             //TODO: Belki apisettings provider'a taşınabilir
             var server = '';
-            if (url.indexOf('http') < 0) {
-                var port = "";
-                if (apiSettings.config.Servers[0].Port != 0) {
-                    port = ':' + apiSettings.config.Servers[0].Port;
-                }
-                server = apiSettings.config.Servers[0].Address + port + '/';
+            if (url.indexOf('http') < 0) {                
+                server = API_CONFIG.baseApiAdress + '/';
             }
             triLoaderService.setLoaderActive(true);
 
@@ -217,13 +208,9 @@
                 method = 'get';
             }
 
-            var server = '';
-            if (url.indexOf('http') < 0) {
-                var port = "";
-                if (apiSettings.config.Servers[0].Port != 0) {
-                    port = ':' + apiSettings.config.Servers[0].Port;
-                }
-                server = apiSettings.config.Servers[0].Address + port + '/';
+           var server = '';
+            if (url.indexOf('http') < 0) {                
+                server = API_CONFIG.baseApiAdress + '/';
             }
 
 
