@@ -4,35 +4,35 @@
             <md-card-content>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-comment-alt-text"></md-icon>
-                    <input type="text" ng-model="vm.transaction.transactionName" placeholder="Description">
+                    <input type="text" ng-model="vm.account.description" placeholder="Name">
                 </md-input-container>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-format-list-bulleted"></md-icon>
-                    <md-select placeholder="Category" ng-model="vm.transaction.categoryId">
-                        <md-option ng-value="category.id" ng-repeat="category in vm.categories"> {{ category.description }} </md-option>
+                    <md-select placeholder="Type" ng-model="vm.accountType.accountTypeId">
+                        <md-option ng-value="accountType.id" ng-repeat="accountType in vm.accountTypes"> {{ accountType.name }} </md-option>
                     </md-select>
                 </md-input-container>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
-                    <md-select placeholder="Account" ng-model="vm.account.accountId">
-                        <md-option ng-value="account.id" ng-repeat="account in vm.accounts"> {{ account.description }} </md-option>
+                    <md-select placeholder="Currency" ng-model="vm.currency.currencyId">
+                        <md-option ng-value="currency.id" ng-repeat="currency in vm.currencies"> {{ currency.name }} </md-option>
                     </md-select>
                 </md-input-container>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-money-box"></md-icon>
-                    <input type="number" ng-model="transaction.amount" placeholder="Amount">
+                    <input type="number" ng-model="account.limit" placeholder="Limit">
+                </md-input-container>
+                  <md-input-container md-no-float class="md-block">
+                    <md-icon md-font-icon="zmdi zmdi-money-box"></md-icon>
+                    <input type="number" ng-model="account.balance" placeholder="Balance">
                 </md-input-container>
                 <md-input-container style="margin-left:-16px;" md-no-float class="md-block">
                     
-                    <md-datepicker  ng-model="transaction.transactionDate" md-placeholder="Enter date"></md-datepicker>
+                    <md-datepicker  ng-model="account.dueDate" md-placeholder="Due date"></md-datepicker>
                 </md-input-container>
-                <md-input-container class="md-block">
-                    <md-checkbox class="md-primary" ng-model="checkboxes.primary" aria-label="Primary Checkbox">
-                        Periodic
-                    </md-checkbox>
-                </md-input-container>
+                
                 <div layout="column" layout-align="center center" flex>
-                    <md-button class="md-raised md-accent" aria-label="flat button">Add</md-button>
+                    <md-button class="md-raised md-accent" aria-label="flat button">Save</md-button>
             </md-card-content>
 
         </md-card>

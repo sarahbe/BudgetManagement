@@ -20,6 +20,11 @@
             templateUrl: 'app/budget/pages/transaction/transaction.tmpl.html',
             controller: 'TransactionController',            
             controllerAs: 'vm'
+        }).state('triangular.admin-default.account', {
+            url: '/pages/account',
+            templateUrl: 'app/budget/pages/account/account.tmpl.html',
+            controller: 'AccountController',            
+            controllerAs: 'vm'
         });      
         
         triMenuProvider.addMenu({
@@ -39,6 +44,13 @@
             priority: 1.2
         });
         
+          triMenuProvider.addMenu({
+            name: 'Account',
+            icon: 'zmdi zmdi-account',
+            state: 'triangular.admin-default.account',
+            type: 'link',
+            priority: 1.3
+        });
         // triMenuProvider.addMenu({
         //     name: 'Admin',
         //     icon: 'zmdi zmdi-home',
