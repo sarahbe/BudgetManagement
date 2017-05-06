@@ -14,5 +14,13 @@
             {id: 2,
             description: 'sarah2'}
         ];
+
+          vm.accounts = [
+            {id: 1,
+            description: 'Cash'},
+            {id: 2,
+            description: 'CreditCard'}
+        ];
     }
+
 })();
