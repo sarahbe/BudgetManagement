@@ -1,7 +1,7 @@
-{
+﻿{
     "MENU": {
-        "DASHBOARDS": {
-            "DASHBOARDS": "Dashboards",
+        "PAGES": {
+            "DASHBOARD": "Dashboards",
             "GENERAL": "General"           
         }
     },

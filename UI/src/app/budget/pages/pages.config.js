@@ -2,23 +2,23 @@
     'use strict';
 
     angular
-        .module('app.budget.dashboards')
+        .module('app.budget.pages')
         .config(moduleConfig);
 
     /* @ngInject */
     function moduleConfig($translatePartialLoaderProvider, $stateProvider, triMenuProvider) {
-        $translatePartialLoaderProvider.addPart('app/budget/dashboards');
+        $translatePartialLoaderProvider.addPart('app/budget/pages');
 
         $stateProvider
         .state('triangular.admin-default.dashboard-general', {
-            url: '/dashboards/general',
-            templateUrl: 'app/budget/dashboards/general/dashboard-general.tmpl.html',
+            url: '/pages/dashboard',
+            templateUrl: 'app/budget/pages/dashboard/dashboard-general.tmpl.html',
             controller: 'DashboardGeneralController',            
             controllerAs: 'vm'
         });      
         
         triMenuProvider.addMenu({
-            name: 'MENU.DASHBOARDS.GENERAL',
+            name: 'MENU.PAGES.DASHBOARD',
             icon: 'zmdi zmdi-home',
             state: 'triangular.admin-default.dashboard-general',
             type: 'link',

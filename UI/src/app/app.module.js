@@ -21,13 +21,13 @@
         // create a constant for languages so they can be added to both triangular & translate
         .constant('APP_LANGUAGES', [
             {
-                name: 'LANGUAGES.TURKISH',
-                key: 'tr'
+                name: 'LANGUAGES.ENGLISH',
+                key: 'en'
             }
         ])
         // set a constant for the API we are connecting to
         .constant('API_CONFIG', {
-            baseApiAdress :  'https://adisyo.com'
+            baseApiAdress :  'http://bounbudget.azurewebsites.net/'
         }); 
 
 

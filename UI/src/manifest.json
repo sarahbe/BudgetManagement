@@ -1,6 +1,6 @@
 ﻿{
-  "name": "Bulut tabanlı POS sisteminiz",
-  "short_name": "adisyo",
+  "name": "Boun Budget Management",
+  "short_name": "Boun",
   "display": "standalone",
   "start_url": "/",
   "theme_color": "#C92C2C",

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app.budget.dashboards')
+        .module('app.budget.pages')
         .controller('DashboardGeneralController', DashboardGeneralController);
 
     /* @ngInject */

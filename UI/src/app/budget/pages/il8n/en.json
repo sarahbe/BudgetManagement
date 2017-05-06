@@ -1,0 +1,14 @@
+{
+    "MENU": {
+        "PAGES": {
+            "DASHBOARD": "Dashboards",
+            "GENERAL": "General"           
+        }
+    },
+    "DASHBOARDS": {
+        "GENERAL": {
+            "CONTACTS": "Contacts",
+            "CHAT": "Chat"
+        }        
+    }
+}

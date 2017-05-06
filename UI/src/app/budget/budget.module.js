@@ -3,7 +3,7 @@
 
     angular
         .module('app.budget', [
-        'app.budget.dashboards'
+        'app.budget.pages'
         ]).run(runFunction);       
         
 })();
