@@ -1,0 +1,110 @@
+// import material icons
+$zmdi-font-path: "../bower_components/material-design-iconic-font/dist/fonts";
+@import "bower_components/material-design-iconic-font/scss/material-design-iconic-font.scss";
+
+// import angular material scss
+@import "angular-material/angular-material.scss";
+
+// import triangular module scss
+@import "triangular/triangular";
+
+// set template font family
+button, select, html, textarea, input {
+  font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
+}
+
+// import app scss
+
+@import "scss/material-backgrounds";
+
+// Add your CSS here
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector
+md-input-container ng-message, md-input-container data-ng-message, md-input-container x-ng-message, md-input-container [ng-message], md-input-container [data-ng-message], md-input-container [x-ng-message], md-input-container [ng-message-exp], md-input-container [data-ng-message-exp], md-input-container [x-ng-message-exp], md-input-container .md-char-counter{
+    font-size:14px;
+}
+.md-button{
+    font-size:15px;
+}
+.md-tab{
+    font-size:inherit;
+}
+.md-toolbar-tools{
+    font-size:16px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+
+
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-button {
+            width: 0px;
+            height: 0px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #b5b5b5;
+            border: 0px none #ffffff;
+            border-radius: 50px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #acacac;
+            }
+
+            ::-webkit-scrollbar-thumb:active {
+                background: #787878;
+            }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border: 0px none #ffffff;
+            border-radius: 50px;
+        }
+
+            ::-webkit-scrollbar-track:hover {
+                background: #f5f5f5;
+            }
+
+            ::-webkit-scrollbar-track:active {
+                background: #f5f5f5;
+            }
+
+        ::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+
+        md-input-container .md-errors-spacer{
+            min-height:0px !important;
+        }
+    
+
+        
+  @media screen and  (max-width:959px) and (min-width: 0px) {
+     *{
+        box-shadow: none  !important;
+
+          md-tab-item{
+      max-width:130px !important;
+      padding: 12px 12px !important;
+      font-size:16px !important;
+  }
+        }
+}

@@ -1,0 +1,14 @@
+﻿{
+    "MENU": {
+        "DASHBOARDS": {
+            "DASHBOARDS": "HOME",
+            "GENERAL": "HOME"           
+        }
+    },
+    "DASHBOARDS": {
+        "GENERAL": {
+            "CONTACTS": "Contact",
+            "CHAT": "Chat"
+        }        
+    }
+}
