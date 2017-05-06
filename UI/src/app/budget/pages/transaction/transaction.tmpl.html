@@ -1,0 +1,29 @@
+﻿<div layout="column">
+    <div layout-margin>
+        <md-card>
+            <md-card-content>
+                <md-input-container md-no-float class="md-block">
+                    <md-icon md-font-icon="zmdi zmdi-comment-alt-text"></md-icon>
+                    <input type="text" ng-model="vm.transaction.transactionName" placeholder="Description">
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <md-icon md-font-icon="zmdi zmdi-phone"></md-icon>
+                    <md-select placeholder="Category" ng-model="vm.transaction.categoryId">
+                       <md-option ng-value="category.id" ng-repeat="category in vm.categories"> {{ category.description }} </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <md-icon md-font-icon="zmdi zmdi-email"></md-icon>
+                    <input type="email" placeholder="Email (required)" ng-required="true">
+                </md-input-container>
+                <md-input-container md-no-float class="md-block">
+                    <md-icon md-font-icon="zmdi zmdi-pin"></md-icon>
+                    <input type="text" placeholder="Address">
+                </md-input-container>
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+</div>

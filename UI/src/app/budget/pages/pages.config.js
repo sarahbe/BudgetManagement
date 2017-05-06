@@ -15,6 +15,11 @@
             templateUrl: 'app/budget/pages/dashboard/dashboard-general.tmpl.html',
             controller: 'DashboardGeneralController',            
             controllerAs: 'vm'
+        }).state('triangular.admin-default.transaction', {
+            url: '/pages/transaction',
+            templateUrl: 'app/budget/pages/transaction/transaction.tmpl.html',
+            controller: 'TransactionController',            
+            controllerAs: 'vm'
         });      
         
         triMenuProvider.addMenu({
@@ -24,6 +29,14 @@
             type: 'link',
             priority: 1.1
 
+        });
+
+        triMenuProvider.addMenu({
+            name: 'Transaction',
+            icon: 'zmdi zmdi-money',
+            state: 'triangular.admin-default.transaction',
+            type: 'link',
+            priority: 1.2
         });
         
         // triMenuProvider.addMenu({
