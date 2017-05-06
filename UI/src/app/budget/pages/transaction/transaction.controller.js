@@ -6,7 +6,7 @@
         .controller('TransactionController', TransactionController);
 
     /* @ngInject */
-    function TransactionController($state, $filter, transactionService, appNotifyService) {
+    function TransactionController($state, transactionService, appNotifyService) {
         var vm = this;
         vm.saveTransaction = saveTransaction;
 
@@ -26,9 +26,12 @@
 
         function saveTransaction() {
             transactionService.saveTransaction(vm.transaction).then(function(res){
-                appNotifyService.success("Kaydet başarılı");
+                appNotifyService.success("Saved Successfully");
+                //after save we will go to dashboard
                 $state.go('triangular.admin-default.dashboard-general');
             });
+
+            alert("sss");
         }
     }
 

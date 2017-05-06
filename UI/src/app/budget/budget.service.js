@@ -13,7 +13,7 @@
 
         return {
             postData: postData,            
-            callServer: callServer,
+            getData: getData,
             putData: putData
 
         };
@@ -26,41 +26,17 @@
         function handleSuccess(defferd, response) {
             triLoaderService.setLoaderActive(false);
             var data = response.data;
-
-            if (data != undefined) {
-                if (data.isError == true) {
-                    alertDialog(data.errorTitle, data.errorMessage);
-                    defferd.reject(data);
-
-
-                } else if (data.isError == true) {
-                    alertDialog(data.errorTitle, data.errorMessage);
-                    defferd.reject(data);
-
-                }
-                else {
-                    defferd.resolve(data);
-                }
-            } else {
-                defferd.resolve(data);
-            }
+            defferd.resolve(data);
         };
 
         function handleError(defferd, response) {
             triLoaderService.setLoaderActive(false);
             var data = response.data;
 
-            var msg = 'sistemde hata oluştu.Lütfen daha sonra tekrar deneyiniz.';
-            var title = 'Hata oluştu...';
+            var msg = 'Sorry we are having an error. Please try again later.';
+            var title = 'Error...';
 
-            if (response.status == "402") {
-                //TODO: payment sayfasına yönlendirebiliriz.
-                //title = 'Abonelik Süreniz Bitti!';
-                //msg = 'Abonelik süreniz sona erdiği için işlem devam edemiyor.';
-                msg = null;
-                appNotifyService.warning('Abonelik süreniz sona erdiği için işlem devam edemiyor.');
-            }
-            else if (response.status == "401") {
+             if (response.status == "401") {
      
                 msg = null;
                  $state.go('authentication.login');
@@ -79,27 +55,27 @@
             else if (response.status == "500") {
                 //Api'de Exception fırlatırsa buraya düşüyor
                 msg = null;
-                appNotifyService.warning('İşleminiz bir hata ile karşılaştı. Biz gerekli düzeltmeyi yapıyoruz. Lütfen daha sonra tekrar deneyiniz.');
+                appNotifyService.warning('Sorry!Something went wrong. We will fix it as soon as possible');
             }
             else if (response.status == -1) {
                 //Api'ye bağlanamazsa buraya
                 msg = null;
-                appNotifyService.warning('adisyo servisine bağlanamıyorsunuz. İnternet bağlantınızı kontrol ediniz.');
+                appNotifyService.warning('The application is down.');
             }
             else if (angular.isString(data)) {
                 msg = data;
             } else if (angular.isObject(data)) {
-                title = 'Hata';
+                title = 'Error';
 
                 //msg = response.message;
 
                 if (data.error == 'invalid_grant') {
-                    title = 'Kullanıcı girişi onaylanmadı';
+                    title = 'Invalid log in inforamtion';
                     msg = data.error_description;
                 }
 
                 if (data.message != undefined) {
-                    title = 'Hata';
+                    title = 'Error';
                     msg = data.message;
 
                     if (data.exceptionMessage != undefined) {
@@ -108,7 +84,7 @@
                     }
                 }
                 if (data.Message != undefined) {
-                    title = 'hata';
+                    title = 'Error';
                     msg = data.Message;
 
                 }
@@ -125,8 +101,7 @@
         function postData(url, data) {
             $http.defaults.useXDomain = true;
             var deffered = $q.defer();
-
-            //TODO: Belki apisettings provider'a taşınabilir
+   
             var server = '';
             if (url.indexOf('http') < 0) {                
                 server = API_CONFIG.baseApiAdress + '/';
@@ -200,7 +175,7 @@
 
         };
 
-        function callServer(url, data, method) {
+        function getData(url, data, method) {
             $http.defaults.useXDomain = true;
             var deffered = $q.defer();
 
@@ -213,7 +188,7 @@
                 server = API_CONFIG.baseApiAdress + '/';
             }
 
-
+            //show loading icon
             triLoaderService.setLoaderActive(true);
 
             if (!data) {
