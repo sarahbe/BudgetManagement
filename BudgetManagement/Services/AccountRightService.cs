@@ -4,6 +4,8 @@ using BudgetManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
@@ -18,17 +20,24 @@ namespace BudgetManagement.Services
                 FlAdmin = model.FlAdmin,
                 FlWrite = model.FlWrite,
                 UserID = model.UserID,
+                AccountId = model.AccountId,
+                Valid = model.Valid
             };
 
             bctx.AccountRights.Add(accountRight);
             bctx.SaveChanges();
 
         }
-    
+
         public void UpdateAccountRight(AccountRightModel model)
         {
+            if (!model.ID.HasValue)
+            {
+                throw new ApplicationException("right was not found");
+            }
+
             var accountRight = new AccountRight();
-            accountRight = bctx.AccountRights.First(a => a.ID.Equals(model.ID));
+            accountRight = bctx.AccountRights.First(a => a.ID == model.ID);
 
             accountRight.UserID = model.UserID;
             accountRight.FlWrite = model.FlWrite;

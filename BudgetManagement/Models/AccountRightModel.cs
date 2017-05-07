@@ -7,7 +7,7 @@ namespace BudgetManagement.Models
 {
     public class AccountRightModel
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string UserID { get; set; }
         public bool FlWrite { get; set; }
         public bool Valid { get; set; }

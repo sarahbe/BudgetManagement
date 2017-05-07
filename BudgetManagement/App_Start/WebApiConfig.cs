@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using BudgetManagement.ExceptionHandling;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace BudgetManagement.App_Start
 {
@@ -12,7 +14,7 @@ namespace BudgetManagement.App_Start
     {
         public static void Register(HttpConfiguration config)
         {
-
+            config.Services.Replace(typeof(IExceptionHandler), new GeneralExceptionHandler());
             // Web API routes
             config.MapHttpAttributeRoutes();
 

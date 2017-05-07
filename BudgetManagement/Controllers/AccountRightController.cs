@@ -53,5 +53,6 @@ namespace BudgetManagement.Controllers
 
             return Ok(bctx.AccountRights.Where(o => o.AccountId.Equals(accountId)));
         }
+
     }
 }

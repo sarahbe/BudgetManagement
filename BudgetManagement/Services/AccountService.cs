@@ -44,9 +44,11 @@ namespace BudgetManagement.Services
         }
         public void UpdateAccount(AccountModel model)
         {
-            if (model.ID.HasValue)
+            if (!model.ID.HasValue)
             {
-                var account = new Account();
+                throw new ApplicationException("account was not found");
+            }
+            var account = new Account();
                 account = bctx.Accounts.First(a => a.ID.Equals(model.ID));
 
                 account.AccountTypeID = model.AccountTypeID;
@@ -59,7 +61,7 @@ namespace BudgetManagement.Services
                 account.Valid = model.Valid;
 
                 bctx.SaveChanges();
-            }
+            
         }
 
     }

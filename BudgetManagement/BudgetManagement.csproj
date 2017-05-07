@@ -298,6 +298,7 @@
     <Compile Include="Domain\Transaction.cs" />
     <Compile Include="Domain\TransactionType.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="ExceptionHandling\GeneralExceptionHandler.cs" />
     <Compile Include="Migrations\201703161711124_InitialCreate.cs" />
     <Compile Include="Migrations\201703161711124_InitialCreate.Designer.cs">
       <DependentUpon>201703161711124_InitialCreate.cs</DependentUpon>
@@ -358,6 +359,10 @@
     <Compile Include="Migrations\201705041835506_accountRightAccountId.Designer.cs">
       <DependentUpon>201705041835506_accountRightAccountId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705061409229_accountRightConstraints.cs" />
+    <Compile Include="Migrations\201705061409229_accountRightConstraints.Designer.cs">
+      <DependentUpon>201705061409229_accountRightConstraints.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AccountRightModel.cs" />
@@ -390,6 +395,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="MyScripts\Tutorial.jsx" />
+    <None Include="Properties\PublishProfiles\BounBudget - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -477,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705041835506_accountRightAccountId.resx">
       <DependentUpon>201705041835506_accountRightAccountId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705061409229_accountRightConstraints.resx">
+      <DependentUpon>201705061409229_accountRightConstraints.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
