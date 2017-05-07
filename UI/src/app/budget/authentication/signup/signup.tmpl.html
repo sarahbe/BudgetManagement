@@ -1,0 +1,71 @@
+﻿<div layout="row" flex layout-fill layout-align="center center">
+
+    <div flex="50" flex-xs="100" flex-sm="100">
+
+        <div hide-xs class="padding-10">
+        </div>
+        <md-card>
+            <md-content class="md-padding  margin-top-20 padding-top-10">
+                <div layout="row" layout-align="center center">
+                    <img ng-src="{{::vm.triSettings.logoAll}}" alt="{{vm.triSettings.name}}">
+                </div>
+                <div layout="row" layout-align="center center">
+                    <h1 class="md-subhead">Signup</h1>
+                </div>
+                <md-divider></md-divider>
+                <form name="vm.signup" ng-submit="vm.confirmPasswordClick()">
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="email">E-mail</label>
+                        <input id="email" label="email" autofocus name="email"   type="email" ng-model="vm.user.Email" ng-pattern="vm.exPatterns.emailPattern" required />
+                        <div ng-if="vm.submitted || vm.signup.email.$dirty" ng-messages="vm.signup.email.$error" role="alert">
+                            <div ng-message="pattern">Please enter a valid e-mail</div>
+                            <div ng-message="required"><span translate>Please enter e-mail</span></div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="mobilePhone">Cep Telefonu. Örnek (5554443322)</label>
+                        <input id="mobilePhone" label="mobilePhone" name="mobilePhone"   type="mobilePhone" ng-model="vm.user.PhoneNumber" ng-pattern="vm.exPatterns.phonePattern" required />
+                        <div ng-if="vm.submitted || vm.signup.mobilePhone.$dirty"  ng-messages="vm.signup.mobilePhone.$error" role="alert">
+                            <div ng-message="pattern">Lütfen bir cep telefon numarası. Örnek (5554443322)</div>
+                            <div ng-message="required"><span translate>Cep Telefon numarası boş geçilemez</span></div>
+                        </div>
+                    </md-input-container>                
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="name">İsim</label>
+                        <input id="name" label="name" name="name" type="text" ng-model="vm.user.Name" required />
+                        <div ng-if="vm.submitted || vm.signup.name.$dirty" ng-messages="vm.signup.name.$error" ng-if="vm.signup.name.$dirty">
+                            <div ng-message when="required">
+                                <span>Lütfen adınızı giriniz</span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="password">Şifre</label>
+                        <input id="password" label="password" name="password" type="password"  ng-model="vm.user.Password" ng-pattern="vm.exPatterns.passwordPattern" required />
+                        <div ng-if="vm.submitted || vm.signup.password.$dirty" ng-messages="vm.signup.password.$error" role="alert">
+                            <div ng-message="pattern">Şifreniz en az 6 karakter olmalıdır</div>                       
+                            <div ng-message="required"><span translate>Şifre boş geçilemez</span></div>
+                        </div>
+                    </md-input-container>
+
+
+                    <md-input-container class="md-block">
+                        <md-checkbox ng-model="vm.user.isReadContract" name="contract" required aria-label="Default Checkbox">
+                            <a href="http://www.adisyo.com/kullanici-sozlesmesi.html" target="_blank">Kullanım koşullarını </a>  okudum ve kabul ediyorum.
+                        </md-checkbox>
+
+                        <div ng-if="vm.submitted || vm.signup.contract.$dirty" ng-messages="vm.signup.contract.$error" role="alert">
+                            <div ng-message="required"><span translate>Kullanıcı sözleşmesini kabul ediniz.</span></div>
+                        </div>
+
+                    </md-input-container>
+
+                    <md-button type="submit" aria-label="kullanmaya başla" class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10"  >Kullanmaya Başla</md-button>
+
+                    <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/login" translate="SIGNUP.HAVE_LOGIN" aria-label="{{'SIGNUP.HAVE_LOGIN' | translate}}"></md-button>
+
+                </form>
+            </md-content>
+        </md-card>
+    </div>
+</div>

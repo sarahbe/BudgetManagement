@@ -14,17 +14,20 @@
             url: '/pages/dashboard',
             templateUrl: 'app/budget/pages/dashboard/dashboard-general.tmpl.html',
             controller: 'DashboardGeneralController',            
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+                module: 'public'
         }).state('triangular.admin-default.transaction', {
             url: '/pages/transaction',
             templateUrl: 'app/budget/pages/transaction/transaction.tmpl.html',
             controller: 'TransactionController',            
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+                module: 'auth'
         }).state('triangular.admin-default.account-list', {
             url: '/pages/account',
             templateUrl: 'app/budget/pages/account/account-list.tmpl.html',
             controller: 'AccountListController',            
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+                module: 'auth'
         });      
         
         triMenuProvider.addMenu({

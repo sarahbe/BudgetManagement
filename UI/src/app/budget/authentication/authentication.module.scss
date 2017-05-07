@@ -1,0 +1,29 @@
+// Authentication Pages
+#ui-login {
+  &.ng-enter {
+    @include fadeIn($delay: 0.5s);
+  }
+  &.ng-leave {
+    @include fadeOut();
+  }
+}
+
+
+md-input-container .md-input {
+     border-radius:4px;
+    border: 2px solid #efeff0 !important;
+    background-color: #efeff0;
+}
+md-input-container label:not(.md-container-ignore) {
+     /*position: relative !important;*/ 
+     left: 5px;
+     bottom: 97%;
+ 
+}
+md-input-container.md-input-focused label   {
+    color:   #747474 !important;
+    font-size:16px !important;
+}
+md-input-container.md-input-focused  .md-input  {
+               padding-bottom: 1px !important;
+}

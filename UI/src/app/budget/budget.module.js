@@ -3,8 +3,8 @@
 
     angular
         .module('app.budget', [
-        'app.budget.pages'
-        ]).run(runFunction);       
+        'app.budget.pages', 'app.budget.authentication'
+        ]).run(runFunction);
         
 })();
 
@@ -13,7 +13,6 @@ function runFunction($rootScope, $window, $state, appService, apiSettings, API_C
         triLoaderService.setLoaderActive(false);
 
         if (toState.module != undefined && toState.module == 'public') {
-            // event.preventDefault();
 
         } else if (triAuthenticationService.IsAutanticate()) {
     	    
@@ -48,15 +47,11 @@ function runFunction($rootScope, $window, $state, appService, apiSettings, API_C
             }
           
         }
-        else if (triAuthenticationService.IsAutanticate() == false) {
-            // event.preventDefault();
+        else {
+             event.preventDefault();
 
-            // $state.go('authentication.login');
-        } 
-        if (toState.name != 'authentication.lock' && toState.name != 'authentication.login' && toState != 'triangular.kitchen.kitchen-screen' && triAuthenticationService.IsLocked() == true) {
-            // event.preventDefault();
-            // $state.go('authentication.lock');            
-        }
+             $state.go('authentication.login');
+        }         
     });
 
  
