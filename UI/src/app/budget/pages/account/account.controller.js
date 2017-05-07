@@ -6,8 +6,8 @@
         .controller('AccountController', AccountController);
 
     /* @ngInject */
-    function AccountController($state, $filter) {
-     
+    function AccountController($state, $filter, account) {
+        vm.account = account; 
     }
 
 })();

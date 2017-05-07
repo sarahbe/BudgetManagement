@@ -12,7 +12,7 @@
         triSettingsProvider.setName('Budget Manager');
         triSettingsProvider.setCopyright('&copy;' + now.getFullYear() + ' ');
         triSettingsProvider.setLogo('assets/images/logo.png');
-        triSettingsProvider.setLogoAll('assets/images/logo-all.png');
+        triSettingsProvider.setLogoAll('assets/images/logo.png');
 
         // set current version of app (shown in footer)
         triSettingsProvider.setVersion('2.5.0');

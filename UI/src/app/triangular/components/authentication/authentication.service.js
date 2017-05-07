@@ -14,7 +14,7 @@
              
                triAuthorization.setCurrentUser(data);
          
-               $cookies.put("LokantAppToken", JSON.stringify(tokenInfo), { 'expires': data.expires });
+               $cookies.put("BudgetManagerToken", JSON.stringify(tokenInfo), { 'expires': data.expires });
             this.setHeader($http);
  
             }  
@@ -25,12 +25,12 @@
   
             this.removeToken = function () {  
                 tokenInfo = null;  
-                $cookies.remove("LokantAppToken");
+                $cookies.remove("BudgetManagerToken");
                  this.setHeader($http);
                  triAuthorization.cleanCurrentUser();
             }  
             this.IsAutanticate = function () {  
-                if ($cookies.get("LokantAppToken")) {  
+                if ($cookies.get("BudgetManagerToken")) {  
                   return true;
                   
                 } 
@@ -38,18 +38,10 @@
                 return false;
                 } 
             }
-            this.IsLocked = function () {
-                if (this.getTokenInfo() && this.getTokenInfo().isLock) {
-                    return true;
-
-                }
-                else {
-                    return false;
-                }
-            }
+          
             this.init = function () {  
-                if ($cookies.get("LokantAppToken")) {  
-                    tokenInfo = JSON.parse($cookies.get("LokantAppToken"));  
+                if ($cookies.get("BudgetManagerToken")) {  
+                    tokenInfo = JSON.parse($cookies.get("BudgetManagerToken"));  
                      triAuthorization.setCurrentUser(tokenInfo);
                     this.setHeader($http);
                 }  

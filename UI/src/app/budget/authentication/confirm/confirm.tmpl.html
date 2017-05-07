@@ -1,0 +1,33 @@
+<div layout="row" flex layout-fill layout-align="center center">
+
+    <div flex="50" flex-xs="100" flex-sm="100">
+
+        <div hide-xs class="padding-10">
+
+
+
+        </div>
+
+        <md-card>
+
+            <md-content class="md-padding  margin-top-20 padding-top-10">
+
+                <div layout="row" layout-align="center center">
+                    <img ng-src="{{::vm.triSettings.logo}}" alt="{{vm.triSettings.name}}">
+                </div>
+                <div layout="row" layout-align="center center">
+                    <h1 class="md-subhead">
+                        <span translate>CONFIRM.TITLE</span>
+                    </h1>
+                </div>
+                <md-divider></md-divider>
+
+                <md-progress-linear ng-if="vm.isConfirmed==false"></md-progress-linear>
+                <p ng-if="vm.isConfirmed==false" class="margin-top-20 margin-bottom-20" translate>
+                </p>
+
+
+            </md-content>
+        </md-card>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+﻿{
+    "MENU": {
+        "AUTH": {
+            "AUTH": "Authentication",
+            "LOGIN": "Login",
+            "SIGN_UP": "Sign Up",
+            "FORGOT": "Forgot Password",
+            "LOCK": "Lock Page",
+            "PROFILE": "Profile"
+        }
+    },
+  "HEADER": {
+    "HEADING": "Triangular"
+  },
+  "CONFIRM": { "TITLE": " Being activated..."
+  },
+
+    "LOGIN": {
+        "TITLE": "Login",
+        "EMAIL": {
+            "LABEL": "E-Mail",
+            "PLEASE_ENTER": "Please enter e-mail address.",
+            "PLEASE_VALID": "Please enter an valid e-mail address"
+        }  ,"USER_NAME": {
+            "LABEL": "Username",
+            "PLEASE_ENTER": "Please enter username",
+            "PLEASE_VALID": "Please enter username"
+        },
+        "PASSWORD": {
+            "LABEL": "Password",
+            "PLEASE_ENTER": "Please enter password"
+        },
+        "REMEMBER": "Remember Me",
+        "FORGOT": "Forgot password?",
+        "BUTTON": "Login",
+        "SIGNUP_LINK": "Signup",
+        "SOCIAL": {
+            "OR": "or login with"
+        },
+        "MESSAGES": {
+            "ACCESS_DENIED": "Please check your username or password."
+        }
+    },
+    "SIGNUP": {
+        "TITLE": "Signup",
+        "NAME": {
+            "LABEL": "Name",
+            "PLEASE_ENTER": "Enter name"
+        },
+        "EMAIL": {
+            "LABEL": "E-mail",
+            "PLEASE_ENTER": "Please enter e-mail address",
+            "PLEASE_VALID": "Please enter e-mail address"
+        },
+        "PASSWORD": {
+            "LABEL": "password",
+            "PLEASE_ENTER": "Please enter password.",
+            "MIN_LENGTH": "Please enter min 6 characters",
+            "SAME_PASSWORD": "Passwords should be match"
+        },
+        "PASSWORD_CONFIRM": {
+            "LABEL": "confirm password"
+        },
+        "BUTTON": "Save",
+        "HAVE_LOGIN": "Already member",
+        "MESSAGES": {
+            "CONFIRM_SENT": "Activation email has been sent to your address",
+            "LOGIN_NOW": "Kullanıcı Girişi",
+         
+            "NO_SIGNUP": "Kullanıcı kaydı gerçekleşmedi"
+        }
+    },
+    "LOCK": {
+        "TITLE": "Merhaba ",
+        "LOGGED_OUT": "You have been logged out due to idleness. Enter your password to log back in.",
+        "PASSWORD": {
+            "LABEL": "password",
+            "PLEASE_ENTER": "Please enter your password."
+        },
+        "LOGIN": "Log in",
+        "LOGOUT": "Log out",
+        "MESSAGES": {
+            "ACCESS_DENIED": "Username / Password Incorrect"
+        }
+    },
+    "FORGOT": {
+        "TITLE": "Şifremi Unuttum?",
+        "ENTER_EMAIL": "Lütfen e-posta adresinizi giriniz?",
+        "EMAIL": {
+            "LABEL": "E-posta",
+            "PLEASE_ENTER": "Lütfen e-posta adresinizi giriniz.",
+            "PLEASE_VALID": "E-posta adresi zorunludur."
+        },
+        "RESET": "Gönder",
+        "LOGIN": "Şifrenizi hatırladınız mı? Kullanıcı Girişi",
+        "MESSAGES": {
+            "RESET_SENT": "Şifre değiştirme linke e-posta adresinize gönderilmiştir.",
+            "LOGIN_NOW": "Kullanıcı Girişi",
+            "NO_RESET": "Kullanıcı e-posta sistemde bulunamadı"
+        }
+    },
+    "PROFILE": {
+        "TITLE": "Profil",
+        "NAME": {
+            "LABEL": "Adı",
+            "PLEASE_ENTER": "Lütfen adınızı giriniz"
+        },
+        "EMAIL": {
+            "LABEL": "E-posta",
+            "PLEASE_ENTER": "Lütfen e-posta adresinizi giriniz.",
+            "PLEASE_VALID": "lütfen e-posta giriniz."
+        },
+        "LOCATION": {
+            "LABEL": "location"
+        },
+        "WEBSITE": {
+            "LABEL": "website"
+        },
+        "BIO": {
+            "LABEL": "bio"
+        },
+        "TWITTER": {
+            "LABEL": "twitter"
+        },
+        "PASSWORD": {
+            "LABEL": "Yeni şifre",
+            "CURRENT": "Mevcut şifre",
+            "PLEASE_ENTER": "Lütfen şifre giriniz.",
+            "MIN_LENGTH": "Şifreniz 8 karakterden az olamaz",
+            "SAME_PASSWORD": "Şifrelerinizin uyuşması gerkmektedir."
+        },
+        "PASSWORD_CONFIRM": {
+            "LABEL": "Şifre tekrar"
+        },
+        "BUTTON": "Güncelle"
+    }
+}
