@@ -363,9 +363,18 @@
     <Compile Include="Migrations\201705061409229_accountRightConstraints.Designer.cs">
       <DependentUpon>201705061409229_accountRightConstraints.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705071244441_categoryEntity.cs" />
+    <Compile Include="Migrations\201705071244441_categoryEntity.Designer.cs">
+      <DependentUpon>201705071244441_categoryEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705071255130_categoryEntityTransType.cs" />
+    <Compile Include="Migrations\201705071255130_categoryEntityTransType.Designer.cs">
+      <DependentUpon>201705071255130_categoryEntityTransType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AccountRightModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\EntringTransaction.cs" />
     <Compile Include="Models\ModelFactory.cs" />
@@ -375,6 +384,7 @@
     <Compile Include="Providers\CustomOAuthProvider.cs" />
     <Compile Include="Services\AccountRightService.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\TransactionService.cs" />
@@ -486,6 +496,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705061409229_accountRightConstraints.resx">
       <DependentUpon>201705061409229_accountRightConstraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705071244441_categoryEntity.resx">
+      <DependentUpon>201705071244441_categoryEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705071255130_categoryEntityTransType.resx">
+      <DependentUpon>201705071255130_categoryEntityTransType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

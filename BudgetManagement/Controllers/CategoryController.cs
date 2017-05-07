@@ -1,27 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BudgetManagement.DAL;
+using BudgetManagement.Domain;
+using BudgetManagement.Models;
+using BudgetManagement.Services;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace BudgetManagement.Controllers
 {
-    public class CategoryController:BaseApiController
+    [RoutePrefix("api/categories")]
+    public class CategoryController : BaseApiController
     {
-   //     [Route("Create")]
-     ////   [HttpPost]
-        //public IHttpActionResult CreateTransaction(AccountModel model)
-        //{
-        //    Account account = new Account();
-        //    account.AccountTypeID = model.AccountTypeID;
-        //    account.CurrencyId = model.CurrencyId;
+        private BudgetContext bctx = new BudgetContext();
 
-        //    BudgetContext.Accounts.Add(account);
-        //    var zz = BudgetContext.SaveChanges();
+        [Route("GetAll")]
+        public IHttpActionResult GetAllByCategoryType(TransactionType transactionTypeId, string userId)
+        {
+            return Ok(bctx.Categories.Where(c => c.TransactionTypeId == transactionTypeId && (string.IsNullOrEmpty(c.UserId) || c.UserId == userId) ));
+        }
+
+        [Route("Create")]
+        [HttpPost]
+        public IHttpActionResult CreateCategory(CategoryModel model)
+        {
+            CategoryService csrc = new CategoryService();
+            csrc.CreateCategory(model);
+
+            return Ok();
+        }
+
+        [Route("Update")]
+        [HttpPut]
+        public IHttpActionResult UpdateCategory(CategoryModel model)
+        {
+            CategoryService csrc = new CategoryService();
+            csrc.UpdateCategory(model);
+
+            return Ok();
+        }
 
 
-        //   return Ok(zz);
-        //}
-
-   }
+        // [Authorize]
+        [Route("Delete")]
+        [HttpPut]
+        public IHttpActionResult Delete(CategoryModel model)
+        {
+            CategoryService tsrc = new CategoryService();
+            model.Valid = false;
+            tsrc.UpdateCategory(model);
+            return Ok();
+        }
+    }
 }
