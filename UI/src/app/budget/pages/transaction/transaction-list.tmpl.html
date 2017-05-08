@@ -1,0 +1,28 @@
+﻿<div layout="column" class="margin-10">
+    <div flex layout-margin>
+        <md-card layout-fill style="min-height: 300px;">
+            <md-card-content>
+                <md-button ng-click="vm.newTransaction($event)" class="md-fab md-warn md-fab-bottom-right" aria-label="Create Transaction" style="font-size: 11px !important;">
+                    <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+                    <md-tooltip>Create Transaction</md-tooltip>
+                </md-button>
+                
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">Transaction list</md-subheader>
+                    <md-list-item ng-click="vm.editTransaction($event, transaction)" class="md-2-line" ng-repeat="transaction in vm.transactions">
+                        <md-icon ng-if="transaction.transactionTypeId == 1 " md-font-icon="zmdi zmdi-trending-up" style="color:green;" ></md-icon>
+                        <md-icon ng-if="transaction.transactionTypeId == 2 " md-font-icon="zmdi zmdi-trending-down" style="color:red;" ></md-icon>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ transaction.description }}</h3>
+                            <h4>{{ transaction.amount }}</h4>                            
+                        </div>
+                    </md-list-item>
+                </md-list>
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+</div>

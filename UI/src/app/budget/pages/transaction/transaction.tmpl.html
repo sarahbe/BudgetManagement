@@ -5,15 +5,13 @@
             <span>Income</span>
             <div class="card">
                 <label for="switch1">
-                        <input type="checkbox" ng-model="vm.isIncome" id="switch1"/>
+                        <input type="checkbox" ng-change="vm.transactionTypeChange()" ng-model="vm.isIncome" id="switch1"/>
                         <span class="switch"></span>
                         <span class="toggle"></span>
                     </label>
             </div>            
             <span>Expense</span>            
         </div>
-  
-
         <md-card>
             <md-card-content>
                 <md-input-container md-no-float class="md-block">

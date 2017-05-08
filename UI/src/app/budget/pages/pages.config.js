@@ -16,12 +16,21 @@
             controller: 'DashboardGeneralController',            
             controllerAs: 'vm',
                 module: 'public'
+        }).state('triangular.admin-default.transaction-list', {
+            url: '/pages/transactionlist',
+            templateUrl: 'app/budget/pages/transaction/transaction-list.tmpl.html',
+            controller: 'TransactionListController',            
+            controllerAs: 'vm',
+                module: 'public'
         }).state('triangular.admin-default.transaction', {
             url: '/pages/transaction',
             templateUrl: 'app/budget/pages/transaction/transaction.tmpl.html',
             controller: 'TransactionController',            
             controllerAs: 'vm',
-                module: 'auth'
+            params: {
+                transaction: {}
+            },
+                module: 'public'
         }).state('triangular.admin-default.account-list', {
             url: '/pages/account',
             templateUrl: 'app/budget/pages/account/account-list.tmpl.html',
@@ -42,7 +51,7 @@
         triMenuProvider.addMenu({
             name: 'Transaction',
             icon: 'zmdi zmdi-money',
-            state: 'triangular.admin-default.transaction',
+            state: 'triangular.admin-default.transaction-list',
             type: 'link',
             priority: 1.2
         });

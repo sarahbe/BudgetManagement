@@ -6,20 +6,19 @@
         .controller('AccountListController', AccountListController);
 
     /* @ngInject */
-    function AccountListController($state, $filter, $mdDialog) {
+    function AccountListController($state, $filter, $mdDialog, accountService, triAuthorization) {
         var vm = this;
+        vm.init = init;
         vm.newAccount = newAccount;
         vm.editAccount = editAccount;
 
-        vm.accounts = [{
-                description: 'Nakit',
-                limit: '1000'
-            },
-            {
-                description: 'Kredi Kartı',
-                limit: '250'
-            }
-        ];
+        init();
+       
+       function init(){
+            accountService.getAccounts(triAuthorization.getUserId()).then(function(res){
+                vm.accounts = res;
+            });
+       }
 
         function newAccount($event) {
              $mdDialog.show({
