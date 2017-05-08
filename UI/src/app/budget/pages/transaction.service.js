@@ -10,7 +10,7 @@
         // Service
         return {
             saveTransaction:saveTransaction,
-            getTransaction:getTransaction
+            getTransactions:getTransactions
         };
         /// 
 
@@ -27,11 +27,14 @@
             return deffered.promise;
         };
         
-        function getTransaction(id) {
+        function getTransactions(userId) {
 
             var deffered = $q.defer();
+            var data = {
+                userId: userId
+            };
 
-            appService.postData('api/transactions/create', data).then(function (response) {
+            appService.getData('api/transactions/GetAll', data).then(function (response) {
 
                 deffered.resolve(response);
 

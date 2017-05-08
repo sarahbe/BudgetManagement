@@ -1,0 +1,283 @@
+﻿<div class="todo-container   margin-top-20 margin-bottom-50">
+
+
+    <div layout-fill layout="row" class="margin-top-10" layout-align="center center">
+        <div flex="75" layout="row" layout-xs="column" flex-xs="95" flex-sm="95" flex-md="95" layout-fill>
+            <md-card flex class="margin-10 print-hide">
+                <md-card-content flex layout="row" layout-xs="column">
+                    <div flex>
+                        <md-menu>
+                            <md-button aria-label="Tarih Aralığı" class="md-raised md-accent" ng-click="$mdOpenMenu()">
+                                <md-icon md-font-icon="zmdi zmdi-calendar-note"></md-icon>
+                                <span hide-xs> Tarih Aralığı</span>
+                            </md-button>
+                            <md-menu-content width="3">
+                                <md-menu-item>
+                                    <md-button aria-label="bugün" ng-click="vm.setDayClick(0)">
+                                        Bugün
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button aria-label="son 7 gün" ng-click="vm.setDayClick(7)">
+                                        Son 7  Gün
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button aria-label="son 30 gün" ng-click="vm.setDayClick(30)">
+                                        Son 30 Gün
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button aria-label="bu ay" ng-click="vm.setDayClick(vm.thisDay)">
+                                        Bu Ay
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button aria-label="bu yıl" ng-click="vm.setDayClick(vm.thisYearDay)">
+                                        Bu Yıl
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                    <span flex> </span>
+                    <md-datepicker flex ng-model="vm.request.startDateTimeLocal  " md-placeholder="Başlangıç  "></md-datepicker>
+                    <md-datepicker flex ng-model="vm.request.endDateTimeLocal  " md-placeholder="Bitiş  "></md-datepicker>
+                    <md-button aria-label="rapor oluştur" flex flex-gt-md="15" class="md-accent md-raised" ng-click="vm.createReportClick($event)">
+                        <md-icon md-font-icon="zmdi zmdi-search"></md-icon>
+                        <span hide-xs hide-sm>Rapor Getir</span>
+                    </md-button>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+    <div layout-fill layout="row" class="margin-top-10" layout-align="center center">
+        <div flex="75" layout="row" layout-xs="column" flex-xs="95" flex-sm="95" flex-md="95" layout-fill>
+            <div flex class="margin-10 md-whiteframe-z2 padding-10 bg-white" content-padding>
+                <div flex layout="row">
+
+                    <h3 flex>Bölge Bazında Satışlar</h3>
+
+                    <md-button title="Excel" class="md-icon-button" aria-label="More" ng-click="vm.exportFile('.tableArea','excel')">
+                        <md-icon md-font-icon="fa fa-file-excel-o"></md-icon>
+                    </md-button>
+                    <md-button title="Excel" class="md-icon-button" aria-label="More" onclick="window.print();">
+                        <md-icon md-font-icon="fa fa-print"></md-icon>
+                    </md-button>
+                </div>
+                <table class="table tableArea">
+                    <thead>
+                        <tr>
+                            <th>Bölge</th>
+                            <th>Tutar</th>
+                            <th>Oran</th>
+                        </tr>
+                    </thead>
+                    <tbody class="md-caption">
+                        <tr ng-repeat="item in vm.areasData.results">
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.name }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.name }}
+                            </td>                            
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.sum | number:2}} TL
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.sum | number:2}} TL
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.percent }} %
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.percent }} %
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td> </td>
+                            <td class="md-subhead">{{vm.areasData.total.sum | number:2}} TL</td>
+                            <td class="md-subhead">100 %</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div flex class="margin-10 md-whiteframe-z2 padding-10 bg-white" content-padding>
+                <div flex layout="row">
+                    <h3 flex>Kategori Bazında Satışlar</h3>
+                    <md-button title="Excel" class="md-icon-button" aria-label="More" ng-click="vm.exportFile('.tableCategorySales','excel')">
+                        <md-icon md-font-icon="fa fa-file-excel-o"></md-icon>
+                    </md-button>
+                    <md-button title="Excel" class="md-icon-button" aria-label="More" onclick="window.print();">
+                        <md-icon md-font-icon="fa fa-print"></md-icon>
+                    </md-button>
+                </div>
+                <table class="table tableCategorySales">
+                    <thead>
+                        <tr>
+                            <th>Kategori</th>
+                            <th>Miktar</th>
+                            <!--<th>Oran</th>-->
+                            <th>Tutar</th>
+                            <th>Oran</th>
+                        </tr>
+                    </thead>
+                    <tbody class="md-caption">
+                        <tr ng-repeat="item in    vm.categoriesData.results ">
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.name }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.name }}
+                            </td>
+
+                              <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.quantity | number }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.quantity  | number}}
+                            </td>
+
+                            <!--<td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.percentQuantity }} %
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.percentQuantity }} %
+                            </td>-->
+
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.sum | number:2}} TL
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.sum | number:2}} TL
+                            </td>
+
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ item.percent }} %
+                            </td>
+                            <td ng-if="$even">
+                                {{ item.percent }} %
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td> </td>
+                            <td class="md-subhead">{{vm.categoriesData.total.quantity}} </td>
+                            <td class="md-subhead">{{vm.categoriesData.total.sum | number:2}} TL</td>
+                            <td class="md-subhead">100 %</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div layout-fill layout="row" class="margin-top-10" layout-align="center center">
+        <div flex="75" layout="row" layout-xs="column" flex-xs="95" flex-sm="95" flex-md="95" flex-l="95" layout-fill>
+            <div class="margin-10 md-whiteframe-z2 padding-10 bg-white" flex   content-padding>
+                <div flex layout="row">
+
+                    <h3 flex>Ürün Bazında Satış ve Miktar</h3>
+
+                    <md-button title="Excel" class="md-icon-button" aria-label="More" ng-click="vm.exportFile('.tableProductSales','excel')">
+                        <md-icon md-font-icon="fa fa-file-excel-o"></md-icon>
+                    </md-button>
+                    <md-button title="Excel" class="md-icon-button" aria-label="More" onclick="window.print();">
+                        <md-icon md-font-icon="fa fa-print"></md-icon>
+                    </md-button>
+                </div>
+                Toplam {{vm.productsData.results.length}} ürün
+                <table class="table tableProductSales">
+                    <thead>
+                        <tr>
+                            <th>Ürün</th>
+                            <th>Miktar</th>
+                            <th>Birim</th>
+                            <th>Kategori</th>
+                            <th>Birim Fiyatı</th>
+                            <th>Extra Tutar</th>
+                            <th>İkram</th>
+                            <th>Toplam Tutar</th>
+                            <th>Oran</th>
+                        </tr>
+                    </thead>
+                    <tbody class="md-caption">
+                        <tr ng-repeat="socialData in    vm.productsData.results  track by (socialData.name + $index) ">
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.name }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.name }}
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.quantity | number }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.quantity | number }}
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.unitName }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.unitName }}
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.category }}
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.category }}
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.unitPrice | number:2 }} TL
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.unitPrice | number:2 }} TL
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.additionalPrice | number:2 }} TL
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.additionalPrice | number:2 }} TL
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.discountAmount | number:2 }} TL
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.discountAmount | number:2 }} TL
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.sum | number:2}} TL
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.sum | number:2}} TL
+                            </td>
+                            <td ng-if="$odd" style="background-color: #f1f1f1">
+                                {{ socialData.percent | number:2 }}%
+                            </td>
+                            <td ng-if="$even">
+                                {{ socialData.percent | number:2 }} %
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td> </td>
+                            <td class="md-subhead">{{vm.productsData.total.quantity}} </td>
+
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td> </td>
+                            <td class="md-subhead">{{vm.productsData.total.sum}} TL</td>
+                            <td class="md-subhead">100 %</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -202,9 +202,8 @@
                     'content-type': 'application/json',
                     'accept': 'application/json',
                     'cache-control': 'no-cache',
-
                 },
-                param: data
+                params: data
             }).then(function (response) {
                 handleSuccess(deffered, response);
             }, function (response) {
