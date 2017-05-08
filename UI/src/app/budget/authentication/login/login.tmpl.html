@@ -1,59 +1,47 @@
-﻿<div layout="row" flex layout-fill   layout-align="center center">
- 
-        <div flex="50" flex-xs="100" flex-sm="100">
+﻿<div layout="row" flex layout-fill layout-align="center center">
 
-            <div hide-xs    class="padding-10">
-            </div>
-                <md-card>
-                    <md-content class="md-padding  margin-top-20 padding-top-10">
-                        <div layout="row" layout-align="center center">
-                            <img ng-src="{{::vm.triSettings.logoAll}}" alt="{{vm.triSettings.name}}">
+    <div flex="50" flex-xs="100" flex-sm="100">
+
+        <div hide-xs class="padding-10">
+        </div>
+        <md-card>
+            <md-content class="md-padding  margin-top-20 padding-top-10">
+                <div layout="row" layout-align="center center">
+                    <img ng-src="{{::vm.triSettings.logoAll}}" alt="{{vm.triSettings.name}}">
+                </div>
+                <div layout="row" layout-align="center center">
+                    <h1 class="md-subhead" >Login</h1>
+                </div>
+                <md-divider></md-divider>
+
+                <form name="vm.login" ng-submit="vm.loginClick()">
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="username" >Username</label>
+                        <input id="username" label="username" name="username" autofocus type="username" required ng-model="vm.user.username" />
+
+                        <div ng-if="vm.submitted || vm.login.username.$dirty" ng-messages="vm.login.username.$error" role="alert">
+                            <div ng-message="required"><span >Username is required</span></div>
                         </div>
-                        <div layout="row" layout-align="center center">
-                            <h1 class="md-subhead" translate>LOGIN.TITLE</h1>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="password">Password</label>
+                        <input id="password" label="password" name="password" type="password" required ng-model="vm.user.password" />
+                        <div ng-if="vm.submitted || vm.login.password.$dirty" ng-messages="vm.login.password.$error" role="alert">
+                            <div ng-message="required"><span>Password is required </span></div>
                         </div>
-                        <md-divider></md-divider>
 
-                        <form name="vm.login" ng-submit="vm.loginClick()">
-                            <md-input-container class="md-block">
-                                <label class="md-subhead" for="username" translate>Username</label>
-                                <input id="username" label="email" name="username"  autofocus type="username" required ng-model="vm.user.username" />
-
-                                <div ng-if="vm.submitted || vm.login.username.$dirty" ng-messages="vm.login.username.$error" role="alert">                                    
-                                    <div ng-message="required"><span translate>Username is required</span></div>
-                                </div>
-                            </md-input-container>
-                            <md-input-container class="md-block">
-                                <label class="md-subhead" for="password" translate>LOGIN.PASSWORD.LABEL</label>
-                                <input id="password" label="password" name="password" type="password"   required ng-model="vm.user.password" />
-                                <div ng-if="vm.submitted || vm.login.password.$dirty" ng-messages="vm.login.password.$error" role="alert">                               
-                                    <div ng-message="required"><span>Password is required </span></div>
-                                </div>
-
-                            </md-input-container>
+                    </md-input-container>
 
 
-                            <md-button type="submit" class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10"
-                                       translate="LOGIN.BUTTON" aria-label="{{'LOGIN.BUTTON' | translate}}"></md-button>
+                    <md-button type="submit" class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10">Login</md-button>
 
-                            <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/forgot" translate="LOGIN.FORGOT" aria-label="{{'LOGIN.FORGOT' | translate}}"></md-button>
+                    <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/forgot">Forgot Password?</md-button>
 
-                            <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/signup" translate="LOGIN.SIGNUP_LINK" aria-label="{{'LOGIN.SIGNUP_LINK' | translate}}"></md-button>
+                    <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/signup">Sign-up </md-button>
 
-                            <!--<div class="social-login">
-                        <md-divider></md-divider>
+                </form>
 
-                        <div class="text-center margin-20" translate>LOGIN.SOCIAL.OR</div>
-
-                        <div layout="row" layout-align="space-between center" layout-margin>
-                            <md-button href="#" ng-repeat="social in ::vm.socialLogins" class="md-icon-button" ng-style="{ 'background-color': social.color }" aria-label="{{social.icon}}">
-                                <md-icon md-font-icon="{{::social.icon}}"></md-icon>
-                            </md-button>
-                        </div>
-                    </div>-->
-                        </form>
-                   
-                    </md-content>
-                </md-card>
-</div>
+            </md-content>
+        </md-card>
     </div>
+</div>
