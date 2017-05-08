@@ -13,28 +13,28 @@
             signUp: signUp,
             confirm: confirm,
             forgot: forgot,
-            sendActivationMail: sendActivationMail,
+            // sendActivationMail: sendActivationMail,
             resetUserPassword: resetUserPassword,
             setUserData: setUserData
         };
         ///
         
-        function sendActivationMail() {
-            var deffered = $q.defer();
+        // function sendActivationMail() {
+        //     var deffered = $q.defer();
 
-            appService.postData("api/accounts/activation").then(function (response) {
+        //     appService.postData("api/users/activation").then(function (response) {
 
               
-                deffered.resolve(response);
+        //         deffered.resolve(response);
 
-            });
+        //     });
 
-            return deffered.promise;
-        }
+        //     return deffered.promise;
+        // }
         function resetUserPassword(data) {
             var deffered = $q.defer();
 
-            appService.postData("api/accounts/reset", data).then(function (response) {
+            appService.postData("api/users/reset", data).then(function (response) {
 
 
                 deffered.resolve(response);
@@ -47,7 +47,7 @@
 
             var deffered = $q.defer();
 
-            appService.postData("oauth/token", data, 'application/x-www-form-urlencoded').then(function (response) {
+            appService.postData("oauth/token", data).then(function (response) {
 
                 var userData = setUserData(response);
 
@@ -85,7 +85,7 @@
 
             var deffered = $q.defer();
 
-            appService.postData('api/accounts/signup', user).then(function (response) {
+            appService.postData('api/users/create', user).then(function (response) {
 
                 deffered.resolve(response);
 
@@ -98,7 +98,7 @@
 
             var deffered = $q.defer();
 
-            appService.postData('api/accounts/forgot', user).then(function (response) {
+            appService.postData('api/users/ChangePassword', user).then(function (response) {
 
                 deffered.resolve(response);
 
@@ -113,7 +113,7 @@
 
             var deffered = $q.defer();
 
-            appService.postData('api/accounts/confirm', data).then(function (response) {
+            appService.postData('api/users/ConfirmEmail', data).then(function (response) {
 
                 var userData = {
                     isAuthenticated: false,

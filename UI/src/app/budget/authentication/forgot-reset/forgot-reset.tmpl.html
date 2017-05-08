@@ -32,6 +32,16 @@
                         </div>
                     </md-input-container>
 
+
+                    <md-input-container class="md-block">
+                        <label for="password">Confirm password</label>
+                        <input id="password" label="password" name="password" type="password" ng-model="vm.user.newPassword" ng-pattern="vm.exPatterns.passwordPattern" required />
+
+                        <div ng-if="vm.submitted || vm.password.password.$dirty" ng-messages="vm.password.password.$error" role="alert">
+                            <div ng-message="required"><span translate>Rewrite password</span></div>
+                        </div>
+                    </md-input-container>
+
                     <md-button  class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.resetPasswordClick()">Save and continue</md-button>
 
                 </form>
