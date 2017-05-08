@@ -98,7 +98,8 @@
 
         };      
 
-        function postData(url, data) {
+        
+        function postData(url, data, contentType ) {
             $http.defaults.useXDomain = true;
             var deffered = $q.defer();
    
@@ -112,6 +113,9 @@
                 data = {};
             }
 
+            if(!contentType)
+                contentType = 'application/json';
+
             var request = $http({
                 method: 'post',
                 url: server + url,
@@ -121,8 +125,8 @@
                 headers: {
                     //  'content-type': 'application/json',
                     //  'accept': 'application/json',
-                    'cache-control': 'no-cache',
-
+                    'cache-control': 'no-cache'
+                    //'content-type': 'application/x-www-form-urlencoded'
                 }
             }).then(function (response) {
                 handleSuccess(deffered, response);

@@ -10,6 +10,7 @@
         var vm = this;        
         vm.init = init;
         vm.editTransaction = editTransaction;
+        vm.newTransaction = newTransaction;
 
         init();
 
@@ -22,6 +23,10 @@
 
         function editTransaction($event, transaction){
             $state.go('triangular.admin-default.transaction',{'transaction': transaction });
+        }
+
+        function newTransaction($event){
+            $state.go('triangular.admin-default.transaction');            
         }
 
     }

@@ -64,7 +64,7 @@
 
                 },
                 getUserId: function () {
-                    return currentUser.userId;
+                    return 1;//currentUser.userId;
                 },
                 getEmail: function () {
                     return currentUser.email;

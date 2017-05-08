@@ -47,7 +47,7 @@
 
             var deffered = $q.defer();
 
-            appService.postData("auth/token", data).then(function (response) {
+            appService.postData("oauth/token", data, 'application/x-www-form-urlencoded').then(function (response) {
 
                 var userData = setUserData(response);
 

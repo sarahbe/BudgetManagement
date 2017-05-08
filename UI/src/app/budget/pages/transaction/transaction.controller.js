@@ -6,7 +6,7 @@
         .controller('TransactionController', TransactionController);
 
     /* @ngInject */
-    function TransactionController($state, transactionService, lookupService,triAuthorization,  accountService, appNotifyService) {
+    function TransactionController($state, $stateParams, transactionService, lookupService, triAuthorization, accountService, appNotifyService) {
         var vm = this;
         vm.saveTransaction = saveTransaction;
         vm.transactionTypeChange = transactionTypeChange;
@@ -15,9 +15,13 @@
         init();
 
         function init() {
-            vm.transaction = {};
-            vm.transaction.transactionTypeId = 1;
-            
+            if ($stateParams.transaction)
+                vm.transaction = $stateParams.transaction;
+            else {
+                vm.transaction = {};
+                vm.transaction.transactionTypeId = 1;
+            }
+
             accountService.getAccounts(triAuthorization.getUserId()).then(function (res) {
                 vm.accounts = res;
             });
@@ -28,7 +32,7 @@
         function fillCategories() {
             lookupService.getCategories(vm.transaction.transactionTypeId, triAuthorization.getUserId()).then(function (res) {
                 vm.categories = res;
-            });            
+            });
         }
 
         function saveTransaction() {

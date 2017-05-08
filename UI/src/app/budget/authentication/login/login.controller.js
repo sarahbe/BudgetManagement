@@ -32,7 +32,7 @@
 
             var postmodel = { grant_type: "password", password: vm.user.password, username: vm.user.username }
             
-            authenticationService.login($.param(postmodel)).then(function (result) { 
+            authenticationService.login(postmodel).then(function (result) { 
                 // burada garson ise satış sayfasına yönlendirme yapılıyor.
 
                 authenticationService.redirectUser(result);
