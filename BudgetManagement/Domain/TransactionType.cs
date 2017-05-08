@@ -8,6 +8,6 @@ namespace BudgetManagement.Domain
     public enum TransactionType
     {
         Expense = 1,
-        Income
+        Income = 2
     } 
 }

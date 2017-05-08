@@ -15,7 +15,7 @@
         init();
 
         function init() {
-            if ($stateParams.transaction)
+            if ($stateParams.transaction.id)
                 vm.transaction = $stateParams.transaction;
             else {
                 vm.transaction = {};
@@ -44,7 +44,7 @@
         }
 
         function transactionTypeChange() {
-            vm.transaction.transactionTypeId = vm.isIncome ? 1 : 2;
+            vm.transaction.transactionTypeId = vm.isIncome ? 2 : 1;
             fillCategories();
         }
     }
