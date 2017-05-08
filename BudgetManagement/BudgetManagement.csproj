@@ -299,77 +299,9 @@
     <Compile Include="Domain\TransactionType.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="ExceptionHandling\GeneralExceptionHandler.cs" />
-    <Compile Include="Migrations\201703161711124_InitialCreate.cs" />
-    <Compile Include="Migrations\201703161711124_InitialCreate.Designer.cs">
-      <DependentUpon>201703161711124_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703161715049_InitialCreate1.cs" />
-    <Compile Include="Migrations\201703161715049_InitialCreate1.Designer.cs">
-      <DependentUpon>201703161715049_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704091338250_InitialCreate2.cs" />
-    <Compile Include="Migrations\201704091338250_InitialCreate2.Designer.cs">
-      <DependentUpon>201704091338250_InitialCreate2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704101759462_InitialCreate3.cs" />
-    <Compile Include="Migrations\201704101759462_InitialCreate3.Designer.cs">
-      <DependentUpon>201704101759462_InitialCreate3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704101802147_useridToString.cs" />
-    <Compile Include="Migrations\201704101802147_useridToString.Designer.cs">
-      <DependentUpon>201704101802147_useridToString.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704231512111_InitialCreate4.cs" />
-    <Compile Include="Migrations\201704231512111_InitialCreate4.Designer.cs">
-      <DependentUpon>201704231512111_InitialCreate4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704291128185_DropMaritalAndTransactionTypeTables.cs" />
-    <Compile Include="Migrations\201704291128185_DropMaritalAndTransactionTypeTables.Designer.cs">
-      <DependentUpon>201704291128185_DropMaritalAndTransactionTypeTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704291244363_accountChanges.cs" />
-    <Compile Include="Migrations\201704291244363_accountChanges.Designer.cs">
-      <DependentUpon>201704291244363_accountChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704291315049_timestampToUserTable.cs" />
-    <Compile Include="Migrations\201704291315049_timestampToUserTable.Designer.cs">
-      <DependentUpon>201704291315049_timestampToUserTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704301443077_GroupTables.cs" />
-    <Compile Include="Migrations\201704301443077_GroupTables.Designer.cs">
-      <DependentUpon>201704301443077_GroupTables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704301447193_ValidColumn.cs" />
-    <Compile Include="Migrations\201704301447193_ValidColumn.Designer.cs">
-      <DependentUpon>201704301447193_ValidColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201704301453148_groupUserTable.cs" />
-    <Compile Include="Migrations\201704301453148_groupUserTable.Designer.cs">
-      <DependentUpon>201704301453148_groupUserTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705011856385_AccountRight.cs" />
-    <Compile Include="Migrations\201705011856385_AccountRight.Designer.cs">
-      <DependentUpon>201705011856385_AccountRight.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705041751547_someChanges.cs" />
-    <Compile Include="Migrations\201705041751547_someChanges.Designer.cs">
-      <DependentUpon>201705041751547_someChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705041835506_accountRightAccountId.cs" />
-    <Compile Include="Migrations\201705041835506_accountRightAccountId.Designer.cs">
-      <DependentUpon>201705041835506_accountRightAccountId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705061409229_accountRightConstraints.cs" />
-    <Compile Include="Migrations\201705061409229_accountRightConstraints.Designer.cs">
-      <DependentUpon>201705061409229_accountRightConstraints.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705071244441_categoryEntity.cs" />
-    <Compile Include="Migrations\201705071244441_categoryEntity.Designer.cs">
-      <DependentUpon>201705071244441_categoryEntity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705071255130_categoryEntityTransType.cs" />
-    <Compile Include="Migrations\201705071255130_categoryEntityTransType.Designer.cs">
-      <DependentUpon>201705071255130_categoryEntityTransType.cs</DependentUpon>
+    <Compile Include="Migrations\201705081809362_initial.cs" />
+    <Compile Include="Migrations\201705081809362_initial.Designer.cs">
+      <DependentUpon>201705081809362_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
@@ -436,6 +368,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="cstrings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="cstrings.Debug.config">
+      <DependentUpon>cstrings.config</DependentUpon>
+    </Content>
+    <Content Include="cstrings.Release.config">
+      <DependentUpon>cstrings.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -449,59 +390,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703161711124_InitialCreate.resx">
-      <DependentUpon>201703161711124_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703161715049_InitialCreate1.resx">
-      <DependentUpon>201703161715049_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704091338250_InitialCreate2.resx">
-      <DependentUpon>201704091338250_InitialCreate2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704101759462_InitialCreate3.resx">
-      <DependentUpon>201704101759462_InitialCreate3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704101802147_useridToString.resx">
-      <DependentUpon>201704101802147_useridToString.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704231512111_InitialCreate4.resx">
-      <DependentUpon>201704231512111_InitialCreate4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704291128185_DropMaritalAndTransactionTypeTables.resx">
-      <DependentUpon>201704291128185_DropMaritalAndTransactionTypeTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704291244363_accountChanges.resx">
-      <DependentUpon>201704291244363_accountChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704291315049_timestampToUserTable.resx">
-      <DependentUpon>201704291315049_timestampToUserTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704301443077_GroupTables.resx">
-      <DependentUpon>201704301443077_GroupTables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704301447193_ValidColumn.resx">
-      <DependentUpon>201704301447193_ValidColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704301453148_groupUserTable.resx">
-      <DependentUpon>201704301453148_groupUserTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705011856385_AccountRight.resx">
-      <DependentUpon>201705011856385_AccountRight.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705041751547_someChanges.resx">
-      <DependentUpon>201705041751547_someChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705041835506_accountRightAccountId.resx">
-      <DependentUpon>201705041835506_accountRightAccountId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705061409229_accountRightConstraints.resx">
-      <DependentUpon>201705061409229_accountRightConstraints.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705071244441_categoryEntity.resx">
-      <DependentUpon>201705071244441_categoryEntity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705071255130_categoryEntityTransType.resx">
-      <DependentUpon>201705071255130_categoryEntityTransType.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705081809362_initial.resx">
+      <DependentUpon>201705081809362_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
