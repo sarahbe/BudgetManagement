@@ -16,20 +16,30 @@
                 <form name="vm.signup" ng-submit="vm.confirmPasswordClick()">
                     <md-input-container class="md-block">
                         <label class="md-subhead" for="email">E-mail</label>
-                        <input id="email" label="email" autofocus name="email"   type="email" ng-model="vm.user.Email" ng-pattern="vm.exPatterns.emailPattern" required />
+                        <input id="email" label="email" autofocus name="email" type="email" ng-model="vm.user.Email" ng-pattern="vm.exPatterns.emailPattern"
+                            required />
                         <div ng-if="vm.submitted || vm.signup.email.$dirty" ng-messages="vm.signup.email.$error" role="alert">
                             <div ng-message="pattern">Please enter a valid e-mail</div>
                             <div ng-message="required"><span translate>Please enter e-mail</span></div>
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
+                        <label class="md-subhead" for="username">Username</label>
+                        <input id="username" label="username" name="username" type="text" ng-model="vm.user.UserName" required />
+                        <div ng-if="vm.submitted || vm.signup.name.$dirty" ng-messages="vm.signup.name.$error" ng-if="vm.signup.name.$dirty">
+                            <div ng-message when="required">
+                                <span>Please enter username</span>
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <!--<md-input-container class="md-block">
                         <label class="md-subhead" for="mobilePhone">Cep Telefonu. Örnek (5554443322)</label>
                         <input id="mobilePhone" label="mobilePhone" name="mobilePhone"   type="mobilePhone" ng-model="vm.user.PhoneNumber" ng-pattern="vm.exPatterns.phonePattern" required />
                         <div ng-if="vm.submitted || vm.signup.mobilePhone.$dirty"  ng-messages="vm.signup.mobilePhone.$error" role="alert">
                             <div ng-message="pattern">Lütfen bir cep telefon numarası. Örnek (5554443322)</div>
                             <div ng-message="required"><span translate>Cep Telefon numarası boş geçilemez</span></div>
                         </div>
-                    </md-input-container>                
+                    </md-input-container>                -->
                     <md-input-container class="md-block">
                         <label class="md-subhead" for="name">İsim</label>
                         <input id="name" label="name" name="name" type="text" ng-model="vm.user.Name" required />
@@ -40,29 +50,33 @@
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block">
-                        <label class="md-subhead" for="password">Şifre</label>
-                        <input id="password" label="password" name="password" type="password"  ng-model="vm.user.Password" ng-pattern="vm.exPatterns.passwordPattern" required />
+                        <label class="md-subhead" for="password">Password</label>
+                        <input id="password" label="password" name="password" type="password" ng-model="vm.user.Password" ng-pattern="vm.exPatterns.passwordPattern"
+                            required />
                         <div ng-if="vm.submitted || vm.signup.password.$dirty" ng-messages="vm.signup.password.$error" role="alert">
-                            <div ng-message="pattern">Şifreniz en az 6 karakter olmalıdır</div>                       
+                            <!--<div ng-message="pattern">Password should be at least 6 characters.</div>                       -->
+                            <div ng-message="required"><span translate>Please enter password</span></div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label class="md-subhead" for="password">Confirm Password</label>
+                        <input id="password" label="password" name="password" type="password" ng-model="vm.user.ConfirmPassword" required />
+                        <div ng-if="vm.submitted || vm.signup.password.$dirty" ng-messages="vm.signup.password.$error" role="alert">
+                            <div ng-message="pattern">Şifreniz en az 6 karakter olmalıdır</div>
                             <div ng-message="required"><span translate>Şifre boş geçilemez</span></div>
                         </div>
                     </md-input-container>
-
-
-                    <md-input-container class="md-block">
-                        <md-checkbox ng-model="vm.user.isReadContract" name="contract" required aria-label="Default Checkbox">
-                            <a href="http://www.adisyo.com/kullanici-sozlesmesi.html" target="_blank">Kullanım koşullarını </a>  okudum ve kabul ediyorum.
-                        </md-checkbox>
-
-                        <div ng-if="vm.submitted || vm.signup.contract.$dirty" ng-messages="vm.signup.contract.$error" role="alert">
-                            <div ng-message="required"><span translate>Kullanıcı sözleşmesini kabul ediniz.</span></div>
-                        </div>
-
+                    <md-input-container  class="md-block">
+                        <label class="md-subhead" for="maritalStatus">Marital Status</label> 
+                        <md-select placeholder="Marital Status" ng-model="vm.maritalStatus.Id">
+                            <md-option ng-value="maritalStatus.id" ng-repeat="maritalStatus in vm.maritalStatuses"> {{ maritalStatus.description }} </md-option>
+                        </md-select>
                     </md-input-container>
 
-                    <md-button type="submit" aria-label="kullanmaya başla" class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10"  >Kullanmaya Başla</md-button>
+                    <md-button type="submit" aria-label="Go!" class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10">Sign up</md-button>
 
-                    <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/login" translate="SIGNUP.HAVE_LOGIN" aria-label="{{'SIGNUP.HAVE_LOGIN' | translate}}"></md-button>
+                    <md-button class="md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/login" translate="SIGNUP.HAVE_LOGIN"
+                        aria-label="{{'SIGNUP.HAVE_LOGIN' | translate}}"></md-button>
 
                 </form>
             </md-content>

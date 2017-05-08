@@ -16,24 +16,23 @@
                     <img ng-src="{{::vm.triSettings.logoAll}}" alt="{{vm.triSettings.name}}">
                 </div>
                 <div layout="row" layout-align="center center">
-                    <h1 class="md-subhead" translate>FORGOT.TITLE</h1>
+                    <h1 class="md-subhead" >Forgot my password</h1>
                 </div>
                 <md-divider></md-divider>
 
-                <p translate>Yeni şifrenizi giriniz...</p>
+                <p translate>Please Enter a new password</p>
                 <form name="vm.password">
 
                     <md-input-container class="md-block">
-                        <label for="password" translate>PROFILE.PASSWORD.LABEL</label>
+                        <label for="password">New password</label>
                         <input id="password" label="password" name="password" type="password" ng-model="vm.user.newPassword" ng-pattern="vm.exPatterns.passwordPattern" required />
 
                         <div ng-if="vm.submitted || vm.password.password.$dirty" ng-messages="vm.password.password.$error" role="alert">
-                            <div ng-message="pattern">Şifreniz en az 6 karakter olmalıdır</div>
-                            <div ng-message="required"><span translate>Şifre boş geçilemez</span></div>
+                            <div ng-message="required"><span translate>Please enter a password</span></div>
                         </div>
                     </md-input-container>
 
-                    <md-button aria-label="kaydet ve giriş yap" class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.resetPasswordClick()">Kaydet ve Giriş Yap</md-button>
+                    <md-button  class="md-raised md-primary full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.resetPasswordClick()">Save and continue</md-button>
 
                 </form>
             </md-content>

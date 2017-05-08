@@ -38,9 +38,9 @@
 
             authenticationService.signUp(vm.user).then(function (result) {
                 if (result.isError) {
-                    appNotifyService.alert('Hata', result.errorMessage, 'Tamam');
+                    appNotifyService.alert('Error', result.errorMessage, 'Ok');
                 } else {
-                    appNotifyService.success('Kaydınız oluşturuldu...').then(function () {
+                    appNotifyService.success('Your account has been created successfully').then(function () {
 
 
                     });

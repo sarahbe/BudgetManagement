@@ -15,24 +15,24 @@
                     <img ng-src="{{::vm.triSettings.logoAll}}" alt="{{vm.triSettings.name}}">
                 </div>
                 <div layout="row" layout-align="center center">
-                    <h1 class="md-subhead" translate>FORGOT.TITLE</h1>
+                    <h1 class="md-subhead" >Forgot my password?</h1>
                 </div>
                 <md-divider></md-divider>
 
-                <p translate>FORGOT.ENTER_EMAIL</p>
+                <p>Please Enter your email address</p>
                 <form name="forgot">
                     <md-input-container class="md-block">
-                        <label class="md-subhead" for="email" translate>FORGOT.EMAIL.LABEL</label>
+                        <label class="md-subhead" for="email">Email</label>
                         <input id="email" label="email" name="email"   autofocus type="email" ng-pattern="vm.emailPattern" ng-model="vm.user.email" required />
                         <div ng-messages="forgot.email.$error" ng-if="forgot.email.$dirty">
-                            <div ng-message when="required"><span translate>FORGOT.EMAIL.PLEASE_ENTER</span></div>
-                            <div ng-message when="email"><span translate>FORGOT.EMAIL.PLEASE_VALID</span></div>
+                            <div ng-message when="required"><span>Please enter your email address</span></div>
+                            <div ng-message when="email"><span>You should enter a valid email address</span></div>
                         </div>
                     </md-input-container>
 
-                    <md-button class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.resetClick()" ng-disabled="forgot.$invalid" translate="FORGOT.RESET" aria-label="{{'FORGOT.RESET' | translate}}"></md-button>
+                    <md-button class="md-raised md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" ng-click="vm.resetClick()" ng-disabled="forgot.$invalid" >Send</md-button>
 
-                    <md-button class="md-primary md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/login" translate="FORGOT.LOGIN" aria-label="{{'FORGOT.LOGIN' | translate}}"></md-button>
+                    <md-button class="md-primary md-accent full-width margin-left-0 margin-right-0 margin-top-10 margin-bottom-10" href="#!/login">Log-in</md-button>
                 </form>
             </md-content>
         </md-card>
