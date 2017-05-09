@@ -97,7 +97,7 @@ gulp.task('examplejs', function () {
 });
 
 gulp.task('misc', function () {
-  return gulp.src(paths.src + '/favicon.png')
+  return gulp.src(paths.src + '/logo.png')
     .pipe(gulp.dest(paths.dist + '/'));
 });
 

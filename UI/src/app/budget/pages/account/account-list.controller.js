@@ -21,17 +21,7 @@
        }
 
         function newAccount($event) {
-             $mdDialog.show({
-                    templateUrl: 'app/budget/pages/account/account.tmpl.html',
-                    targetEvent: $event,
-                    controller: 'AccountController',
-                    controllerAs: 'vm',
-                    parent: angular.element(document.body),
-                    locals: {                        
-                    }
-                })
-                .then(function (response) {                        
-                });
+              $state.go('triangular.admin-default.account');   
         }
 
         function editAccount($event, account) {

@@ -64,7 +64,7 @@
 
             var toast = $mdToast.simple()
                .textContent(content).parent(el)
-               .action('Kapat')
+               .action('Close')
                .hideDelay(5000)
                .highlightAction(false).theme('warning-toast').position('bottom right');
 
@@ -81,7 +81,7 @@
 
             var toast = $mdToast.simple()
                .textContent(content)
-               .action('Kapat')
+               .action('Close')
                .highlightAction(false).theme('success-toast').position('bottom right');;
 
             $mdToast.show(toast).then(function (response) {
@@ -112,7 +112,7 @@
 
             var toast = $mdToast.simple()
                .textContent(content)
-               .action('Kapat')
+               .action('Close')
                .highlightAction(false).theme('info-toast');
 
             $mdToast.show(toast).then(function (response) {

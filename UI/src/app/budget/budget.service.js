@@ -19,7 +19,7 @@
         };
         ///
         function alertDialog(title, msg) {
-            //appNotifyService.alert(title, msg, 'Kapat');
+            //appNotifyService.alert(title, msg, 'Close');
             appNotifyService.warning(msg);
         };
 
