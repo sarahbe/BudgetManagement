@@ -33,7 +33,7 @@ namespace BudgetManagement.Services
             var account = new Account()
             {
                 AccountTypeID = 1,
-                CurrencyId = 2,
+                CurrencyId = 1,
                 Description = "Cash",
                 UserID = userID
             };

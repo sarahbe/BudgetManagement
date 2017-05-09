@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BudgetManagement.Domain
 {
@@ -15,5 +16,6 @@ namespace BudgetManagement.Domain
         public virtual User User { get; set; }
         public virtual AccountType AccountType { get; set; }
         public virtual Currency Currency { get; set; }
+        public virtual List<AccountRight> AccountRightList { get; set; } 
     }
 }
