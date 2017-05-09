@@ -21,7 +21,15 @@
        }
 
         function newAccount($event) {
-              $state.go('triangular.admin-default.account');   
+             $mdDialog.show({
+                    templateUrl: 'app/budget/pages/account/account.tmpl.html',
+                    targetEvent: $event,
+                    controller: 'AccountController',
+                    controllerAs: 'vm',
+                    parent: angular.element(document.body)
+                })
+                .then(function (response) {                        
+                });
         }
 
         function editAccount($event, account) {
@@ -30,7 +38,7 @@
                     targetEvent: $event,
                     controller: 'AccountController',
                     controllerAs: 'vm',
-                    parent: angular.element(document.body),
+                     parent: angular.element(document.body),
                     locals: {               
                         account: angular.copy(account)         
                     }
