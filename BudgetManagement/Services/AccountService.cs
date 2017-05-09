@@ -4,6 +4,7 @@ using BudgetManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using System.Web.Http;
 
@@ -13,33 +14,46 @@ namespace BudgetManagement.Services
     {
         public void CreateAccount(AccountModel model)
         {
-            var account = new Account()
+            using (TransactionScope scope = new TransactionScope())
             {
-                AccountTypeID = model.AccountTypeID,
-                CurrencyId = model.CurrencyId,
-                Description = model.Description,
-                Limit = model.Limit,
-                DueDate = model.DueDate,
-                UserID = model.UserId,
-                Balance = model.Balance
-            };
+                {
+                    var account = new Account()
+                    {
+                        AccountTypeID = model.AccountTypeID,
+                        CurrencyId = model.CurrencyId,
+                        Description = model.Description,
+                        Limit = model.Limit,
+                        DueDate = model.DueDate,
+                        UserID = model.UserId,
+                        Balance = model.Balance
+                    };
 
-            bctx.Accounts.Add(account);
-            bctx.SaveChanges();
+                    bctx.Accounts.Add(account);
 
+                    bctx.SaveChanges();
+                    AccountRightService rightsrv = new AccountRightService();
+                    rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
+
+
+
+                }
+            }
         }
         public void CreateDefaultAccount(string userID)
         {
             var account = new Account()
             {
                 AccountTypeID = 1,
-                CurrencyId = 2,
+                CurrencyId = 1,
                 Description = "Cash",
                 UserID = userID
             };
 
             bctx.Accounts.Add(account);
             bctx.SaveChanges();
+
+            AccountRightService rightsrv = new AccountRightService();
+            rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
 
         }
         public void UpdateAccount(AccountModel model)
