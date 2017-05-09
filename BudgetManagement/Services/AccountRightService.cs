@@ -29,6 +29,20 @@ namespace BudgetManagement.Services
 
         }
 
+        public void CreateDefaultAccountRight(string userID , int accountId)
+        {
+            var accountRight = new AccountRight()
+            {
+                FlAdmin = true,
+                FlWrite = true,
+                UserID = userID,
+                AccountId = accountId,
+                Valid = true
+            };
+
+            bctx.AccountRights.Add(accountRight);
+            bctx.SaveChanges();
+        }
         public void UpdateAccountRight(AccountRightModel model)
         {
             if (!model.ID.HasValue)
