@@ -79,7 +79,7 @@ namespace BudgetManagement.Controllers
             {
                 UserName = createUserModel.Username,
                 Email = createUserModel.Email,
-                FullName = createUserModel.Fullname,
+                //FullName = createUserModel.Fullname,
                 Birthdate = createUserModel.Birthdate,
                 MaritalStatus = createUserModel.MaritalStatus,
                 Job = createUserModel.Job

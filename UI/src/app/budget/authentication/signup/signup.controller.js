@@ -9,28 +9,19 @@
     function SignupController($scope, $state, $mdToast, $http, $filter, triSettings, API_CONFIG, triAuthorization, authenticationService, appNotifyService, exPatterns) {
         var vm = this;
         vm.triSettings = triSettings;
-        vm.confirmPasswordClick = confirmPasswordClick;
+        vm.signupClick = signupClick;
         vm.user = {
-            Name: '',
+            Username: '',
             Email: '',
             Password: '',
-            PhoneNumber: '',
-            ConfirmPassword: '',
-            isReadContract:false
+            MaritalStatus: 0,
+            Birthdate:'01.01.1900'
+
         };
         vm.exPatterns = exPatterns;
 
-        //Init
-        startup();
 
-        ////////////////
-
-        function startup() {
-
-           
-        }
-
-        function confirmPasswordClick() {
+        function signupClick() {
             vm.submitted =true;
             
             if(!vm.signup.$valid)
@@ -44,11 +35,11 @@
 
 
                     });
-                    var postmodel = { grant_type: 'password', password: vm.user.Password, username: vm.user.Email }
-                    authenticationService.login($.param(postmodel)).then(function (result) {
-                        //$state.go('triangular.admin-default.dashboard-general');
-                        $state.go('triangular-no-sidebar.wizard');
-                    });
+                    // var postmodel = { grant_type: 'password', password: vm.user.Password, username: vm.user.Email }
+                    // authenticationService.signUp(vm.signUp).then(function (result) {
+                    //     $state.go('triangular.admin-default.dashboard-general');
+                    //     $state.go('triangular-no-sidebar.wizard');
+                    // });
                 }
             });
 

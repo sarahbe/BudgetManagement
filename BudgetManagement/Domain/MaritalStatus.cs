@@ -8,9 +8,9 @@ namespace BudgetManagement.Domain
     public enum MaritalStatus
     {
         Single = 1,
-        Married ,
-        Widowed,
-        Other
+        Married = 2,
+        Widowed =3,
+        Other =4 
     }
         
 }
