@@ -50,5 +50,19 @@ namespace BudgetManagement.Controllers
 
             return Ok(bctx.Accounts.Where(o => o.UserID.Equals(userId)));
         }
+
+        [Route("GetAccountTypes")]
+        [HttpGet]
+        public IHttpActionResult GetAccountTypes()
+        {
+            return Ok(bctx.AccountTypes);
+        }
+
+        [Route("GetCurrencies")]
+        [HttpGet]
+        public IHttpActionResult GetCurrencies()
+        {
+            return Ok(bctx.Currencies);
+        }
     }
 }

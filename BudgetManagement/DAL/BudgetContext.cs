@@ -25,6 +25,8 @@ namespace BudgetManagement.DAL
         }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
         //public DbSet<Right> Rights { get; set; }
         public DbSet<Category> Categories { get; set; }  
         public DbSet<Transaction> Transactions { get; set; }
