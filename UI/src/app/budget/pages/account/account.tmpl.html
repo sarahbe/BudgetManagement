@@ -14,27 +14,27 @@
                         </md-input-container>
                         <md-input-container md-no-float class="md-block">
                             <md-icon md-font-icon="zmdi zmdi-format-list-bulleted"></md-icon>
-                            <md-select placeholder="Type" ng-model="vm.accountType.accountTypeId">
+                            <md-select placeholder="Type" ng-model="vm.account.accountTypeId">
                                 <md-option ng-value="accountType.id" ng-repeat="accountType in vm.accountTypes"> {{ accountType.name }} </md-option>
                             </md-select>
                         </md-input-container>
                         <md-input-container md-no-float class="md-block">
                             <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
-                            <md-select placeholder="Currency" ng-model="vm.currency.currencyId">
+                            <md-select placeholder="Currency" ng-model="vm.account.currencyId">
                                 <md-option ng-value="currency.id" ng-repeat="currency in vm.currencies"> {{ currency.name }} </md-option>
                             </md-select>
                         </md-input-container>
                         <md-input-container md-no-float class="md-block">
                             <md-icon md-font-icon="zmdi zmdi-money-box"></md-icon>
-                            <input type="number" ng-model="account.limit" placeholder="Limit">
+                            <input type="number" ng-model="vm.account.limit" placeholder="Limit">
                         </md-input-container>
                         <md-input-container md-no-float class="md-block">
                             <md-icon md-font-icon="zmdi zmdi-money-box"></md-icon>
-                            <input type="number" ng-model="account.balance" placeholder="Balance">
+                            <input type="number" ng-model="vm.account.balance" placeholder="Balance">
                         </md-input-container>
                         <md-input-container style="margin-left:-16px;" md-no-float class="md-block">
 
-                            <md-datepicker ng-model="account.dueDate" md-placeholder="Due date"></md-datepicker>
+                            <md-datepicker ng-model="vm.account.dueDate" md-placeholder="Due date"></md-datepicker>
                         </md-input-container>
 
                         <div layout="column" layout-align="center center" flex>
