@@ -3,7 +3,7 @@
 
     angular
         .module('triangular', [
-            'ngMaterial',
+            'ngMaterial', 
             'triangular.layouts', 'triangular.components', 'triangular.themes', 'triangular.directives', 'triangular.router',
             // 'triangular.profiler',
             // uncomment above to activate the speed profiler

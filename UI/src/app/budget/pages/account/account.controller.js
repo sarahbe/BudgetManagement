@@ -25,7 +25,7 @@
 
         function saveAccount(){
             accountService.saveAccount(vm.account).then(function (res) {
-                 $mdDialog.hide(result);
+                 $mdDialog.hide(res);
                 $state.go('triangular.admin-default.account-list');
             });
         }

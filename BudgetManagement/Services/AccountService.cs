@@ -41,9 +41,7 @@ namespace BudgetManagement.Services
         }
         public void CreateDefaultAccount(string userID)
         {
-            using (TransactionScope scope = new TransactionScope())
-            {
-
+     
                 var account = new Account()
                 {
                     AccountTypeID = 1,
@@ -57,10 +55,7 @@ namespace BudgetManagement.Services
 
                 AccountRightService rightsrv = new AccountRightService();
                 rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
-                scope.Complete();
-
-
-            }
+            
         }
         public void UpdateAccount(AccountModel model)
         {

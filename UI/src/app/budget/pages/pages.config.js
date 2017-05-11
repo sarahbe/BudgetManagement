@@ -32,13 +32,12 @@
                 },
                 module: 'public'
             }).state('triangular.admin-default.account-list', {
-                url: '/pages/accountList',
+                url: '/pages/accountlist',
                 templateUrl: 'app/budget/pages/account/account-list.tmpl.html',
                 controller: 'AccountListController',
                 controllerAs: 'vm',
                 module: 'public'
-            })
-            .state('triangular.admin-default.account', {
+            }).state('triangular.admin-default.account', {
                 url: '/pages/account',
                 templateUrl: 'app/budget/pages/account/account.tmpl.html',
                 controller: 'AccountController',
@@ -47,8 +46,7 @@
                     account: {}
                 },
                 module: 'public'
-            })
-            .state('triangular.admin-default.reports', {
+            }).state('triangular.admin-default.reports', {
                 url: '/pages/reports',
                 templateUrl: 'app/budget/pages/reports/reports.tmpl.html',
                 controller: 'ReportListController',

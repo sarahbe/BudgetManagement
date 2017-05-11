@@ -31,15 +31,8 @@
                 if (result.isError) {
                     appNotifyService.alert('Error', result.errorMessage, 'Ok');
                 } else {
-                    appNotifyService.success('Your account has been created successfully').then(function () {
-
-
-                    });
-                    // var postmodel = { grant_type: 'password', password: vm.user.Password, username: vm.user.Email }
-                    // authenticationService.signUp(vm.signUp).then(function (result) {
-                    //     $state.go('triangular.admin-default.dashboard-general');
-                    //     $state.go('triangular-no-sidebar.wizard');
-                    // });
+                    appNotifyService.success('Your account has been created successfully');
+                    $state.go('authentication.login');
                 }
             });
 
