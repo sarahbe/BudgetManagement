@@ -3,4 +3,6 @@
 ################################################################################
 
 /UI/dist
-/obj/Debug
+/BudgetManagement/obj/Debug
+/BudgetManagement/.vs
+/BudgetManagement/bin
