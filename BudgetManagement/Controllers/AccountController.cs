@@ -47,9 +47,9 @@ namespace BudgetManagement.Controllers
         [HttpGet]
         public IHttpActionResult GetAccountByUserId(string userId)
         {
-            var accounts = bctx.Accounts.Where(o => o.UserID.Equals(userId) && o.AccountRightList.Any(r=>r.FlWrite));
+            var accounts = bctx.Accounts.Where(o => o.UserID.Equals(userId) && o.AccountRightList.Any(r=>r.FlWrite)).ToList();
            
-            return Ok(accounts);
+            return Ok(this.TheModelFactory.GetAccounts(accounts));
         }
 
         [Route("GetAccountTypes")]

@@ -50,7 +50,19 @@ namespace BudgetManagement.Providers
 
             ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(userManager, "JWT");
 
-            var ticket = new AuthenticationTicket(oAuthIdentity, null);
+            var dicClaims = new Dictionary<string, string>
+                    {
+                    {
+                    "userName", user.FullName
+                    },
+                    {
+                    "userId", user.Id.ToString()
+                    }
+                    };
+            var props = new AuthenticationProperties(dicClaims);
+
+
+            var ticket = new AuthenticationTicket(oAuthIdentity, props);
 
             context.Validated(ticket);
 
@@ -67,6 +79,16 @@ namespace BudgetManagement.Providers
             }
 
             return base.MatchEndpoint(context);
+        }
+
+        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            foreach (KeyValuePair<string, string> property in context.Properties.Dictionary)
+            {
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);
+            }
+
+            return Task.FromResult<object>(null);
         }
     }
 }

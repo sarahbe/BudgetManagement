@@ -16,45 +16,46 @@ namespace BudgetManagement.Services
         {
             using (TransactionScope scope = new TransactionScope())
             {
+
+                var account = new Account()
                 {
-                    var account = new Account()
-                    {
-                        AccountTypeID = model.AccountTypeID,
-                        CurrencyId = model.CurrencyId,
-                        Description = model.Description,
-                        Limit = model.Limit,
-                        DueDate = model.DueDate,
-                        UserID = model.UserId,
-                        Balance = model.Balance
-                    };
+                    AccountTypeID = model.AccountTypeID,
+                    CurrencyId = model.CurrencyId,
+                    Description = model.Description,
+                    Limit = model.Limit,
+                    DueDate = model.DueDate,
+                    UserID = model.UserId,
+                    Balance = model.Balance
+                };
 
-                    bctx.Accounts.Add(account);
+                bctx.Accounts.Add(account);
 
-                    bctx.SaveChanges();
-                    AccountRightService rightsrv = new AccountRightService();
-                    rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
+                bctx.SaveChanges();
+                AccountRightService rightsrv = new AccountRightService();
+                rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
+
+                scope.Complete();
 
 
-
-                }
             }
         }
         public void CreateDefaultAccount(string userID)
         {
-            var account = new Account()
-            {
-                AccountTypeID = 1,
-                CurrencyId = 1,
-                Description = "Cash",
-                UserID = userID
-            };
+     
+                var account = new Account()
+                {
+                    AccountTypeID = 1,
+                    CurrencyId = 1,
+                    Description = "Cash",
+                    UserID = userID
+                };
 
-            bctx.Accounts.Add(account);
-            bctx.SaveChanges();
+                bctx.Accounts.Add(account);
+                bctx.SaveChanges();
 
-            AccountRightService rightsrv = new AccountRightService();
-            rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
-
+                AccountRightService rightsrv = new AccountRightService();
+                rightsrv.CreateDefaultAccountRight(account.UserID, account.ID);
+            
         }
         public void UpdateAccount(AccountModel model)
         {
@@ -63,19 +64,19 @@ namespace BudgetManagement.Services
                 throw new ApplicationException("account was not found");
             }
             var account = new Account();
-                account = bctx.Accounts.First(a => a.ID.Equals(model.ID));
+            account = bctx.Accounts.First(a => a.ID.Equals(model.ID));
 
-                account.AccountTypeID = model.AccountTypeID;
-                account.CurrencyId = model.CurrencyId;
-                account.Description = model.Description;
-                account.Limit = model.Limit;
-                account.DueDate = model.DueDate;
-                account.UserID = model.UserId;
-                account.Balance = model.Balance;
-                account.Valid = model.Valid;
+            account.AccountTypeID = model.AccountTypeID;
+            account.CurrencyId = model.CurrencyId;
+            account.Description = model.Description;
+            account.Limit = model.Limit;
+            account.DueDate = model.DueDate;
+            account.UserID = model.UserId;
+            account.Balance = model.Balance;
+            account.Valid = model.Valid;
 
-                bctx.SaveChanges();
-            
+            bctx.SaveChanges();
+
         }
 
     }

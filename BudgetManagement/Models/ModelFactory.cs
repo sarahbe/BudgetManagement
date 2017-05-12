@@ -1,6 +1,7 @@
 ﻿using BudgetManagement.Domain;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Web;
@@ -39,6 +40,21 @@ namespace BudgetManagement.Models
                 Claims = _AppUserManager.GetClaimsAsync(appUser.Id).Result
             };
         }
+
+        public List<AccountReturnModel> GetAccounts(List<Account> accounts)
+        {
+            List<AccountReturnModel> acct = new List<AccountReturnModel>();
+            foreach (Account a in accounts)
+            {
+                acct.Add(new AccountReturnModel
+                {
+                    Id = a.ID,
+                    Description = a.Description,
+                    Limit = a.Limit
+                });
+            }
+            return acct;
+        }
     }
 
     public class UserReturnModel
@@ -56,5 +72,13 @@ namespace BudgetManagement.Models
         public string Job { get; set; }
         public IList<string> Roles { get; set; }
         public IList<System.Security.Claims.Claim> Claims { get; set; }
+    }
+
+    public class AccountReturnModel
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+
+        public decimal? Limit { get; set; }
     }
 }

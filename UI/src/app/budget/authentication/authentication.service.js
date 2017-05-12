@@ -59,7 +59,7 @@
         };
 
         function setUserData(response){
-                var roles = JSON.parse(response.roles);
+                var roles = [];
                 var rights = [];
                 rights.push('public');
 

@@ -70,53 +70,64 @@ namespace BudgetManagement.Controllers
         [Route("create")]
         public async Task<IHttpActionResult> CreateUser(UserRegistration createUserModel)
         {
-            using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+            try
+            {
+                using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+                {
+
+                    //validate the request model based on the data annotations we introduced in MODELView
+                    if (!ModelState.IsValid)
+                    {
+                        return BadRequest(ModelState);
+                    }
+
+                    var user = new User()
+                    {
+                        UserName = createUserModel.Username,
+                        Email = createUserModel.Email,
+                        //FullName = createUserModel.Fullname,
+                        Birthdate = createUserModel.Birthdate,
+                        MaritalStatus = createUserModel.MaritalStatus,
+                        Job = createUserModel.Job
+                    };
+
+
+                    //CreateAsync: inside this method it will validate if the username, email is used before, and if the password matches our policy, etc.. 
+                    // if the request is valid then it will create new user and add to the “AspNetUsers” table and return success result.
+
+                    IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
+
+                    if (!addUserResult.Succeeded)
+                    {
+                        return GetErrorResult(addUserResult);
+                    }
+
+                    //create default cash account on new user
+                    AccountService tsrc = new AccountService();
+                    tsrc.CreateDefaultAccount(user.Id);
+
+                    string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+
+                    var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
+
+                    await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
+
+                    var userModel = TheModelFactory.Create(user);
+                    scope.Complete();
+
+                    //From this result we  return the resource created in the location header and return 201 created status.
+
+                    return Created(locationHeader, userModel);
+                }
+            }
+            catch (Exception ex)
             {
 
-                //validate the request model based on the data annotations we introduced in MODELView
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                var user = new User()
-                {
-                    UserName = createUserModel.Username,
-                    Email = createUserModel.Email,
-                    //FullName = createUserModel.Fullname,
-                    Birthdate = createUserModel.Birthdate,
-                    MaritalStatus = createUserModel.MaritalStatus,
-                    Job = createUserModel.Job
-                };
-
-
-                //CreateAsync: inside this method it will validate if the username, email is used before, and if the password matches our policy, etc.. 
-                // if the request is valid then it will create new user and add to the “AspNetUsers” table and return success result.
-
-                IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
-
-                if (!addUserResult.Succeeded)
-                {
-                    return GetErrorResult(addUserResult);
-                }
-
-                //create default cash account on new user
-                AccountService tsrc = new AccountService();
-                tsrc.CreateDefaultAccount(user.Id);
-
-                string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-
-                var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
-
-                await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                Uri locationHeader = new Uri(Url.Link("GetUserById", new { id = user.Id }));
-
-                scope.Complete();
-
-                //From this result we  return the resource created in the location header and return 201 created status.
-                return Created(locationHeader, TheModelFactory.Create(user));
+                throw;
             }
+            
         }
 
         /// <summary>
