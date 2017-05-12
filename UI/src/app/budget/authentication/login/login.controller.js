@@ -33,7 +33,6 @@
             var postmodel = { grant_type: "password", password: vm.user.password, username: vm.user.username }
             
             authenticationService.login($.param(postmodel)).then(function (result) { 
-                // authenticationService.redirectUser(result);
                  $state.go('triangular.admin-default.dashboard-general');
             });
         
