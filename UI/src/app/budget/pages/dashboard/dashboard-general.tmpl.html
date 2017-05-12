@@ -1,8 +1,57 @@
-﻿<div   layout="column">
-    <div layout-margin>
+﻿<tri-widget class="margin-left-20 margin-right-20" flex>
+    <!--CARDS-->
+    <div layout="row" layout-xs="column" layout-margin>
+        <tri-widget palette-background="green:500" content-layout="row" content-layout-align="space-between center" content-padding>
+            <div>
+                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-arrow-down"></md-icon>
+            </div>
+            <div layout="column" layout-align="center end">
 
-            
-       
+                <p class="md-display-1 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis">{{vm.cardStats.incomeToday}}</p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Income Today</p>
+            </div>
+        </tri-widget>
+
+        <tri-widget palette-background="red:500" content-layout="row" content-layout-align="space-between center" content-padding>
+            <div>
+                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-arrow-up"></md-icon>
+            </div>
+            <div layout="column" layout-align="center end">
+
+                <p class="md-display-1 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis">{{vm.cardStats.expenseToday}}</p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Expense Today</p>
+            </div>
+        </tri-widget>
+
+        <tri-widget palette-background="blue:500" content-layout="row" content-layout-align="space-between center" content-padding>
+            <div>
+                <md-icon class="font-size-5 opacity-50 margin-left-10" md-font-icon="fa fa-money"></md-icon>
+            </div>
+            <div layout="column" layout-align="center end">
+
+                <p class="md-display-1 font-weight-100 margin-top-0 margin-bottom-0 text-ellipsis">{{vm.cardStats.balance}}</p>
+                <p class="md-body-2 opacity-60 margin-top-0 margin-bottom-0" translate>Balance</p>
+            </div>
+        </tri-widget>
+    </div>
+    <!--CARDS-->
+
+    <div layout="row" layout-xs="column" layout-margin>
+        <div flex="50">
+            <canvas class="chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-options="options"></canvas>
+        </div>
+        <div flex="50">
+            <canvas class="chart-bar" chart-data="vm.barData" chart-labels="vm.barLabels" chart-legend="true" chart-series="vm.barSeries"></canvas>
+        </div>
     </div>
 
-</div>
+    <div layout="row" layout-xs="column" layout-margin>
+        <div flex="50">
+            <canvas class="chart-pie" chart-data="vm.pieData" chart-labels="vm.pieLabels" chart-legend="true" chart-options="vm.pieOptions"></canvas>
+        </div>
+        <div flex="50">
+            <canvas class="chart-pie" chart-data="vm.pieData" chart-labels="vm.pieLabels" chart-legend="true" chart-options="vm.pieOptions"></canvas>
+        </div>
+    </div>
+
+</tri-widget>
