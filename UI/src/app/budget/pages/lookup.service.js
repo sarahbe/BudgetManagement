@@ -9,7 +9,8 @@
     function lookupService($state, appService, $q) {
         // Service
         return {
-            getCategories:getCategories
+            getCategories:getCategories,
+            getAccounts:getAccounts
         };
         /// 
 
@@ -20,7 +21,7 @@
                 transactionTypeId: typeId,
                 userId: userId
             };
-            appService.getData('api/categories/GetAll', data).then(function (response) {
+            appService.getData('api/categories/GetAllByType', data).then(function (response) {
                 //notify the end of promise request    
                 deffered.resolve(response);
 
@@ -29,6 +30,20 @@
             return deffered.promise;
         };       
         
+         function getAccounts(userId) {
+
+            var deffered = $q.defer();
+            var data = {
+                userId: userId
+            };
+            appService.getData('api/accounts/GetAll', data).then(function (response) {
+                //notify the end of promise request    
+                deffered.resolve(response);
+
+            });
+
+            return deffered.promise;
+        };   
  
     };
 

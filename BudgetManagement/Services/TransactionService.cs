@@ -4,6 +4,7 @@ using BudgetManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 
 namespace BudgetManagement.Services
@@ -16,8 +17,9 @@ namespace BudgetManagement.Services
             {
                 throw new ApplicationException("transaction was not found");
             }
-            Transaction transaction = new Transaction();
+            Domain.Transaction transaction = new Domain.Transaction();
             transaction = bctx.Transactions.First(o => o.ID == model.ID);
+            var oldAmount = transaction.Amount;
             transaction.Name = model.Name;
             transaction.TransactionTypeID = model.TransactionTypeID;
             transaction.TransactionDate = model.TransactionDate;
@@ -27,25 +29,38 @@ namespace BudgetManagement.Services
             transaction.UserID = model.UserId;
             transaction.CategoryID = model.CategoryId;
             transaction.Valid = model.Valid;
+
+            if (oldAmount != model.Amount)
+            {
+                AccountService accsrv = new AccountService();
+                accsrv.RollbackOldAmount(transaction, oldAmount);
+                accsrv.UpdateBalance(transaction);
+            }
             bctx.SaveChanges();
         }
 
         public void CreateTransation(EntringTransaction model)
         {
-
-            var transaction = new Transaction()
+            using (TransactionScope scope = new TransactionScope())
             {
-                TransactionTypeID = model.TransactionTypeID,
-                TransactionDate = model.TransactionDate,
-                Amount = model.Amount,
-                Name = model.Name,
-                AccountID = model.AccountId,
-                UserID = model.UserId,
-                CategoryID = model.CategoryId
-            };
-            bctx.Transactions.Add(transaction);
-            bctx.SaveChanges();
+                var transaction = new Domain.Transaction()
+                {
+                    TransactionTypeID = model.TransactionTypeID,
+                    TransactionDate = model.TransactionDate,
+                    Amount = model.Amount,
+                    Name = model.Name,
+                    AccountID = model.AccountId,
+                    UserID = model.UserId,
+                    CategoryID = model.CategoryId
+                };
+                bctx.Transactions.Add(transaction);
+                bctx.SaveChanges();
+                AccountService accsrv = new AccountService();
+                accsrv.UpdateBalance(transaction);
+                scope.Complete();
 
+
+            }
         }
 
     }

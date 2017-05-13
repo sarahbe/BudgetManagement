@@ -79,5 +79,34 @@ namespace BudgetManagement.Services
 
         }
 
+        public void UpdateBalance(Domain.Transaction transaction)
+        {
+            var account = bctx.Accounts.First(a => a.ID == transaction.AccountID);
+            if (transaction.TransactionTypeID == (int)TransactionType.Expense)
+            {
+                account.Balance -= transaction.Amount;
+            }
+            else {
+                account.Balance += transaction.Amount;
+            }
+            bctx.SaveChanges();
+        }
+
+
+        public void RollbackOldAmount(Domain.Transaction transaction, decimal oldAmount)
+        {
+            var account = bctx.Accounts.First(a => a.ID == transaction.AccountID);
+            //Operations are done oppositely
+            if (transaction.TransactionTypeID == (int)TransactionType.Expense)
+            {
+                account.Balance += oldAmount;
+            }
+            else
+            {
+                account.Balance -= oldAmount;
+            }
+            bctx.SaveChanges();
+        }
+
     }
 }

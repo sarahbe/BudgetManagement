@@ -30,7 +30,7 @@ namespace BudgetManagement.Controllers
         {
 
             TransactionService tsrc = new TransactionService();
-            if (!model.ID.HasValue)
+            if (!model.ID.HasValue) 
                 tsrc.CreateTransation(model);
             else
                 tsrc.UpdateTransaction(model);
