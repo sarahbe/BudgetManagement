@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Data.Entity.Core.Objects;
 using System.Dynamic;
+using BudgetManagement.Services;
 
 namespace BudgetManagement.Controllers
 {
@@ -17,11 +18,12 @@ namespace BudgetManagement.Controllers
     public class DashboardController : BaseApiController
     {
         private BudgetContext _ctx;
-
+        private DashboardService _dashboardService;
         //Our constructor. Initalizing context and userManager
         public DashboardController()
         {
             _ctx = new BudgetContext();
+            _dashboardService = new DashboardService();
         }
 
         [Route("CardStats")]
@@ -35,8 +37,8 @@ namespace BudgetManagement.Controllers
 
             var model = new DashcardModel();
 
-            model.IncomeToday = transactions.Where(o => o.TransactionType == Domain.TransactionType.Income).Sum(o => o.Amount);
-            model.ExpenseToday = transactions.Where(o => o.TransactionType == Domain.TransactionType.Expense).Sum(o => o.Amount);
+            model.IncomeToday = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Income).Sum(o => o.Amount);
+            model.ExpenseToday = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Expense).Sum(o => o.Amount);
             model.Balance = _ctx.Accounts.First().Balance;
 
             return Ok(model);
@@ -46,65 +48,24 @@ namespace BudgetManagement.Controllers
         [HttpGet]
         public IHttpActionResult TransactionsThisMonth(string userId)
         {
-            var today = DateTime.Now;
-            var firstDayOfMonth = new DateTime(today.Year, today.Month, 1);
-
-            var transactions = _ctx.Transactions.
-                  Where(o => o.UserID == userId && o.TransactionDate > firstDayOfMonth && o.TransactionDate < today);
-
-            var days = getNumbersFromRange(firstDayOfMonth.Day, today.Day);
-
-            var incomeStats = transactions.Where(o => o.TransactionType == Domain.TransactionType.Income)
-                   .GroupBy(x => x.TransactionDate.Value.Day)
-                  .Select(x => 
-                  new {
-                        Value = x.Sum(o => o.Amount),
-                        Day = x.Key
-                      }
-                      ).ToDictionary(p => p.Day, p => p.Value);
-
-            var expenseStats = transactions.Where(o => o.TransactionType == Domain.TransactionType.Expense)
-                .GroupBy(x => x.TransactionDate.Value.Day)
-                .Select(x =>
-                  new {
-                      Value = x.Sum(o => o.Amount),
-                      Day = x.Key
-                  }
-                      ).ToDictionary(p => p.Day, p => p.Value);
-
-            var incomeStatsByDays = appendValuesToDays(incomeStats, days);
-            var expenseStatsByDays = appendValuesToDays(expenseStats, days);
-          
-
-            dynamic model = new ExpandoObject();
-            model.Days = days;
-            model.IncomeStats = incomeStatsByDays;
-            model.ExpenseStats = expenseStatsByDays;
+            dynamic model = _dashboardService.GetTransactionsThisMonth(userId);
 
             return Ok(model);
         }
 
-        private List<decimal> appendValuesToDays(Dictionary<int, decimal> incomeStats, List<int> days)
+        
+
+        [Route("TransactionsByCategory")]
+        [HttpGet]
+        public IHttpActionResult TransactionsByCategory(string userId)
         {
-            var result = new List<decimal>();
-            foreach (var day in days)
-            {
-                if (incomeStats.ContainsKey(day))
-                    result.Add(incomeStats[day]);
-                else
-                    result.Add(0);
-            }
-            return result;
+
+            dynamic model = _dashboardService.GetTransactionsByCategory(userId);
+
+            return Ok(model);
+
         }
 
-        private List<int> getNumbersFromRange(int firstNumber, int lastNumber)
-        {
-            var result = new List<int>();
-            for (int i = firstNumber; i < lastNumber; i++)
-            {
-                result.Add(i);
-            }
-            return result;
-        }
+        
     }
 }

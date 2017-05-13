@@ -37,21 +37,52 @@
     <!--CARDS-->
 
     <div layout="row" layout-xs="column" layout-margin>
+    </div>
+
+    <div layout="row" layout-xs="column" layout-fill layout-margin>
         <div flex="50">
-            <canvas class="chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-options="options"></canvas>
+            <md-card>
+                <md-card-header>
+                    <span>
+                        Transactions
+                    </span>
+                </md-card-header>
+                <md-card-content>
+                    <canvas class="chart-line" chart-data="vm.data" chart-labels="vm.labels" chart-legend="true" chart-series="vm.series" chart-options="options"></canvas>
+                </md-card-content>
+            </md-card>
         </div>
-        <div flex="50">
-            <canvas class="chart-bar" chart-data="vm.barData" chart-labels="vm.barLabels" chart-legend="true" chart-series="vm.barSeries"></canvas>
+        <div flex="50" layout>
+            <md-card flex layout-fill>
+                <md-card-header>
+                    <span>
+                        Income/Expense By Category
+                    </span>
+                </md-card-header>
+                <md-card-content flex layout="row">
+                    <md-tabs flex layout-fill md-no-disconnect md-stretch-tabs="always" md-no-pagination>
+                        <md-tab label="Income">
+                            <md-content chartjs-line-widget layout="row">
+                                <canvas layout-fill flex class="chart-pie" chart-data="vm.pieIncomeData" chart-labels="vm.pieIncomeLabels" chart-legend="true" chart-options="vm.pieOptions"></canvas>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Expense">
+                            <md-content chartjs-line-widget layout="row">
+                                <canvas layout-fill flex class="chart-pie" chart-data="vm.pieExpenseData" chart-labels="vm.pieExpenseLabels" chart-legend="true" chart-options="vm.pieOptions"></canvas>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-card-content>
+            </md-card>
         </div>
     </div>
 
-    <div layout="row" layout-xs="column" layout-margin>
+    <!--<div layout="row" layout-xs="column" layout-margin>
         <div flex="50">
-            <canvas class="chart-pie" chart-data="vm.pieData" chart-labels="vm.pieLabels" chart-legend="true" chart-options="vm.pieOptions"></canvas>
+            <canvas class="chart-bar" chart-data="vm.barData" chart-labels="vm.barLabels" chart-legend="true" chart-series="vm.barSeries"></canvas>
         </div>
         <div flex="50">
-            <canvas class="chart-pie" chart-data="vm.pieData" chart-labels="vm.pieLabels" chart-legend="true" chart-options="vm.pieOptions"></canvas>
         </div>
-    </div>
+    </div>-->
 
 </tri-widget>

@@ -47,7 +47,7 @@
             transactionService.saveTransaction(vm.transaction).then(function (res) {
                 appNotifyService.success("Saved Successfully");
                 //after save we will go to dashboard
-                $state.go('triangular.admin-default.dashboard-general');
+                $state.go('triangular.admin-default.transaction-list');
             });
         }
 
