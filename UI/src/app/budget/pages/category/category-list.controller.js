@@ -41,7 +41,7 @@
                     controllerAs: 'vm',
                      parent: angular.element(document.body),
                     locals: {               
-                        category: angular.copy(category)         
+                        category: category     
                     }
                 })
                 .then(function (response) {                        

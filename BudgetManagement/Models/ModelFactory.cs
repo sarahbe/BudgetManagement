@@ -51,7 +51,11 @@ namespace BudgetManagement.Models
                     Id = a.ID,
                     Description = a.Description,
                     Limit = a.Limit,
-                    Balance = a.Balance
+                    Balance = a.Balance, 
+                    AccountTypeId = a.AccountTypeID,
+                    DueDate= a.DueDate, 
+                    CurrencyId = a.CurrencyId, 
+                    UserId = a.UserID
                 });
             }
             return acct;
@@ -112,6 +116,10 @@ namespace BudgetManagement.Models
         public string Description { get; set; }
         public decimal? Limit { get; set; }
         public decimal? Balance { get; set; }
+        public int AccountTypeId { get; set; }
+        public DateTime? DueDate { get; set; }
+        public int CurrencyId { get; set; }
+        public string UserId { get; set; }
     }
     public class TransactionReturnModel
     {

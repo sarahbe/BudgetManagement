@@ -41,7 +41,7 @@
                     controllerAs: 'vm',
                      parent: angular.element(document.body),
                     locals: {               
-                        account: angular.copy(account)         
+                        account: account         
                     }
                 })
                 .then(function (response) {                        

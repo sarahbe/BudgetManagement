@@ -6,11 +6,12 @@
         .controller('TransactionController', TransactionController);
 
     /* @ngInject */
-    function TransactionController($state, $stateParams, transactionService, lookupService, triAuthorization, accountService, appNotifyService) {
+    function TransactionController($state, $stateParams, transactionService,transaction, lookupService, triAuthorization, accountService, appNotifyService) {
         var vm = this;
         vm.saveTransaction = saveTransaction;
         vm.transactionTypeChange = transactionTypeChange;
         vm.init = init;
+        vm.transaction = transaction;
 
         init();
 

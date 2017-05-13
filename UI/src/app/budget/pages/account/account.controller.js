@@ -6,11 +6,12 @@
         .controller('AccountController', AccountController);
 
     /* @ngInject */
-    function AccountController($state, $filter, $mdDialog, accountService, lookupService,  triAuthorization) {
+    function AccountController($state, $filter, $mdDialog, accountService,account, lookupService,  triAuthorization) {
         var vm = this;
         vm.init = init;
         vm.saveAccount = saveAccount;
-
+        vm.deleteAccount = deleteAccount;
+        vm.account = account;
         init();
 
         function init() {
@@ -26,6 +27,15 @@
         function saveAccount(){
             vm.account.userId = triAuthorization.getUserId();
             accountService.saveAccount(vm.account).then(function (res) {
+
+                 $mdDialog.hide(res);
+                 
+            });
+        }
+
+        function deleteAccount(){
+            vm.account.userId = triAuthorization.getUserId();
+            accountService.deleteAccount(vm.account).then(function (res) {
 
                  $mdDialog.hide(res);
                  

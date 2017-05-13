@@ -28,10 +28,18 @@ namespace BudgetManagement.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public IHttpActionResult CreateCategory(CategoryModel model)
+        public IHttpActionResult SaveCategory(CategoryModel model)
         {
             CategoryService csrc = new CategoryService();
-            csrc.CreateCategory(model);
+            if (!model.ID.HasValue)
+            {
+                csrc.CreateCategory(model);
+            }
+            else {
+                csrc.UpdateCategory(model);
+            }
+
+
 
             return Ok();
         }

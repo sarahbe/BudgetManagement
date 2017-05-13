@@ -16,7 +16,10 @@ namespace BudgetManagement.Controllers
         public IHttpActionResult CreateAccount(AccountModel model)
         {
             AccountService tsrc = new AccountService();
+            if (!model.ID.HasValue)
             tsrc.CreateAccount(model);
+            else
+            tsrc.UpdateAccount(model);
 
             return Ok();
         }
@@ -47,7 +50,7 @@ namespace BudgetManagement.Controllers
         [HttpGet]
         public IHttpActionResult GetAccountByUserId(string userId)
         {
-            var accounts = bctx.Accounts.Where(o => o.UserID.Equals(userId) && o.AccountRightList.Any(r=>r.FlWrite)).ToList();
+            var accounts = bctx.Accounts.Where(o => o.UserID.Equals(userId) && o.AccountRightList.Any(r=>r.FlWrite && r.Valid) && o.Valid).ToList();
            
             return Ok(this.TheModelFactory.GetAccounts(accounts));
         }
