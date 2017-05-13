@@ -46,6 +46,21 @@
                     account: {}
                 },
                 module: 'public'
+                 }).state('triangular.admin-default.category-list', {
+                url: '/pages/categorylist',
+                templateUrl: 'app/budget/pages/category/category-list.tmpl.html',
+                controller: 'CategoryListController',
+                controllerAs: 'vm',
+                module: 'public'
+            }).state('triangular.admin-default.category', {
+                url: '/pages/category',
+                templateUrl: 'app/budget/pages/category/category.tmpl.html',
+                controller: 'CategoryController',
+                controllerAs: 'vm',
+                params: {
+                    category: {}
+                },
+                module: 'public'
             }).state('triangular.admin-default.reports', {
                 url: '/pages/reports',
                 templateUrl: 'app/budget/pages/reports/reports.tmpl.html',
@@ -77,12 +92,22 @@
             type: 'link',
             priority: 1.3
         });
+
+        
         triMenuProvider.addMenu({
-            name: 'Reports',
-            icon: 'zmdi zmdi-account',
-            state: 'triangular.admin-default.reports',
+            name: 'Category',
+            icon: 'fa fa-bookmark-o',
+            state: 'triangular.admin-default.category-list',
             type: 'link',
             priority: 1.4
+        });
+
+        triMenuProvider.addMenu({
+            name: 'Reports',
+            icon: 'fa fa-bar-chart-o',
+            state: 'triangular.admin-default.reports',
+            type: 'link',
+            priority: 1.5
         });
         // triMenuProvider.addMenu({
         //     name: 'Admin',

@@ -1,0 +1,27 @@
+﻿<div layout="column" class="margin-10">
+    <div flex layout-margin>
+        <md-card layout-fill style="min-height: 300px;">
+            <md-card-content>
+                <md-button ng-click="vm.newCategory($event)" class="md-fab md-warn md-fab-bottom-right" aria-label="Create Category" style="font-size: 11px !important;">
+                    <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+                    <md-tooltip>Create Category</md-tooltip>
+                </md-button>
+                
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">Category list</md-subheader>
+                    <md-list-item ng-click="vm.editCategory($event, category)" class="md-2-line" ng-repeat="category in vm.categorys" ng-click="null">
+                      <md-icon ng-if="category.transactionTypeId == 1 " md-font-icon="zmdi zmdi-trending-up" style="color:green;" ></md-icon>
+                        <md-icon ng-if="category.transactionTypeId == 2 " md-font-icon="zmdi zmdi-trending-down" style="color:red;" ></md-icon>   
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ category.description }}</h3>                        
+                        </div>
+                    </md-list-item>
+                </md-list>
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+</div>

@@ -3,28 +3,28 @@
 
     angular
         .module('app.budget.pages')
-        .controller('AccountListController', AccountListController);
+        .controller('CategoryListController', CategoryListController);
 
     /* @ngInject */
-    function AccountListController($state, $filter, $mdDialog, accountService, triAuthorization) {
+    function CategoryListController($state, $filter, $mdDialog, categoryService, triAuthorization) {
         var vm = this;
         vm.init = init;
-        vm.newAccount = newAccount;
-        vm.editAccount = editAccount;
+        vm.newCategory = newCategory;
+        vm.editCategory = editCategory;
 
         init();
        
        function init(){
-            accountService.getAccounts(triAuthorization.getUserId()).then(function(res){
-                vm.accounts = res;
+            categoryService.getCategorys(triAuthorization.getUserId()).then(function(res){
+                vm.categorys = res;
             });
        }
 
-        function newAccount($event) {
+        function newCategory($event) {
              $mdDialog.show({
-                    templateUrl: 'app/budget/pages/account/account.tmpl.html',
+                    templateUrl: 'app/budget/pages/category/category.tmpl.html',
                     targetEvent: $event,
-                    controller: 'AccountController',
+                    controller: 'CategoryController',
                     controllerAs: 'vm',
                     parent: angular.element(document.body)
                 })
@@ -33,15 +33,15 @@
                 });
         }
 
-        function editAccount($event, account) {
+        function editCategory($event, category) {
              $mdDialog.show({
-                    templateUrl: 'app/budget/pages/account/account.tmpl.html',
+                    templateUrl: 'app/budget/pages/category/category.tmpl.html',
                     targetEvent: $event,
-                    controller: 'AccountController',
+                    controller: 'CategoryController',
                     controllerAs: 'vm',
                      parent: angular.element(document.body),
                     locals: {               
-                        account: angular.copy(account)         
+                        category: angular.copy(category)         
                     }
                 })
                 .then(function (response) {                        

@@ -34,8 +34,14 @@
                 vm.categories = res;
             });
         }
+        function fillAccounts() {
+            lookupService.getAccounts(triAuthorization.getUserId()).then(function (res) {
+                vm.accounts = res;
+            });
+        }
 
         function saveTransaction() {
+            vm.transaction.userId = triAuthorization.getUserId();
             transactionService.saveTransaction(vm.transaction).then(function (res) {
                 appNotifyService.success("Saved Successfully");
                 //after save we will go to dashboard

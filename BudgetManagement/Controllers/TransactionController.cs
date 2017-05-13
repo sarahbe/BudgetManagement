@@ -9,7 +9,7 @@ namespace BudgetManagement.Controllers
 {
 
     [RoutePrefix("api/transactions")]
-    public class TransactionController:ApiController
+    public class TransactionController:BaseApiController
     {
         private BudgetContext bctx = new BudgetContext();
 
@@ -19,7 +19,8 @@ namespace BudgetManagement.Controllers
         [Route("GetAll")]
         public IHttpActionResult GetTransactionsByUserId(string UserId)
         {
-            return Ok(bctx.Transactions.Where(o => o.UserID.Equals(UserId)));
+            var transactions = bctx.Transactions.Where(o => o.UserID.Equals(UserId)).ToList();
+            return Ok(this.TheModelFactory.GetTransactions(transactions));
         }
 
        // [Authorize]
