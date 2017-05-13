@@ -9,7 +9,7 @@
                 
                 <md-list flex>
                     <md-subheader class="md-no-sticky">Category list</md-subheader>
-                    <md-list-item ng-click="vm.editCategory($event, category)" class="md-2-line" ng-repeat="category in vm.categorys" ng-click="null">
+                    <md-list-item ng-disabled="category.userId == null" ng-click="vm.editCategory($event, category)" class="md-2-line" ng-repeat="category in vm.categorys" ng-click="null">
                       <md-icon ng-if="category.transactionTypeId == 1 " md-font-icon="zmdi zmdi-trending-up" style="color:green;" ></md-icon>
                         <md-icon ng-if="category.transactionTypeId == 2 " md-font-icon="zmdi zmdi-trending-down" style="color:red;" ></md-icon>   
                         <div class="md-list-item-text" layout="column">

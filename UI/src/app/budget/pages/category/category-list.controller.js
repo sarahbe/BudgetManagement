@@ -26,7 +26,10 @@
                     targetEvent: $event,
                     controller: 'CategoryController',
                     controllerAs: 'vm',
-                    parent: angular.element(document.body)
+                    parent: angular.element(document.body),
+                      locals: {               
+                        category: null     
+                    }
                 })
                 .then(function (response) {  
                         init();                  

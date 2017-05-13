@@ -26,7 +26,10 @@
                     targetEvent: $event,
                     controller: 'AccountController',
                     controllerAs: 'vm',
-                    parent: angular.element(document.body)
+                    parent: angular.element(document.body),
+                     locals: {               
+                        account: null         
+                    }
                 })
                 .then(function (response) {  
                         init();                  

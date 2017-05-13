@@ -93,7 +93,8 @@ namespace BudgetManagement.Models
                     Id = cat.ID,
                     Description = cat.Description,
                     TransactionTypeId = cat.TransactionTypeId, 
-                    Valid = cat.Valid
+                    Valid = cat.Valid, 
+                    UserId = cat.UserId
                 });
             }
             return trans;
@@ -146,6 +147,8 @@ namespace BudgetManagement.Models
         public string Description { get; set; }
         public TransactionType TransactionTypeId { get; set; }
         public bool Valid { get; set; }
+
+        public string UserId { get; set; }
 
     }
 }
