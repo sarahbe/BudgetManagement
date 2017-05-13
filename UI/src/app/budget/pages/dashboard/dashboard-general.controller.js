@@ -6,7 +6,7 @@
         .controller('DashboardGeneralController', DashboardGeneralController);
 
     /* @ngInject */
-    function DashboardGeneralController($state, $filter) {
+    function DashboardGeneralController($state, triAuthorization, dashboardService, $filter) {
         var vm = this;
         vm.init = init;
 
@@ -14,26 +14,32 @@
 
         function init() {
             vm.cardStats = {};
-            vm.cardStats.expenseToday = 150;
-            vm.cardStats.incomeToday = 450;
-            vm.cardStats.balance = 3200;
+                vm.data = [];
+
+            dashboardService.getCardStats(triAuthorization.getUserId()).then(function (res) {
+                vm.cardStats.expenseToday = res.expenseToday;
+                vm.cardStats.incomeToday = res.incomeToday;
+                vm.cardStats.balance = res.balance;
+            });
+
+            dashboardService.transactionsThisMonth(triAuthorization.getUserId()).then(function (res) {
+                vm.labels = res.days;
+                vm.data.push(res.incomeStats);
+                vm.data.push(res.expenseStats);
+            });
 
             vm.series = ['Income', 'Expense'];
-            vm.labels = ['1', '2', '3', '4'];
             vm.options = {
                 datasetFill: false
             };
-            vm.data = [
-                [45, 150, 500, 10],
-                [100, 125, 50, 110]
-            ];
+
 
 
             vm.pieLabels = ['Shopping', 'Oil', 'Bills', 'Education'];
             vm.pieOptions = {
                 datasetFill: false
             };
-            vm.pieData = [25,15,35,25];
+            vm.pieData = [25, 15, 35, 25];
 
 
             vm.barSeries = ['Income', 'Expense'];
