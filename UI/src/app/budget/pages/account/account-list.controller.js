@@ -28,7 +28,8 @@
                     controllerAs: 'vm',
                     parent: angular.element(document.body)
                 })
-                .then(function (response) {                        
+                .then(function (response) {  
+                        init();                  
                 });
         }
 

@@ -6,7 +6,7 @@
         .controller('AccountController', AccountController);
 
     /* @ngInject */
-    function AccountController($state, $filter, $mdDialog, accountService, lookupService) {
+    function AccountController($state, $filter, $mdDialog, accountService, lookupService,  triAuthorization) {
         var vm = this;
         vm.init = init;
         vm.saveAccount = saveAccount;
@@ -24,9 +24,11 @@
         }
 
         function saveAccount(){
+            vm.account.userId = triAuthorization.getUserId();
             accountService.saveAccount(vm.account).then(function (res) {
+
                  $mdDialog.hide(res);
-                $state.go('triangular.admin-default.account-list');
+                 
             });
         }
 

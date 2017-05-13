@@ -50,10 +50,27 @@ namespace BudgetManagement.Models
                 {
                     Id = a.ID,
                     Description = a.Description,
-                    Limit = a.Limit
+                    Limit = a.Limit, 
+                    Balance = a.Balance
                 });
             }
             return acct;
+        }
+
+        public List<TransactionReturnModel> GetTransactions(List<Transaction> transactions)
+        {
+            List<TransactionReturnModel> trans = new List<TransactionReturnModel>();
+            foreach (Transaction tr in transactions)
+            {
+                trans.Add(new TransactionReturnModel {
+                    Id=tr.ID,
+                    Name = tr.Name, 
+                    TransactionTypeId = tr.TransactionTypeID, 
+                    AccountName = tr.Account.Description,
+                    Amount = tr.Amount
+                });
+            }
+            return trans;
         }
     }
 
@@ -78,7 +95,16 @@ namespace BudgetManagement.Models
     {
         public int Id { get; set; }
         public string Description { get; set; }
-
         public decimal? Limit { get; set; }
+        public decimal? Balance { get; set; }
+    }
+    public class TransactionReturnModel
+    {
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public decimal? Amount { get; set; }
+        public int TransactionTypeId { get; set; }
+        public string AccountName { get; set; }
     }
 }
