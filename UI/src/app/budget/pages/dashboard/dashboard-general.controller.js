@@ -14,7 +14,7 @@
 
         function init() {
             vm.cardStats = {};
-                vm.data = [];
+            vm.data = [];
 
             dashboardService.getCardStats(triAuthorization.getUserId()).then(function (res) {
                 vm.cardStats.expenseToday = res.expenseToday;
@@ -26,20 +26,26 @@
                 vm.labels = res.days;
                 vm.data.push(res.incomeStats);
                 vm.data.push(res.expenseStats);
+                vm.series = ['Income', 'Expense'];
+                vm.options = {
+                    datasetFill: false
+                };
             });
 
-            vm.series = ['Income', 'Expense'];
-            vm.options = {
-                datasetFill: false
-            };
+
+            dashboardService.transactionsByCategory(triAuthorization.getUserId()).then(function (res) {
+                vm.pieOptions = {
+                    datasetFill: false
+                };
+
+                vm.pieIncomeLabels = res.incomeCategories;
+                vm.pieIncomeData = res.incomeValues;
+
+                vm.pieExpenseLabels = res.expenseCategories;
+                vm.pieExpenseData = res.expenseValues;
+            });
 
 
-
-            vm.pieLabels = ['Shopping', 'Oil', 'Bills', 'Education'];
-            vm.pieOptions = {
-                datasetFill: false
-            };
-            vm.pieData = [25, 15, 35, 25];
 
 
             vm.barSeries = ['Income', 'Expense'];

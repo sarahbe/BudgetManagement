@@ -321,6 +321,7 @@
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\DashboardService.cs" />
     <Compile Include="Services\TransactionService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

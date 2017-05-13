@@ -10,7 +10,8 @@
         // Service
         return {
             getCardStats:getCardStats,
-            transactionsThisMonth:transactionsThisMonth
+            transactionsThisMonth:transactionsThisMonth,
+            transactionsByCategory:transactionsByCategory
         };
         /// 
 
@@ -40,6 +41,18 @@
             return deffered.promise;
         }       
         
+         function transactionsByCategory(userId) {
+
+            var deffered = $q.defer();
+            var data = {
+                userId: userId
+            };
+            appService.getData('api/dashboards/transactionsByCategory', data).then(function (response) {
+                deffered.resolve(response);
+            });
+
+            return deffered.promise;
+        }
  
     };
 
