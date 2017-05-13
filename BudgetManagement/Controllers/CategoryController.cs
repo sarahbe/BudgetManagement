@@ -22,7 +22,7 @@ namespace BudgetManagement.Controllers
         [Route("GetAll")]
         public IHttpActionResult GetAll(string userId)
         {
-            var categoris = bctx.Categories.Where(c => (string.IsNullOrEmpty(c.UserId) || c.UserId == userId)).ToList();
+            var categoris = bctx.Categories.Where(c => (string.IsNullOrEmpty(c.UserId) || c.UserId == userId) && c.Valid).ToList();
             return Ok(this.TheModelFactory.GetCategories(categoris));
         }
 

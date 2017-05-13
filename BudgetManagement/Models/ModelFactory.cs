@@ -55,7 +55,8 @@ namespace BudgetManagement.Models
                     AccountTypeId = a.AccountTypeID,
                     DueDate= a.DueDate, 
                     CurrencyId = a.CurrencyId, 
-                    UserId = a.UserID
+                    UserId = a.UserID,
+                    Valid= a.Valid
                 });
             }
             return acct;
@@ -72,7 +73,8 @@ namespace BudgetManagement.Models
                     Name = tr.Name,
                     TransactionTypeId = tr.TransactionTypeID,
                     AccountName = tr.Account.Description,
-                    Amount = tr.Amount
+                    Amount = tr.Amount,
+                    Valid = tr.Valid
                 });
             }
             return trans;
@@ -87,7 +89,8 @@ namespace BudgetManagement.Models
                 {
                     Id = cat.ID,
                     Description = cat.Description,
-                    TransactionTypeId = cat.TransactionTypeId
+                    TransactionTypeId = cat.TransactionTypeId, 
+                    Valid = cat.Valid
                 });
             }
             return trans;
@@ -120,21 +123,24 @@ namespace BudgetManagement.Models
         public DateTime? DueDate { get; set; }
         public int CurrencyId { get; set; }
         public string UserId { get; set; }
+        public bool Valid { get; set; }
     }
     public class TransactionReturnModel
     {
-
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal? Amount { get; set; }
         public int TransactionTypeId { get; set; }
         public string AccountName { get; set; }
+        public bool Valid { get; set; }
+
     }
     public class CategoryReturnModel
     {
         public int Id { get; set; }
         public string Description { get; set; }
         public TransactionType TransactionTypeId { get; set; }
+        public bool Valid { get; set; }
 
     }
 }

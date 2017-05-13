@@ -10,7 +10,8 @@
         // Service
         return {
             getCategorys: getCategorys,
-            saveCategory: saveCategory
+            saveCategory: saveCategory,
+            deleteCategory: deleteCategory
         };
         /// 
 
@@ -42,6 +43,20 @@
 
                 return deffered.promise;
         }
+
+        function deleteCategory(category) {
+
+                var deffered = $q.defer();
+                
+                appService.putData('api/categories/Delete', category).then(function (response) {
+                    //notify the end of promise request    
+                    deffered.resolve(response);
+
+                });
+
+                return deffered.promise;
+        }
+
 
 
     };
