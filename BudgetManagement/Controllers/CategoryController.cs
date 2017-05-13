@@ -12,10 +12,18 @@ namespace BudgetManagement.Controllers
     {
         private BudgetContext bctx = new BudgetContext();
 
-        [Route("GetAll")]
-        public IHttpActionResult GetAllByCategoryType(TransactionType transactionTypeId, string userId)
+        [Route("GetAllByType")]
+        public IHttpActionResult GetAllByType(TransactionType transactionTypeId, string userId)
         {
-            return Ok(bctx.Categories.Where(c => c.TransactionTypeId == transactionTypeId && (string.IsNullOrEmpty(c.UserId) || c.UserId == userId) ));
+            var categoris = bctx.Categories.Where(c => c.TransactionTypeId == transactionTypeId && (string.IsNullOrEmpty(c.UserId) || c.UserId == userId)).ToList();
+            return Ok(this.TheModelFactory.GetCategories(categoris));
+        }
+
+        [Route("GetAll")]
+        public IHttpActionResult GetAll(string userId)
+        {
+            var categoris = bctx.Categories.Where(c => (string.IsNullOrEmpty(c.UserId) || c.UserId == userId)).ToList();
+            return Ok(this.TheModelFactory.GetCategories(categoris));
         }
 
         [Route("Create")]

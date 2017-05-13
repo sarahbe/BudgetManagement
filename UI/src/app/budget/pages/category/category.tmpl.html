@@ -1,0 +1,32 @@
+﻿<md-dialog aria-label="" flex="70" flex-xs="100" flex-sm="90" flex-md="90">
+    <md-toolbar class="md-accent">
+
+    </md-toolbar>
+
+    <md-dialog-content layout="column" class="padding-10">
+        <div layout="column">
+            <div layout-margin>
+                <md-card>
+                    <md-card-content>
+                        <md-input-container md-no-float class="md-block">
+                            <md-icon md-font-icon="zmdi zmdi-comment-alt-text"></md-icon>
+                            <input type="text" ng-model="vm.category.description" placeholder="Name">
+                        </md-input-container>
+                        <md-input-container md-no-float class="md-block">
+                            <md-icon md-font-icon="zmdi zmdi-format-list-bulleted"></md-icon>
+                            <md-select placeholder="Type" ng-model="vm.category.transactionTypeId">
+                            <md-option ng-value="1" > Expense </md-option>
+                            <md-option ng-value="2" > Income </md-option>
+                        </md-select>
+                        </md-input-container>
+                        <div layout="column" layout-align="center center" flex>
+                            <md-button ng-click="vm.saveCategory()" class="md-raised md-accent" aria-label="flat button">Save</md-button>
+                    </md-card-content>
+
+                </md-card>
+
+                </div>
+
+            </div>
+    </md-dialog-content>
+</md-dialog>
