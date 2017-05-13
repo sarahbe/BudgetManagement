@@ -22,16 +22,24 @@ namespace BudgetManagement.Controllers
         [Route("GetAll")]
         public IHttpActionResult GetAll(string userId)
         {
-            var categoris = bctx.Categories.Where(c => (string.IsNullOrEmpty(c.UserId) || c.UserId == userId)).ToList();
+            var categoris = bctx.Categories.Where(c => (string.IsNullOrEmpty(c.UserId) || c.UserId == userId) && c.Valid).ToList();
             return Ok(this.TheModelFactory.GetCategories(categoris));
         }
 
         [Route("Create")]
         [HttpPost]
-        public IHttpActionResult CreateCategory(CategoryModel model)
+        public IHttpActionResult SaveCategory(CategoryModel model)
         {
             CategoryService csrc = new CategoryService();
-            csrc.CreateCategory(model);
+            if (!model.ID.HasValue)
+            {
+                csrc.CreateCategory(model);
+            }
+            else {
+                csrc.UpdateCategory(model);
+            }
+
+
 
             return Ok();
         }

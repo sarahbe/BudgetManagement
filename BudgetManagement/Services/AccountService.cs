@@ -64,7 +64,7 @@ namespace BudgetManagement.Services
                 throw new ApplicationException("account was not found");
             }
             var account = new Account();
-            account = bctx.Accounts.First(a => a.ID.Equals(model.ID));
+            account = bctx.Accounts.First(a => a.ID == model.ID);
 
             account.AccountTypeID = model.AccountTypeID;
             account.CurrencyId = model.CurrencyId;

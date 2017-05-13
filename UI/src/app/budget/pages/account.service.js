@@ -12,7 +12,8 @@
             getAccounts: getAccounts,
             getAccountTypes: getAccountTypes,
             getCurrencies: getCurrencies,
-            saveAccount: saveAccount
+            saveAccount: saveAccount,
+            deleteAccount:deleteAccount
         };
         /// 
 
@@ -54,8 +55,21 @@
         function saveAccount(account) {
 
                 var deffered = $q.defer();
-                
+        
                 appService.postData('api/accounts/Create', account).then(function (response) {
+                    //notify the end of promise request    
+                    deffered.resolve(response);
+
+                });
+
+                return deffered.promise;
+        }
+
+         function deleteAccount(account) {
+
+                var deffered = $q.defer();
+        
+                appService.putData('api/accounts/Delete', account).then(function (response) {
                     //notify the end of promise request    
                     deffered.resolve(response);
 
