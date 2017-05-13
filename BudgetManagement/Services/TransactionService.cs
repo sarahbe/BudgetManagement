@@ -18,11 +18,11 @@ namespace BudgetManagement.Services
             }
             Transaction transaction = new Transaction();
             transaction = bctx.Transactions.First(o => o.ID == model.ID);
-            transaction.Name = model.TransactionName;
+            transaction.Name = model.Name;
             transaction.TransactionTypeID = model.TransactionTypeID;
             transaction.TransactionDate = model.TransactionDate;
             transaction.Amount = model.Amount;
-            transaction.Name = model.TransactionName;
+            transaction.Name = model.Name;
             transaction.AccountID = model.AccountId;
             transaction.UserID = model.UserId;
             transaction.CategoryID = model.CategoryId;
@@ -38,7 +38,7 @@ namespace BudgetManagement.Services
                 TransactionTypeID = model.TransactionTypeID,
                 TransactionDate = model.TransactionDate,
                 Amount = model.Amount,
-                Name = model.TransactionName,
+                Name = model.Name,
                 AccountID = model.AccountId,
                 UserID = model.UserId,
                 CategoryID = model.CategoryId

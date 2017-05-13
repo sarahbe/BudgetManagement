@@ -16,17 +16,17 @@
             <md-card-content>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-comment-alt-text"></md-icon>
-                    <input type="text" ng-model="vm.transaction.transactionName" placeholder="Description">
+                    <input type="text" ng-model="vm.transaction.name" placeholder="Description">
                 </md-input-container>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-format-list-bulleted"></md-icon>
-                    <md-select placeholder="Category" ng-model="vm.transaction.categoryId">
+                    <md-select placeholder="Category" ng-model="vm.transaction.categoryID">
                         <md-option ng-value="category.id" ng-repeat="category in vm.categories"> {{ category.description }} </md-option>
                     </md-select>
                 </md-input-container>
                 <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
-                    <md-select placeholder="Account" ng-model="vm.transaction.accountId">
+                    <md-select placeholder="Account" ng-model="vm.transaction.accountID">
                         <md-option ng-value="account.id" ng-repeat="account in vm.accounts"> {{ account.description }} </md-option>
                     </md-select>
                 </md-input-container>

@@ -74,7 +74,10 @@ namespace BudgetManagement.Models
                     TransactionTypeId = tr.TransactionTypeID,
                     AccountName = tr.Account.Description,
                     Amount = tr.Amount,
-                    Valid = tr.Valid
+                    Valid = tr.Valid,
+                    AccountID = tr.AccountID,
+                    CategoryID = tr.CategoryID,
+                    TransactionDate = tr.TransactionDate
                 });
             }
             return trans;
@@ -132,8 +135,10 @@ namespace BudgetManagement.Models
         public decimal? Amount { get; set; }
         public int TransactionTypeId { get; set; }
         public string AccountName { get; set; }
+        public int AccountID { get; set; }
+        public int CategoryID { get; set; }
         public bool Valid { get; set; }
-
+        public DateTime? TransactionDate { get; set; }
     }
     public class CategoryReturnModel
     {

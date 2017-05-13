@@ -14,7 +14,7 @@ namespace BudgetManagement.Models
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Name")]
-        public string TransactionName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         [DataType(DataType.Text)]

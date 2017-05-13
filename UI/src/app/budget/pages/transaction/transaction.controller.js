@@ -6,13 +6,12 @@
         .controller('TransactionController', TransactionController);
 
     /* @ngInject */
-    function TransactionController($state, $stateParams, transactionService,transaction, lookupService, triAuthorization, accountService, appNotifyService) {
+    function TransactionController($state, $stateParams, transactionService, lookupService, triAuthorization, accountService, appNotifyService) {
         var vm = this;
         vm.saveTransaction = saveTransaction;
         vm.deleteTransaction = deleteTransaction;
         vm.transactionTypeChange = transactionTypeChange;
         vm.init = init;
-        vm.transaction = transaction;
 
         init();
 
@@ -55,7 +54,7 @@
             transactionService.deleteTransaction(vm.transaction).then(function (res) {
                 appNotifyService.success("Deleted Successfully");
                 //after save we will go to dashboard
-                $state.go('triangular.admin-default.dashboard-general');
+                $state.go('triangular.admin-default.transaction-list');
             });
         }
 
