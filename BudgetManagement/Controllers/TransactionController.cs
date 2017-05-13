@@ -19,7 +19,7 @@ namespace BudgetManagement.Controllers
         [Route("GetAll")]
         public IHttpActionResult GetTransactionsByUserId(string UserId)
         {
-            var transactions = bctx.Transactions.Where(o => o.UserID.Equals(UserId)).ToList();
+            var transactions = bctx.Transactions.Where(o => o.UserID.Equals(UserId) && o.Valid).ToList();
             return Ok(this.TheModelFactory.GetTransactions(transactions));
         }
 
@@ -30,8 +30,10 @@ namespace BudgetManagement.Controllers
         {
 
             TransactionService tsrc = new TransactionService();
-            tsrc.CreateTransation(model);
-           
+            if (!model.ID.HasValue)
+                tsrc.CreateTransation(model);
+            else
+                tsrc.UpdateTransaction(model);
             return Ok();
         }
 

@@ -9,6 +9,7 @@
     function TransactionController($state, $stateParams, transactionService,transaction, lookupService, triAuthorization, accountService, appNotifyService) {
         var vm = this;
         vm.saveTransaction = saveTransaction;
+        vm.deleteTransaction = deleteTransaction;
         vm.transactionTypeChange = transactionTypeChange;
         vm.init = init;
         vm.transaction = transaction;
@@ -45,6 +46,14 @@
             vm.transaction.userId = triAuthorization.getUserId();
             transactionService.saveTransaction(vm.transaction).then(function (res) {
                 appNotifyService.success("Saved Successfully");
+                //after save we will go to dashboard
+                $state.go('triangular.admin-default.dashboard-general');
+            });
+        }
+
+        function deleteTransaction() {
+            transactionService.deleteTransaction(vm.transaction).then(function (res) {
+                appNotifyService.success("Deleted Successfully");
                 //after save we will go to dashboard
                 $state.go('triangular.admin-default.dashboard-general');
             });
