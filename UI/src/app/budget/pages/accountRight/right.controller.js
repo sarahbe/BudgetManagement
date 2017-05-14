@@ -22,7 +22,7 @@
         function saveAccountRight(){
           
             accountRightService.saveAccountRight(vm.accountRight).then(function (res) {
-
+                vm.accountRight = null;
                  $mdDialog.hide(res);
                  
             });
@@ -31,7 +31,7 @@
         function deleteAccountRight(){
             vm.accountRight.userId = triAuthorization.getUserId();
             accountRightService.deleteAccountRight(vm.accountRight).then(function (res) {
-
+                vm.accountRight = null;
                  $mdDialog.hide(res);
                  
             });
