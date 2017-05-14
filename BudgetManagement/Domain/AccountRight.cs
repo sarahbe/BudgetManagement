@@ -10,9 +10,9 @@ namespace BudgetManagement.Domain
     {
         public bool FlWrite { get; set; }
         public bool FlAdmin { get; set; }
-        [Index("IX_UserAndAccount", 1, IsUnique = true)]
+        //[Index("IX_UserAndAccount", 1, IsUnique = true)]
         public int AccountId { get; set; }
-        [Index("IX_UserAndAccount", 2, IsUnique = true)]
+        //[Index("IX_UserAndAccount", 2, IsUnique = true)]
         public string UserID { get; set; }
         //Virtual property 
         public virtual User User { get; set; }

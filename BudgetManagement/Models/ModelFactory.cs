@@ -73,7 +73,8 @@ namespace BudgetManagement.Models
                     AccountId = a.AccountId,
                     FlAdmin = a.FlAdmin,
                     FlWrite = a.FlWrite,
-                    UserName = a.User.UserName
+                    UserName = a.User.UserName,
+                    Valid = a.Valid
                 });
             }
             return acct;
@@ -153,6 +154,7 @@ namespace BudgetManagement.Models
         public string UserId { get; set; }
         public bool FlWrite { get; set; }
         public bool FlAdmin { get; set; }
+        public bool Valid { get; internal set; }
     }
     public class TransactionReturnModel
     {

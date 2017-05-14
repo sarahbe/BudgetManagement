@@ -12,6 +12,7 @@
         vm.saveAccountRight = saveAccountRight;
         vm.deleteAccountRight = deleteAccountRight;
         vm.accountRight = accountRight;
+        vm.cancel = cancel;
         init();
 
         function init() {
@@ -34,6 +35,11 @@
                  $mdDialog.hide(res);
                  
             });
+        }
+
+        function cancel()
+        {
+            $mdDialog.hide();
         }
 
     }

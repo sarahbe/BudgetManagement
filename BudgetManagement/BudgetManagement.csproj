@@ -308,6 +308,10 @@
     <Compile Include="Migrations\201705132047116_accountRightUpdate.Designer.cs">
       <DependentUpon>201705132047116_accountRightUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705141625221_removeconstraint.cs" />
+    <Compile Include="Migrations\201705141625221_removeconstraint.Designer.cs">
+      <DependentUpon>201705141625221_removeconstraint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AccountRightModel.cs" />
@@ -393,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705132047116_accountRightUpdate.resx">
       <DependentUpon>201705132047116_accountRightUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705141625221_removeconstraint.resx">
+      <DependentUpon>201705141625221_removeconstraint.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

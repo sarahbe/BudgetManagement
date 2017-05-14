@@ -29,7 +29,7 @@ namespace BudgetManagement.Controllers
             model.UserID = user.Id;
             AccountRightService tsrc = new AccountRightService();
             if (!model.ID.HasValue)
-            tsrc.CreateAccountRight(model);
+                tsrc.CreateAccountRight(model);
             else
                 tsrc.UpdateAccountRight(model);
 

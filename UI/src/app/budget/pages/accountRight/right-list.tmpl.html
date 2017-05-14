@@ -2,58 +2,53 @@
     <div flex layout-margin>
         <md-card layout-fill style="min-height: 300px;">
             <md-card-content>
-                <!--<md-button ng-click="vm.newAccountRight($event)" class="md-fab md-warn md-fab-bottom-right" aria-label="Create AccountRight" style="font-size: 11px !important;">
-                    <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
-                    <md-tooltip>Create AccountRight</md-tooltip>
-                </md-button>-->
-
-                 <md-input-container md-no-float class="md-block">
+                <md-input-container md-no-float class="md-block">
                     <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
                     <md-select placeholder="Account" ng-change="vm.accountChange()" ng-model="vm.accountRight.accountId">
                         <md-option ng-value="account.id" ng-repeat="account in vm.accounts"> {{ account.description }} </md-option>
                     </md-select>
                 </md-input-container>
 
+                <div flex>
+                    <div class="md-toolbar-tools">
+                        <div flex="40" class="md-toolbar-tools" translate>Rights</div>
 
-                <md-list flex>
-                    <md-subheader class="md-no-sticky">Account Rights</md-subheader>
-                       <a  ng-click="vm.newAccountRight($event)"> Add new user ... </a>
-                       <!--<a href="#" ng-click="boxShow=!boxShow"> Add new user ... </a>-->
-               <md-input-container md-no-float class="md-block">
-                   <input type="text" ng-model="vm.accountRight.userName"> 
-                    <md-checkbox class="md-primary" ng-model="vm.accountRight.flAdmin" aria-label="Primary Checkbox">
-                </md-input-container>
-                               
-                        <md-list-item ng-repeat="accountRight in vm.accountRights">
-                            <!--<img ng-src="{{::item.from.image}}" class="md-avatar" alt="{{::item.from.name}}" />-->
-                            <p>{{accountRight.userName}}</p>
-                            <md-switch class="md-secondary" ng-model="vm.accountRight.FlAdmin">Admin</md-switch>
-                            <md-switch class="md-secondary" ng-model="vm.accountRight.FlWrite">Write</md-switch>
-                               <!--<span ng-click="editing = false"><i class="icon-ok"></i></span>-->
-                            
-                        </md-list-item>
+                        <span flex></span>
 
+                        <md-button ng-click="vm.addRight($event)" class="md-default md-raised md-accent" aria-label="{{'TODO.ADD-TODO' | translate}}">
+                            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+                            <span hide-xs> New Right</span>
+                        </md-button>
+                    </div>
 
- <!--<span ng-hide="editing">
-        {{user.first}} <span ng-click="editing = true"><i class="icon-pencil"></i></span>
-      </span>
-      <span ng-show="editing">
-        <input type="text" ng-model="user.first"> 
-        <span ng-click="editing = false"><i class="icon-ok"></i></span>
-      </span>-->
-                    <!--<md-subheader class="md-no-sticky">Account Right list</md-subheader>
-                    <md-list-item ng-click="vm.editAccountRight($event, accountRight)" class="md-2-line" ng-repeat="accountRight in vm.accountRights" ng-click="null">
-                        <md-icon md-font-icon="zmdi zmdi-money-box" style="color:green;" ></md-icon>
-                        <div class="md-list-item-text" layout="column">
-                            <h3>{{ accountRight.description }}</h3>
-                            <h4>{{ accountRight.balance }}</h4>                            
-                        </div>
-                    </md-list-item>-->
-                </md-list>
-                    <md-button ng-click="vm.saveAccountRight()" class="md-raised md-accent" aria-label="flat button">Save</md-button>
+                    <md-card class="margin-bottom-20">
 
+                        <md-card-content class="overflow-auto">
+                            <md-grid-list layout-margin md-cols-gt-md="4" md-cols="3" md-cols-md="3" md-cols-xs="3" md-cols-xs-md="2" md-row-height-gt-md="9:4"
+                                md-row-height-gt-sm="7:2" md-row-height="8:4" md-gutter-gt-md="15px" md-gutter-md="8px" md-gutter="4px">
+
+                                <md-grid-tile md-colspan-gt-xs="1" md-rowspan-gt-xs="1" ng-repeat="item in vm.accountRights" ng-if="item.valid">
+
+                                    <md-button class="md-raised" aria-label="Bölge Adı" palette-background="teal:200" 
+                                        style="width: 100%; height: 100%; margin: 0;"
+                                        ng-click="vm.editRight($event,item)">
+                                        <span class="md-subhead"> {{::item.userName}}</span>
+                                    <md-divider ></md-divider>
+                                    <span class="md-body-1" ng-if="item.flAdmin" > 
+                                        <md-icon md-font-icon="zmdi zmdi-check"></md-icon>
+                                        Admin
+                                    </span>
+                                    <span class="md-body-1" ng-if="item.flWrite" > 
+                                        <md-icon md-font-icon="zmdi zmdi-check"></md-icon>
+                                        Write
+                                    </span>
+                                    </md-button>
+                                </md-grid-tile>
+                            </md-grid-list>
+                        </md-card-content>
+                    </md-card>
+                </div>
             </md-card-content>
-
         </md-card>
 
     </div>

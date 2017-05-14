@@ -15,19 +15,27 @@ namespace BudgetManagement.Services
     {
         public void CreateAccountRight(AccountRightModel model)
         {
- 
 
-            var accountRight = new AccountRight()
+
+            try
             {
-                FlAdmin = model.FlAdmin,
-                FlWrite = model.FlWrite,
-                UserID = model.UserID,
-                AccountId = model.AccountId,
-                Valid = model.Valid
-            };
+                var accountRight = new AccountRight()
+                {
+                    FlAdmin = model.FlAdmin,
+                    FlWrite = model.FlWrite,
+                    UserID = model.UserID,
+                    AccountId = model.AccountId,
+                    Valid = true
+                };
 
-            bctx.AccountRights.Add(accountRight);
-            bctx.SaveChanges();
+                bctx.AccountRights.Add(accountRight);
+                bctx.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
 
         }
 
@@ -52,10 +60,8 @@ namespace BudgetManagement.Services
                 throw new ApplicationException("right was not found");
             }
 
-            var accountRight = new AccountRight();
-            accountRight = bctx.AccountRights.First(a => a.ID == model.ID);
-
-            accountRight.UserID = model.UserID;
+            var accountRight = bctx.AccountRights.First(a => a.ID == model.ID);
+                        
             accountRight.FlWrite = model.FlWrite;
             accountRight.FlAdmin = model.FlAdmin;
             accountRight.Valid = model.Valid;
