@@ -101,7 +101,7 @@ namespace BudgetManagement.Services
         {
             var transactions = _ctx.Transactions;
             //.Where(o => o.UserID == userId && o.TransactionDate > to && o.TransactionDate < from);
-
+            var zz = transactions.Where(o => o.UserID == userId && o.TransactionDate > to && o.TransactionDate < from);
             return transactions;
         }
 

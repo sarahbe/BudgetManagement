@@ -31,16 +31,17 @@ namespace BudgetManagement.Controllers
         [HttpGet]
         public IHttpActionResult CardStats(string userId)
         {
+            var lastWeek = DateTime.Now.AddDays(-7);
             var transactions = _ctx.Transactions.
-                  Where(o => o.UserID == userId 
-                  && EntityFunctions.TruncateTime(o.TransactionDate) == EntityFunctions.TruncateTime(DateTime.Now))
+                  Where(o => o.UserID == userId
+                  && EntityFunctions.TruncateTime(o.TransactionDate) >= EntityFunctions.TruncateTime(lastWeek))
                   .ToList();
 
             var model = new DashcardModel();
 
             model.IncomeToday = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Income).Sum(o => o.Amount);
             model.ExpenseToday = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Expense).Sum(o => o.Amount);
-            model.Balance = _ctx.Accounts.First().Balance;
+            model.Balance = _ctx.Accounts.Where(a =>a.UserID == userId).First().Balance;
 
             return Ok(model);
         }
