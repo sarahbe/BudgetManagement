@@ -11,6 +11,7 @@ namespace BudgetManagement.Controllers
     {
         private BudgetContext bctx = new BudgetContext();
 
+        [Authorize]
         [Route("Create")]
         [HttpPost]
         public IHttpActionResult CreateAccount(AccountModel model)
@@ -24,6 +25,7 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
+        [Authorize]
         [Route("Update")]
         [HttpPut]
         public IHttpActionResult UpdateAccount(AccountModel model)
@@ -34,7 +36,7 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
-
+        [Authorize]
         [Route("Delete")]
         [HttpPut]
         public IHttpActionResult DeleteAccount(AccountModel model)
@@ -46,6 +48,7 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
+        [Authorize]
         [Route("GetAll")]
         [HttpGet]
         public IHttpActionResult GetAccountByUserId(string userId)
@@ -55,6 +58,7 @@ namespace BudgetManagement.Controllers
             return Ok(this.TheModelFactory.GetAccounts(accounts));
         }
 
+        [Authorize]
         [Route("GetAccountTypes")]
         [HttpGet]
         public IHttpActionResult GetAccountTypes()
@@ -62,6 +66,7 @@ namespace BudgetManagement.Controllers
             return Ok(bctx.AccountTypes);
         }
 
+        [Authorize]
         [Route("GetCurrencies")]
         [HttpGet]
         public IHttpActionResult GetCurrencies()

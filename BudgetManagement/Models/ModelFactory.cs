@@ -51,17 +51,33 @@ namespace BudgetManagement.Models
                     Id = a.ID,
                     Description = a.Description,
                     Limit = a.Limit,
-                    Balance = a.Balance, 
+                    Balance = a.Balance,
                     AccountTypeId = a.AccountTypeID,
-                    DueDate= a.DueDate, 
-                    CurrencyId = a.CurrencyId, 
+                    DueDate = a.DueDate,
+                    CurrencyId = a.CurrencyId,
                     UserId = a.UserID,
-                    Valid= a.Valid
+                    Valid = a.Valid
                 });
             }
             return acct;
         }
-
+        public List<AccountRightReturnModel> GetAccountRights(List<AccountRight> accounts)
+        {
+            List<AccountRightReturnModel> acct = new List<AccountRightReturnModel>();
+            foreach (AccountRight a in accounts)
+            {
+                acct.Add(new AccountRightReturnModel
+                {
+                    Id = a.ID,
+                    UserId = a.UserID,
+                    AccountId = a.AccountId,
+                    FlAdmin = a.FlAdmin,
+                    FlWrite = a.FlWrite,
+                    UserName = a.User.UserName
+                });
+            }
+            return acct;
+        }
         public List<TransactionReturnModel> GetTransactions(List<Transaction> transactions)
         {
             List<TransactionReturnModel> trans = new List<TransactionReturnModel>();
@@ -92,8 +108,8 @@ namespace BudgetManagement.Models
                 {
                     Id = cat.ID,
                     Description = cat.Description,
-                    TransactionTypeId = cat.TransactionTypeId, 
-                    Valid = cat.Valid, 
+                    TransactionTypeId = cat.TransactionTypeId,
+                    Valid = cat.Valid,
                     UserId = cat.UserId
                 });
             }
@@ -128,6 +144,15 @@ namespace BudgetManagement.Models
         public int CurrencyId { get; set; }
         public string UserId { get; set; }
         public bool Valid { get; set; }
+    }
+    public class AccountRightReturnModel
+    {
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public int AccountId { get; set; }
+        public string UserId { get; set; }
+        public bool FlWrite { get; set; }
+        public bool FlAdmin { get; set; }
     }
     public class TransactionReturnModel
     {

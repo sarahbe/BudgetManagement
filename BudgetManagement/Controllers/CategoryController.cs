@@ -12,6 +12,7 @@ namespace BudgetManagement.Controllers
     {
         private BudgetContext bctx = new BudgetContext();
 
+        [Authorize]
         [Route("GetAllByType")]
         public IHttpActionResult GetAllByType(TransactionType transactionTypeId, string userId)
         {
@@ -19,6 +20,7 @@ namespace BudgetManagement.Controllers
             return Ok(this.TheModelFactory.GetCategories(categoris));
         }
 
+        [Authorize]
         [Route("GetAll")]
         public IHttpActionResult GetAll(string userId)
         {
@@ -26,6 +28,7 @@ namespace BudgetManagement.Controllers
             return Ok(this.TheModelFactory.GetCategories(categoris));
         }
 
+        [Authorize]
         [Route("Create")]
         [HttpPost]
         public IHttpActionResult SaveCategory(CategoryModel model)
@@ -44,6 +47,7 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
+        [Authorize]
         [Route("Update")]
         [HttpPut]
         public IHttpActionResult UpdateCategory(CategoryModel model)
@@ -55,7 +59,7 @@ namespace BudgetManagement.Controllers
         }
 
 
-        // [Authorize]
+        [Authorize]
         [Route("Delete")]
         [HttpPut]
         public IHttpActionResult Delete(CategoryModel model)

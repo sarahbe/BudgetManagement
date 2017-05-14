@@ -15,7 +15,7 @@ namespace BudgetManagement.Domain
         [Index("IX_UserAndAccount", 2, IsUnique = true)]
         public string UserID { get; set; }
         //Virtual property 
-        public User User { get; set; }
-        public Account Account { get; set; }
+        public virtual User User { get; set; }
+        public virtual Account Account { get; set; }
     }
 }

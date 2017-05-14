@@ -14,7 +14,7 @@ namespace BudgetManagement.Controllers
         private BudgetContext bctx = new BudgetContext();
 
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         [Route("GetAll")]
         public IHttpActionResult GetTransactionsByUserId(string UserId)
@@ -23,7 +23,7 @@ namespace BudgetManagement.Controllers
             return Ok(this.TheModelFactory.GetTransactions(transactions));
         }
 
-       // [Authorize]
+        [Authorize]
         [Route("Create")]
         [HttpPost]
         public IHttpActionResult CreateTransaction(EntringTransaction model)
@@ -37,7 +37,7 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
-        // [Authorize]
+        [Authorize]
         [Route("Update")]
         [HttpPut]
         public IHttpActionResult Update(EntringTransaction model)
@@ -47,7 +47,7 @@ namespace BudgetManagement.Controllers
             return Ok();
         }
 
-        // [Authorize]
+        [Authorize]
         [Route("Delete")]
         [HttpPut]
         public IHttpActionResult Delete(EntringTransaction model)

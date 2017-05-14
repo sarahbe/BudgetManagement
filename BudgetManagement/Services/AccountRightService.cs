@@ -15,6 +15,8 @@ namespace BudgetManagement.Services
     {
         public void CreateAccountRight(AccountRightModel model)
         {
+ 
+
             var accountRight = new AccountRight()
             {
                 FlAdmin = model.FlAdmin,

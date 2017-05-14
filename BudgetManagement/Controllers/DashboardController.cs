@@ -26,6 +26,7 @@ namespace BudgetManagement.Controllers
             _dashboardService = new DashboardService();
         }
 
+        [Authorize]
         [Route("CardStats")]
         [HttpGet]
         public IHttpActionResult CardStats(string userId)
@@ -44,6 +45,7 @@ namespace BudgetManagement.Controllers
             return Ok(model);
         }
 
+        [Authorize]
         [Route("TransactionsThisMonth")]
         [HttpGet]
         public IHttpActionResult TransactionsThisMonth(string userId)
@@ -53,8 +55,8 @@ namespace BudgetManagement.Controllers
             return Ok(model);
         }
 
-        
 
+        [Authorize]
         [Route("TransactionsByCategory")]
         [HttpGet]
         public IHttpActionResult TransactionsByCategory(string userId)
