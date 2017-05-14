@@ -29,11 +29,11 @@ namespace BudgetManagement.Controllers
         [Authorize]
         [Route("CardStats")]
         [HttpGet]
-        public IHttpActionResult CardStats(string userId)
+        public IHttpActionResult CardStats(int accountId)
         {
             var lastWeek = DateTime.Now.AddDays(-7);
             var transactions = _ctx.Transactions.
-                  Where(o => o.UserID == userId
+                  Where(o => o.AccountID == accountId
                   && EntityFunctions.TruncateTime(o.TransactionDate) >= EntityFunctions.TruncateTime(lastWeek))
                   .ToList();
 
@@ -41,7 +41,7 @@ namespace BudgetManagement.Controllers
 
             model.IncomeToday = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Income).Sum(o => o.Amount);
             model.ExpenseToday = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Expense).Sum(o => o.Amount);
-            model.Balance = _ctx.Accounts.Where(a =>a.UserID == userId).First().Balance;
+            model.Balance = _ctx.Accounts.Where(a =>a.ID == accountId).First().Balance;
 
             return Ok(model);
         }
@@ -49,9 +49,9 @@ namespace BudgetManagement.Controllers
         [Authorize]
         [Route("TransactionsThisMonth")]
         [HttpGet]
-        public IHttpActionResult TransactionsThisMonth(string userId)
+        public IHttpActionResult TransactionsThisMonth(int accountId)
         {
-            dynamic model = _dashboardService.GetTransactionsThisMonth(userId);
+            dynamic model = _dashboardService.GetTransactionsThisMonth(accountId);
 
             return Ok(model);
         }
@@ -60,10 +60,10 @@ namespace BudgetManagement.Controllers
         [Authorize]
         [Route("TransactionsByCategory")]
         [HttpGet]
-        public IHttpActionResult TransactionsByCategory(string userId)
+        public IHttpActionResult TransactionsByCategory(int accountId)
         {
 
-            dynamic model = _dashboardService.GetTransactionsByCategory(userId);
+            dynamic model = _dashboardService.GetTransactionsByCategory(accountId);
 
             return Ok(model);
 

@@ -18,12 +18,12 @@ namespace BudgetManagement.Services
             _ctx = new BudgetContext();
         }
 
-        public dynamic GetTransactionsThisMonth(string userId)
+        public dynamic GetTransactionsThisMonth(int accountId)
         {
             var today = DateTime.Now;
             var firstDayOfMonth = new DateTime(today.Year, today.Month, 1);
 
-            var transactions = GetTransactionsByDate(userId, firstDayOfMonth, today);
+            var transactions = GetTransactionsByDate(accountId, firstDayOfMonth, today);
 
             var days = getNumbersFromRange(firstDayOfMonth.Day, today.Day);
 
@@ -57,12 +57,12 @@ namespace BudgetManagement.Services
         }
 
 
-        public dynamic GetTransactionsByCategory(string userId)
+        public dynamic GetTransactionsByCategory(int accountId)
         {
             var today = DateTime.Now;
             var firstDayOfMonth = new DateTime(today.Year, today.Month, 1);
 
-            var transactions = GetTransactionsByDate(userId, firstDayOfMonth, today);
+            var transactions = GetTransactionsByDate(accountId, firstDayOfMonth, today);
 
             var incomeTransactions = transactions.Where(o => o.TransactionTypeID == (int)Domain.TransactionType.Income);
             var incomeSum = incomeTransactions.Sum(o => (decimal?)o.Amount);
@@ -97,11 +97,11 @@ namespace BudgetManagement.Services
 
 
 
-        private IQueryable<Transaction> GetTransactionsByDate(string userId, DateTime from, DateTime to)
+        private IQueryable<Transaction> GetTransactionsByDate(int accountId, DateTime from, DateTime to)
         {
-            var transactions = _ctx.Transactions;
+            //var transactions = _ctx.Transactions;
             //.Where(o => o.UserID == userId && o.TransactionDate > to && o.TransactionDate < from);
-            var zz = transactions.Where(o => o.UserID == userId && o.TransactionDate > to && o.TransactionDate < from);
+            var transactions = _ctx.Transactions.Where(o => o.AccountID == accountId && o.TransactionDate < to && o.TransactionDate > from);
             return transactions;
         }
 

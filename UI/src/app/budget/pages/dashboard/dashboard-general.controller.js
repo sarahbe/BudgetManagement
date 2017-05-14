@@ -6,23 +6,24 @@
         .controller('DashboardGeneralController', DashboardGeneralController);
 
     /* @ngInject */
-    function DashboardGeneralController($state, triAuthorization, dashboardService, $filter) {
+    function DashboardGeneralController($state, triAuthorization, dashboardService, accountService, $filter) {
         var vm = this;
         vm.init = init;
-
+        vm.accountClicked = accountClicked;
         init();
-
-        function init() {
-            vm.cardStats = {};
+    
+   function updateDashboard(accountId)
+   {
+ vm.cardStats = {};
             vm.data = [];
 
-            dashboardService.getCardStats(triAuthorization.getUserId()).then(function (res) {
+            dashboardService.getCardStats(accountId).then(function (res) {
                 vm.cardStats.expenseToday = res.expenseToday;
                 vm.cardStats.incomeToday = res.incomeToday;
                 vm.cardStats.balance = res.balance;
             });
 
-            dashboardService.transactionsThisMonth(triAuthorization.getUserId()).then(function (res) {
+            dashboardService.transactionsThisMonth(accountId).then(function (res) {
                 vm.labels = res.days;
                 vm.data.push(res.incomeStats);
                 vm.data.push(res.expenseStats);
@@ -33,7 +34,7 @@
             });
 
 
-            dashboardService.transactionsByCategory(triAuthorization.getUserId()).then(function (res) {
+            dashboardService.transactionsByCategory(accountId).then(function (res) {
                 vm.pieOptions = {
                     datasetFill: false
                 };
@@ -46,6 +47,7 @@
             });
 
 
+          
 
 
             vm.barSeries = ['Income', 'Expense'];
@@ -54,6 +56,16 @@
                 [45, 150, 500, 10],
                 [100, 125, 50, 110]
             ];
+   }     
+
+   function accountClicked($event, account){
+           updateDashboard(account.id);
+        }
+        function init() {
+               accountService.getAccounts(triAuthorization.getUserId()).then(function (res) {
+                vm.accounts = res;
+               updateDashboard(res[0].id);
+            });
         }
 
     }

@@ -15,11 +15,11 @@
         };
         /// 
 
-        function getCardStats(userId) {
+        function getCardStats(accountId) {
 
             var deffered = $q.defer();
             var data = {
-                userId: userId
+                accountId: accountId
             };
             appService.getData('api/dashboards/cardStats', data).then(function (response) {
                 deffered.resolve(response);
@@ -28,11 +28,11 @@
             return deffered.promise;
         }
 
-        function transactionsThisMonth(userId) {
+        function transactionsThisMonth(accountId) {
 
             var deffered = $q.defer();
             var data = {
-                userId: userId
+                accountId: accountId
             };
             appService.getData('api/dashboards/transactionsThisMonth', data).then(function (response) {
                 deffered.resolve(response);
@@ -41,11 +41,11 @@
             return deffered.promise;
         }       
         
-         function transactionsByCategory(userId) {
+         function transactionsByCategory(accountId) {
 
             var deffered = $q.defer();
             var data = {
-                userId: userId
+                accountId: accountId
             };
             appService.getData('api/dashboards/transactionsByCategory', data).then(function (response) {
                 deffered.resolve(response);

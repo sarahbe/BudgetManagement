@@ -1,5 +1,13 @@
-﻿<tri-widget class="margin-left-20 margin-right-20" flex>
+﻿
+<tri-widget class="margin-left-20 margin-right-20" flex>
     <!--CARDS-->
+      <div layout="row" layout-xs="column" layout-margin>
+       <md-button class="md-primary md-raised" ng-click="vm.accountClicked($event, account)" ng-repeat="account in vm.accounts" > {{account.description}}</md-button>
+
+        <!--<tri-widget palette-background="yellow:500" ng-click="accountClicked($event, account)" content-layout="row" ng-repeat="account in vm.accounts" content-layout-align="space-between center" content-padding>
+                {{account.description}}
+        </tri-widget>         -->
+      </div>
     <div layout="row" layout-xs="column" layout-margin>
         <tri-widget palette-background="green:500" content-layout="row" content-layout-align="space-between center" content-padding>
             <div>
