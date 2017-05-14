@@ -9,8 +9,7 @@
     function lookupService($state, appService, $q) {
         // Service
         return {
-            getCategories:getCategories,
-            getAccounts:getAccounts
+            getCategories:getCategories
         };
         /// 
 
@@ -30,20 +29,6 @@
             return deffered.promise;
         };       
         
-         function getAccounts(userId) {
-
-            var deffered = $q.defer();
-            var data = {
-                userId: userId
-            };
-            appService.getData('api/accounts/GetAll', data).then(function (response) {
-                //notify the end of promise request    
-                deffered.resolve(response);
-
-            });
-
-            return deffered.promise;
-        };   
  
     };
 

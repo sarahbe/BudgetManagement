@@ -1,0 +1,61 @@
+﻿<div layout="column" class="margin-10">
+    <div flex layout-margin>
+        <md-card layout-fill style="min-height: 300px;">
+            <md-card-content>
+                <!--<md-button ng-click="vm.newAccountRight($event)" class="md-fab md-warn md-fab-bottom-right" aria-label="Create AccountRight" style="font-size: 11px !important;">
+                    <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+                    <md-tooltip>Create AccountRight</md-tooltip>
+                </md-button>-->
+
+                 <md-input-container md-no-float class="md-block">
+                    <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
+                    <md-select placeholder="Account" ng-change="vm.accountChange()" ng-model="vm.accountRight.accountId">
+                        <md-option ng-value="account.id" ng-repeat="account in vm.accounts"> {{ account.description }} </md-option>
+                    </md-select>
+                </md-input-container>
+
+
+                <md-list flex>
+                    <md-subheader class="md-no-sticky">Account Rights</md-subheader>
+                       <a  ng-click="vm.newAccountRight($event)"> Add new user ... </a>
+                       <!--<a href="#" ng-click="boxShow=!boxShow"> Add new user ... </a>-->
+               <md-input-container md-no-float class="md-block">
+                   <input type="text" ng-model="vm.accountRight.userName"> 
+                    <md-checkbox class="md-primary" ng-model="vm.accountRight.flAdmin" aria-label="Primary Checkbox">
+                </md-input-container>
+                               
+                        <md-list-item ng-repeat="accountRight in vm.accountRights">
+                            <!--<img ng-src="{{::item.from.image}}" class="md-avatar" alt="{{::item.from.name}}" />-->
+                            <p>{{accountRight.userName}}</p>
+                            <md-switch class="md-secondary" ng-model="vm.accountRight.FlAdmin">Admin</md-switch>
+                            <md-switch class="md-secondary" ng-model="vm.accountRight.FlWrite">Write</md-switch>
+                               <!--<span ng-click="editing = false"><i class="icon-ok"></i></span>-->
+                            
+                        </md-list-item>
+
+
+ <!--<span ng-hide="editing">
+        {{user.first}} <span ng-click="editing = true"><i class="icon-pencil"></i></span>
+      </span>
+      <span ng-show="editing">
+        <input type="text" ng-model="user.first"> 
+        <span ng-click="editing = false"><i class="icon-ok"></i></span>
+      </span>-->
+                    <!--<md-subheader class="md-no-sticky">Account Right list</md-subheader>
+                    <md-list-item ng-click="vm.editAccountRight($event, accountRight)" class="md-2-line" ng-repeat="accountRight in vm.accountRights" ng-click="null">
+                        <md-icon md-font-icon="zmdi zmdi-money-box" style="color:green;" ></md-icon>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>{{ accountRight.description }}</h3>
+                            <h4>{{ accountRight.balance }}</h4>                            
+                        </div>
+                    </md-list-item>-->
+                </md-list>
+                    <md-button ng-click="vm.saveAccountRight()" class="md-raised md-accent" aria-label="flat button">Save</md-button>
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+</div>

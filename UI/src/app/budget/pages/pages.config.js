@@ -46,6 +46,12 @@
                     account: {}
                 },
                 module: 'public'
+                 }).state('triangular.admin-default.right-list', {
+                url: '/pages/accountRightlist',
+                templateUrl: 'app/budget/pages/accountRight/right-list.tmpl.html',
+                controller: 'AccountRightListController',
+                controllerAs: 'vm',
+                module: 'public'
                  }).state('triangular.admin-default.category-list', {
                 url: '/pages/categorylist',
                 templateUrl: 'app/budget/pages/category/category-list.tmpl.html',
@@ -93,13 +99,20 @@
             priority: 1.3
         });
 
+        triMenuProvider.addMenu({
+            name: 'Account Rights',
+            icon: 'zmdi zmdi-account',
+            state: 'triangular.admin-default.right-list',
+            type: 'link',
+            priority: 1.4
+        });
         
         triMenuProvider.addMenu({
             name: 'Category',
             icon: 'fa fa-bookmark-o',
             state: 'triangular.admin-default.category-list',
             type: 'link',
-            priority: 1.4
+            priority: 1.5
         });
 
         triMenuProvider.addMenu({
@@ -107,17 +120,9 @@
             icon: 'fa fa-bar-chart-o',
             state: 'triangular.admin-default.reports',
             type: 'link',
-            priority: 1.5
+            priority: 1.6
         });
-        // triMenuProvider.addMenu({
-        //     name: 'Admin',
-        //     icon: 'zmdi zmdi-home',
-        //     state: 'triangular.super-admin.admin-dashboard',
-        //     type: 'link',
-        //     priority: 1.2
-        // });
-
-
+ 
         //SubMenu      
         triMenuProvider.addMenu({
             name: 'SETTINGS',

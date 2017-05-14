@@ -36,7 +36,7 @@
             });
         }
         function fillAccounts() {
-            lookupService.getAccounts(triAuthorization.getUserId()).then(function (res) {
+            accountService.getAccounts(triAuthorization.getUserId()).then(function (res) {
                 vm.accounts = res;
             });
         }
